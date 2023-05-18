@@ -15,38 +15,68 @@
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
     <style type="text/css">
-
-      html,
+        html,
       body,
       header,
-      .carousel {
-        height: 60vh;
+      .view {
+        height: 100%;
       }
+              @media (max-width: 768px) {
+    .galeria .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .galeria .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
 
-      @media (max-width: 740px) {
-        html,
-        body,
-        header,
-        .carousel {
-          height: 100vh;
-        }
-      }
+.galeria .carousel-inner .carousel-item.active,
+.galeria .carousel-inner .carousel-item-next,
+.galeria .carousel-inner .carousel-item-prev {
+    display: flex;
+}
 
-      @media (min-width: 800px) and (max-width: 850px) {
-        html,
-        body,
-        header,
-        .carousel {
-          height: 100vh;
-        }
-      }
+/* display 3 */
+@media (min-width: 768px) {
+  .galeria .carousel-inner .carousel-item-right.active,
+  .galeria .carousel-inner .carousel-item-next {
+      transform: translateX(33.333%);
+    }
+    
+  .galeria .carousel-inner .carousel-item-left.active, 
+  .galeria .carousel-inner .carousel-item-prev {
+      transform: translateX(-33.333%);
+    }
+}
 
-      @media (min-width: 800px) and (max-width: 850px) {
-              .navbar:not(.top-nav-collapse) {
-                  background: #1C2331!important;
-              }
-          }
+.galeria .carousel-inner .carousel-item-right,
+.galeria .carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
+
+.modal-body .col-sm-8 {
+    text-align: center;
+}
+.intro-title {
+  margin-bottom: 5px;
+  font-weight: 400;
+  color: #333;
+}
+
+@media (max-width: 575px) {
+  .modal-body .col-sm-4 {
+    text-align: center;
+    margin-top: 25px;
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 650px;
+  }
+}
+
     </style>
+    
 </head>
 
 <body>
@@ -137,7 +167,7 @@
             <!-- Content -->
             <div class="text-center white-text mx-5 wow fadeIn">
               <h1 class="mb-4">
-                <strong>Learn Bootstrap 4 with MDB</strong>
+                <strong>Aqui iran las fotos del DJ en distintos eventos</strong>
               </h1>
 
               <p>
@@ -172,7 +202,7 @@
             <!-- Content -->
             <div class="text-center white-text mx-5 wow fadeIn">
               <h1 class="mb-4">
-                <strong>Learn Bootstrap 4 with MDB</strong>
+                <strong>Aqui iran las fotos del DJ en distintos eventos</strong>
               </h1>
 
               <p>
@@ -207,7 +237,7 @@
             <!-- Content -->
             <div class="text-center white-text mx-5 wow fadeIn">
               <h1 class="mb-4">
-                <strong>Learn Bootstrap 4 with MDB</strong>
+                <strong>Aqui iran las fotos del DJ en distintos eventos</strong>
               </h1>
 
               <p>
@@ -251,8 +281,103 @@
 
   <!--Main layout-->
   <main>
-    <div class="container">
-
+      <div class="container text-center my-3 galeria">
+        <h2 class="font-weight-light">Galeria de fotos en donde se realizan los distintos eventos</h2><!--https://www.codeply.com/go/EIOtI7nkP8-->
+        <div class="row mx-auto my-auto">
+            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                <div class="carousel-inner w-100" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="col-md-4">
+                          <div class="card" style="width: 18rem;">
+                            <img src="https://mdbootstrap.com/img/Photos/Others/images/93.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#learnMore1">
+                                Press
+                              </button>
+                            </div>
+                          </div>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="learnMore1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                          
+                                <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  </br>
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-sm-8">
+                                       <img src="https://mdbootstrap.com/img/Photos/Others/images/93.jpg" alt="" width=80%/>
+                                    </div>
+                                    <div class="col-sm-4 align-self-center"> 
+                                      <h5 class="intro-title"> DJ pichula </h5>
+                                      <h3> Si </h3>
+                                      <p> toño se la come </p>
+                                      
+                                    </div>          
+                                  </div>  
+                                </div>
+                                
+                                </div>
+                          
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4">
+                            <div class="card card-body">
+                                <img class="img-fluid" src="http://placehold.it/380?text=2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4">
+                            <div class="card card-body">
+                                <img class="img-fluid" src="http://placehold.it/380?text=3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4">
+                            <div class="card card-body">
+                                <img class="img-fluid" src="http://placehold.it/380?text=4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4">
+                            <div class="card card-body">
+                                <img class="img-fluid" src="http://placehold.it/380?text=5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4">
+                            <div class="card card-body">
+                                <img class="img-fluid" src="http://placehold.it/380?text=6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <h5 class="mt-2">Advances one slide at a time</h5>
+    <div class="container mt-5">
       <!--Section: Main info-->
       <section class="mt-5 wow fadeIn">
 
@@ -751,10 +876,34 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
       <!-- Initializations -->
-  <script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
-  </script>
+      <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    
+        $('#recipeCarousel').carousel({
+    interval: 10000
+  })
+  
+  $('.carousel .carousel-item').each(function(){
+      var minPerSlide = 3;
+      var next = $(this).next();
+      if (!next.length) {
+      next = $(this).siblings(':first');
+      }
+      next.children(':first-child').clone().appendTo($(this));
+      
+      for (var i=0;i<minPerSlide;i++) {
+          next=next.next();
+          if (!next.length) {
+            next = $(this).siblings(':first');
+          }
+          
+          next.children(':first-child').clone().appendTo($(this));
+        }
+  });
+  
+    
+      </script>
 </body>
 
 </html>
