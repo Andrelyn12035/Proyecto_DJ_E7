@@ -113,33 +113,24 @@
   <!-- Navbar -->
   
   <!-- Full Page Intro -->
-  <div class="view full-page-intro" style="background-image: url('img/contratacion.jpg'); background-repeat: no-repeat; background-size: cover;">
-
+  <div class="full-page-intro" style="background-image: url('img/contratacion.jpg'); background-repeat: no-repeat; background-size: cover;">
     <!-- Mask & flexbox options-->
     <div class="mask rgba-black-light justify-content-center align-items-center">
-
       <!-- Content -->
-      <div class="container"  style="margin-top: 7%;">
-
+      <div class="container">
         <!--Grid row-->
         <div class="row wow fadeIn">
-
           <!--Grid column-->
-          <div class="col-md-6 mb-4 white-text text-center text-md-left">
-
+          <div class="col-md-3 mb-5 white-text text-center text-md-left" style="margin-top: 12%;">
             <h1 class="display-4 font-weight-bold">Contrata nuestro servicio</h1>
-
             <hr class="hr-light">
-
             <p>
               <strong>Haz de tu evento una experiencia inolvidable.</strong>
             </p>
-
             <p class="mb-4 d-none d-md-block">
               <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
                 available. Create your own, stunning website.</strong>
             </p>
-
             <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-dark">VER PAQUETES
               <i class="fas fa-chevron-down ml-2"></i>
             </a>
@@ -148,101 +139,186 @@
           <!--Grid column-->
 
           <!--Grid column-->
-          <div class="col-md-6 col-xl-5 mb-4">
-
-            <!--Card-->
-            <div class="card">
-
-              <!--Card content-->
-              <div class="card-body">
-
-                <!-- Form -->
-                <form name="">
-                  <!-- Heading -->
-                  <h3 class="dark-grey-text text-center">
-                    <strong>Solicitar servicio</strong>
-                  </h3>
-                  <hr>
+          <div class="col-md-9 col-xl-9 mb-4" style="margin-top: 8%;">
+        <!--Card-->
+        <div class="card">
+          <!--Card content-->
+          <div class="card-body">
+            <!-- Form -->
+            <form name="">
+              <!-- Heading -->
+              <h3 class="dark-grey-text text-center">
+                <strong>Solicitar servicio de contratación de DJ</strong>
+              </h3>
+              <hr>
+              <div class="form-row" style="margin-top: -3%;">
+                <div class="form-group col-md-6">
                   <div class="md-form">
                     <i class="fas fa-user prefix grey-text"></i>
                     <input type="text" id="nombre" class="form-control">
                     <label for="nombre">Nombre Completo</label>
                   </div>
-                  <div class="md-form">
-                      <i class="fas fa-map-marker-alt prefix grey-text"></i>
-                      <label>Dirección</label>
-                    </div>
-                  <fieldset style="margin-left: 11%;">
-                    <br>
-                    <div class="md-form">
-                      <input type="text" id="calle" class="form-control">
-                      <label for="calle">Calle</label>
-                    </div>
-                    <div class="md-form">
-                      <input type="number" id="num" class="form-control">
-                      <label for="num">Número</label>
-                    </div>
-                    <div class="md-form">
-                      <input type="text" id="colonia" class="form-control">
-                      <label for="colonia">Colonia</label>
-                    </div>
-                    <div class="md-form">
-                      <input type="text" id="alcaldia" class="form-control">
-                      <label for="alcaldia">Alcaldía o municipio</label>
-                    </div>
-                    <div class="md-form">
-                      <input type="number" maxlength="5" id="codigo" class="form-control">
-                      <label for="codigo">Código postal</label>
-                    </div>
-                    <div class="md-form">
-                      <input type="text" id="entidad" class="form-control">
-                      <label for="entidad">Entidad federativa</label>
-                    </div>
-                  </fieldset>
-            
+                </div>
+                <div class="form-group col-md-6">
                   <div class="md-form">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="email" id="correo" class="form-control">
                     <label for="correo">Correo electronico</label>
                   </div>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top: -4%;">
+                <div class="md-form">
+                  <i class="fas fa-map-marker-alt prefix grey-text"></i>
+                  <label>Dirección</label>
+                </div>
+              </div>
+              <br>
+              <div class="form-row" style="margin-left: 4%;">
+                <div class="form-group col-md-4">
+                  <div class="md-form">
+                    <input type="text" id="calle" class="form-control">
+                    <label for="calle">Calle</label>
+                  </div>
+                </div>
+                <div class="form-group col-md-2">
+                  <div class="md-form">
+                    <input type="number" id="num" class="form-control">
+                    <label for="num">Número</label>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                  <div class="md-form">
+                    <input type="text" id="colonia" class="form-control">
+                    <label for="colonia">Colonia</label>
+                  </div>
+                </div>
+                <div class="form-group col-md-2">
+                  <div class="md-form">
+                    <input type="number" maxlength="5" id="codigo" class="form-control">
+                    <label for="codigo">Código postal</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row" style="margin-left: 4%; margin-top: -4%;">
+                <div class="form-group col-md-6">
+                  <div class="md-form">
+                  <label for="alcaldia">Alcaldía o municipio</label><br><br>
+                  <select class="form-control custom-select-sm">
+                    <option value="Alvaro_Obregon">Álvaro Obregón</option>
+                    <option value="Azcapotzalco">Azcapotzalco</option>
+                    <option value="Benito_Juarez">Benito Juárez</option>
+                    <option value="Coyoacan">Coyoacán</option>
+                    <option value="Cuajimalpa_de_Morelos">Cuajimalpa de Morelos</option>
+                    <option value="Cuauhtemoc">Cuauhtémoc</option>
+                    <option value="Gustavo_A_Madero">Gustavo A. Madero</option>
+                    <option value="Iztacalco">Iztacalco</option>
+                    <option value="Iztapalapa">Iztapalapa</option>
+                    <option value="La_Magdalena_Contreras">La Magdalena Contreras</option>
+                    <option value="Miguel_Hidalgo">Miguel Hidalgo</option>
+                    <option value="Milpa_Alta">Milpa Alta</option>
+                    <option value="Tlahuac">Tláhuac</option>
+                    <option value="Tlalpan">Tlalpan</option>
+                    <option value="Venustiano_Carranza">Venustiano Carranza</option>
+                    <option value="Xochimilco">Xochimilco</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="md-form">
+                    <label for="entidad">Entidad federativa</label><br><br>
+                    <select class="form-control custom-select-sm">
+                      <option value="Aguascalientes">Aguascalientes</option>
+                      <option value="Baja California">Baja California</option>
+                      <option value="Baja California Sur">Baja California Sur</option>
+                      <option value="Campeche">Campeche</option>
+                      <option value="Chiapas">Chiapas</option>
+                      <option value="Chihuahua">Chihuahua</option>
+                      <option value="CDMX" selected>Ciudad de México</option>
+                      <option value="Coahuila">Coahuila</option>
+                      <option value="Colima">Colima</option>
+                      <option value="Durango">Durango</option>
+                      <option value="Estado de México">Estado de México</option>
+                      <option value="Guanajuato">Guanajuato</option>
+                      <option value="Guerrero">Guerrero</option>
+                      <option value="Hidalgo">Hidalgo</option>
+                      <option value="Jalisco">Jalisco</option>
+                      <option value="Michoacán">Michoacán</option>
+                      <option value="Morelos">Morelos</option>
+                      <option value="Nayarit">Nayarit</option>
+                      <option value="Nuevo León">Nuevo León</option>
+                      <option value="Oaxaca">Oaxaca</option>
+                      <option value="Puebla">Puebla</option>
+                      <option value="Querétaro">Querétaro</option>
+                      <option value="Quintana Roo">Quintana Roo</option>
+                      <option value="San Luis Potosí">San Luis Potosí</option>
+                      <option value="Sinaloa">Sinaloa</option>
+                      <option value="Sonora">Sonora</option>
+                      <option value="Tabasco">Tabasco</option>
+                      <option value="Tamaulipas">Tamaulipas</option>
+                      <option value="Tlaxcala">Tlaxcala</option>
+                      <option value="Veracruz">Veracruz</option>
+                      <option value="Yucatán">Yucatán</option>
+                      <option value="Zacatecas">Zacatecas</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top: -4%;">
+                <div class="form-group col-md-4">
                   <div class="md-form">
                     <i class="fas fa-calendar prefix grey-text"></i>
-                    <label for="fecha">Fecha del evento</label>
-                  </div>
-                  <br>
-                  <div class="md-form" style="margin-left: 11%;">
+                    <label for="fecha">Fecha del evento</label><br><br>
                     <input type="date" id="fecha" class="form-control">
                   </div>
+                </div>
+                <div class="form-group col-md-4">
                   <div class="md-form">
                     <i class="fas fa-clock prefix grey-text"></i>
-                    <input type="text" id="horario" class="form-control">
-                    <label for="horario">Horario</label>
+                    <label for="horario">Horario</label><br><br>
+                    <select class="form-control custom-select-sm">
+                      <option selected>Choose...</option>
+                    </select>
                   </div>
+                </div>
+                <div class="form-group col-md-4">
                   <div class="md-form">
                     <i class="fas fa-music prefix grey-text"></i>
-                    <input type="text" id="evento" class="form-control">
-                    <label for="evento">Tipo de evento</label>
+                    <label for="evento">Tipo de evento</label><br><br>
+                    <select class="form-control custom-select-sm">
+                      <option value="bautizo" selected>Bautizo</option>
+                      <option value="comunion" selected>Primera comunión</option>
+                      <option value="xv" selected>XV años</option>
+                      <option value="boda" selected>Boda</option>
+                      <option value="cumpleaños" selected>Cumpleaños</option>
+                      <option value="otro" selected>Otro</option>
+                    </select>
                   </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
                   <div class="md-form">
                     <i class="fas fa-users prefix grey-text"></i>
                     <input type="number" id="personas" class="form-control">
                     <label for="personas">Numero de personas</label>
                   </div>
+                </div>
+                <div class="form-group col-md-4">
                   <div class="md-form">
                     <i class="fas fa-tags prefix grey-text"></i>
                     <input type="text" id="menu" class="form-control">
                     <label for="menu">Menú</label>
                   </div>
-                  <div class="text-center">
-                    <button class="btn btn-dark">Enviar</button>
-                    <!--<fieldset class="form-check">
-                      <input type="checkbox" class="form-check-input" id="checkbox1">
-                      <label for="checkbox1" class="form-check-label dark-grey-text">Subscribe me to the newsletter</label>
-                    </fieldset>-->
-                  </div>
-
-                </form>
-                <!-- Form -->
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="text-center">
+                  <button class="btn btn-dark">Enviar</button>
+                </div>
+              </div>
+            </form>
+            <!-- Form -->
               </div>
             </div>
             <!--/.Card-->
@@ -258,21 +334,8 @@
   <!-- Full Page Intro -->
 
   <!--Footer-->
-  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
-
-    <!--Call to action-->
-    <div class="pt-4">
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank" role="button">Download MDB
-        <i class="fas fa-download ml-2"></i>
-      </a>
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start free tutorial
-        <i class="fas fa-graduation-cap ml-2"></i>
-      </a>
-    </div>
-    <!--/.Call to action-->
-
-    <hr class="my-4">
-
+  <footer class="page-footer text-center font-small wow fadeIn">
+    <br>
     <!-- Social icons -->
     <div class="pb-4">
       <a href="https://www.facebook.com/mdbootstrap" target="_blank">
