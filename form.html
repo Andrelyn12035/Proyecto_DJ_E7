@@ -32,6 +32,26 @@
           background: #1C2331!important;
         }
       }
+      @media (min-width: 768px) and (max-width: 1200px) {
+
+        .form-row{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+        .form-row .col-md-6, .mr-4{
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 1200px) {
+        .md-form label{
+          font-size: .8rem;
+        }
+        .md-form{
+          margin-bottom: 0px;
+        }
+      }
+      
     </style>
   </head>
 
