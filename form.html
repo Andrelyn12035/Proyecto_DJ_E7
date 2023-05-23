@@ -132,229 +132,236 @@
                   <div class="col-md-5 col-xl-6">
                     <h6 class="grey-text text-center"><strong>DATOS PERSONALES</strong></h6>
                     <hr>
-                    <div class="form-row mt-n3">
-                      <div class="form-group col-md-12">
+                    <fieldset>
+                      <div class="form-row mt-n3">
+                        <div class="form-group col-md-12">
+                          <div class="md-form">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <input type="text" id="nombre" class="form-control">
+                            <label for="nombre"> Nombre(s)</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row ml-5 mt-n5">
+                        <div class="form-group col-md-6">
+                          <div class="md-form mr-4">
+                            <input type="text" id="a_paterno" class="form-control">
+                            <label for="a_paterno">Apellido paterno</label>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="md-form">
+                            <input type="text" id="a_materno" class="form-control">
+                            <label for="a_materno"> Apellido materno</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mt-n5">
+                        <div class="form-group col-md-12">
+                          <div class="md-form">
+                            <i class="fas fa-id-badge prefix grey-text"></i>
+                            <input type="text" id="CURP" name="CURP" class="form-control">
+                            <label for="CURP"> CURP</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mt-n5">
+                        <div class="form-group col-md-12">
+                          <div class="md-form">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <input type="email" id="correo" class="form-control">
+                            <label for="correo"> Correo electronico</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group mt-n5">
                         <div class="md-form">
-                          <i class="fas fa-user prefix grey-text"></i>
-                          <input type="text" id="nombre" class="form-control">
-                          <label for="nombre"> Nombre(s)</label>
+                          <i class="fas fa-map-marker-alt prefix grey-text"></i>
+                          <label> Dirección</label>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-row ml-5 mt-n5">
-                      <div class="form-group col-md-6">
-                        <div class="md-form mr-4">
-                          <input type="text" id="a_paterno" class="form-control">
-                          <label for="a_paterno">Apellido paterno</label>
+                      <br>
+                      <div class="form-row ml-5 mt-n1">
+                        <div class="form-group col-md-6">
+                          <div class="md-form mr-4">
+                            <input type="text" id="calle" class="form-control">
+                            <label for="calle">Calle</label>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="md-form">
+                            <input type="number" id="num" class="form-control">
+                            <label for="num"> Número</label>
+                          </div>
                         </div>
                       </div>
-                      <div class="form-group col-md-6">
-                        <div class="md-form">
-                          <input type="text" id="a_materno" class="form-control">
-                          <label for="a_materno"> Apellido materno</label>
+                      <div class="form-row ml-5 mt-n5">
+                        <div class="form-group col-md-6">
+                          <div class="md-form mr-4">
+                            <input type="text" id="colonia" class="form-control">
+                            <label for="colonia"> Colonia</label>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="md-form">
+                            <input type="number" maxlength="5" id="codigo" class="form-control">
+                            <label for="codigo"> Código postal</label>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-row mt-n5">
-                      <div class="form-group col-md-12">
-                        <div class="md-form">
-                          <i class="fas fa-id-badge prefix grey-text"></i>
-                          <input type="text" id="CURP" name="CURP" class="form-control">
-                          <label for="CURP"> CURP</label>
+                      <div class="form-row ml-5 mt-n5">
+                        <div class="form-group col-md-6">
+                          <div class="md-form mr-4">
+                            <label for="alcaldia"> Alcaldía o municipio</label><br><br>
+                            <select class="form-control custom-select-sm">
+                              <option value="Alvaro_Obregon">Álvaro Obregón</option>
+                              <option value="Azcapotzalco">Azcapotzalco</option>
+                              <option value="Benito_Juarez">Benito Juárez</option>
+                              <option value="Coyoacan">Coyoacán</option>
+                              <option value="Cuajimalpa_de_Morelos">Cuajimalpa de Morelos</option>
+                              <option value="Cuauhtemoc">Cuauhtémoc</option>
+                              <option value="Gustavo_A_Madero">Gustavo A. Madero</option>
+                              <option value="Iztacalco">Iztacalco</option>
+                              <option value="Iztapalapa">Iztapalapa</option>
+                              <option value="La_Magdalena_Contreras">La Magdalena Contreras</option>
+                              <option value="Miguel_Hidalgo">Miguel Hidalgo</option>
+                              <option value="Milpa_Alta">Milpa Alta</option>
+                              <option value="Tlahuac">Tláhuac</option>
+                              <option value="Tlalpan">Tlalpan</option>
+                              <option value="Venustiano_Carranza">Venustiano Carranza</option>
+                              <option value="Xochimilco">Xochimilco</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="md-form">
+                            <label for="entidad"> Entidad federativa</label><br><br>
+                            <select class="form-control custom-select-sm">
+                              <option value="Aguascalientes">Aguascalientes</option>
+                              <option value="Baja California">Baja California</option>
+                              <option value="Baja California Sur">Baja California Sur</option>
+                              <option value="Campeche">Campeche</option>
+                              <option value="Chiapas">Chiapas</option>
+                              <option value="Chihuahua">Chihuahua</option>
+                              <option value="CDMX" selected>Ciudad de México</option>
+                              <option value="Coahuila">Coahuila</option>
+                              <option value="Colima">Colima</option>
+                              <option value="Durango">Durango</option>
+                              <option value="Estado de México">Estado de México</option>
+                              <option value="Guanajuato">Guanajuato</option>
+                              <option value="Guerrero">Guerrero</option>
+                              <option value="Hidalgo">Hidalgo</option>
+                              <option value="Jalisco">Jalisco</option>
+                              <option value="Michoacán">Michoacán</option>
+                              <option value="Morelos">Morelos</option>
+                              <option value="Nayarit">Nayarit</option>
+                              <option value="Nuevo León">Nuevo León</option>
+                              <option value="Oaxaca">Oaxaca</option>
+                              <option value="Puebla">Puebla</option>
+                              <option value="Querétaro">Querétaro</option>
+                              <option value="Quintana Roo">Quintana Roo</option>
+                              <option value="San Luis Potosí">San Luis Potosí</option>
+                              <option value="Sinaloa">Sinaloa</option>
+                              <option value="Sonora">Sonora</option>
+                              <option value="Tabasco">Tabasco</option>
+                              <option value="Tamaulipas">Tamaulipas</option>
+                              <option value="Tlaxcala">Tlaxcala</option>
+                              <option value="Veracruz">Veracruz</option>
+                              <option value="Yucatán">Yucatán</option>
+                              <option value="Zacatecas">Zacatecas</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-row mt-n5">
-                      <div class="form-group col-md-12">
-                        <div class="md-form">
-                          <i class="fas fa-envelope prefix grey-text"></i>
-                          <input type="email" id="correo" class="form-control">
-                          <label for="correo"> Correo electronico</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group mt-n5">
-                      <div class="md-form">
-                        <i class="fas fa-map-marker-alt prefix grey-text"></i>
-                        <label> Dirección</label>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="form-row ml-5 mt-n1">
-                      <div class="form-group col-md-6">
-                        <div class="md-form mr-4">
-                          <input type="text" id="calle" class="form-control">
-                          <label for="calle">Calle</label>
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <div class="md-form">
-                          <input type="number" id="num" class="form-control">
-                          <label for="num"> Número</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row ml-5 mt-n5">
-                      <div class="form-group col-md-6">
-                        <div class="md-form mr-4">
-                          <input type="text" id="colonia" class="form-control">
-                          <label for="colonia"> Colonia</label>
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <div class="md-form">
-                          <input type="number" maxlength="5" id="codigo" class="form-control">
-                          <label for="codigo"> Código postal</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row ml-5 mt-n5">
-                      <div class="form-group col-md-6">
-                        <div class="md-form mr-4">
-                          <label for="alcaldia"> Alcaldía o municipio</label><br><br>
-                          <select class="form-control custom-select-sm">
-                            <option value="Alvaro_Obregon">Álvaro Obregón</option>
-                            <option value="Azcapotzalco">Azcapotzalco</option>
-                            <option value="Benito_Juarez">Benito Juárez</option>
-                            <option value="Coyoacan">Coyoacán</option>
-                            <option value="Cuajimalpa_de_Morelos">Cuajimalpa de Morelos</option>
-                            <option value="Cuauhtemoc">Cuauhtémoc</option>
-                            <option value="Gustavo_A_Madero">Gustavo A. Madero</option>
-                            <option value="Iztacalco">Iztacalco</option>
-                            <option value="Iztapalapa">Iztapalapa</option>
-                            <option value="La_Magdalena_Contreras">La Magdalena Contreras</option>
-                            <option value="Miguel_Hidalgo">Miguel Hidalgo</option>
-                            <option value="Milpa_Alta">Milpa Alta</option>
-                            <option value="Tlahuac">Tláhuac</option>
-                            <option value="Tlalpan">Tlalpan</option>
-                            <option value="Venustiano_Carranza">Venustiano Carranza</option>
-                            <option value="Xochimilco">Xochimilco</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <div class="md-form">
-                          <label for="entidad"> Entidad federativa</label><br><br>
-                          <select class="form-control custom-select-sm">
-                            <option value="Aguascalientes">Aguascalientes</option>
-                            <option value="Baja California">Baja California</option>
-                            <option value="Baja California Sur">Baja California Sur</option>
-                            <option value="Campeche">Campeche</option>
-                            <option value="Chiapas">Chiapas</option>
-                            <option value="Chihuahua">Chihuahua</option>
-                            <option value="CDMX" selected>Ciudad de México</option>
-                            <option value="Coahuila">Coahuila</option>
-                            <option value="Colima">Colima</option>
-                            <option value="Durango">Durango</option>
-                            <option value="Estado de México">Estado de México</option>
-                            <option value="Guanajuato">Guanajuato</option>
-                            <option value="Guerrero">Guerrero</option>
-                            <option value="Hidalgo">Hidalgo</option>
-                            <option value="Jalisco">Jalisco</option>
-                            <option value="Michoacán">Michoacán</option>
-                            <option value="Morelos">Morelos</option>
-                            <option value="Nayarit">Nayarit</option>
-                            <option value="Nuevo León">Nuevo León</option>
-                            <option value="Oaxaca">Oaxaca</option>
-                            <option value="Puebla">Puebla</option>
-                            <option value="Querétaro">Querétaro</option>
-                            <option value="Quintana Roo">Quintana Roo</option>
-                            <option value="San Luis Potosí">San Luis Potosí</option>
-                            <option value="Sinaloa">Sinaloa</option>
-                            <option value="Sonora">Sonora</option>
-                            <option value="Tabasco">Tabasco</option>
-                            <option value="Tamaulipas">Tamaulipas</option>
-                            <option value="Tlaxcala">Tlaxcala</option>
-                            <option value="Veracruz">Veracruz</option>
-                            <option value="Yucatán">Yucatán</option>
-                            <option value="Zacatecas">Zacatecas</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
+                    </fieldset>
                   </div> 
+                  
                   <!-- /.Grid column -->
 
                   <!-- Grid column -->
                   <div class="col-md-5 col-xl-6 mb-4">
                     <h6 class="grey-text text-center"><strong>EVENTO</strong></h6>
                     <hr>
-                    <div class="form-row mt-n3">
-                      <div class="form-group col-md-6">
-                        <div class="md-form mr-4">
-                          <i class="fas fa-calendar prefix grey-text"></i>
-                          <label for="fecha"> Fecha del evento</label><br><br>
-                          <input type="date" id="fecha" class="form-control mt-n2 ml-0 custom-select-sm">
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <div class="md-form">
-                          <i class="fas fa-clock prefix grey-text"></i>
-                          <label for="horario"> Horario</label><br><br>
-                          <select class="form-control custom-select-sm">
-                            <option selected>Choose...</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row mt-n5">
-                      <div class="form-group col-md-12">
-                        <div class="md-form">
-                          <i class="fas fa-music prefix grey-text"></i>
-                          <label for="evento"> Tipo de evento</label><br><br>
-                          <select class="form-control custom-select-sm" id="OpcionSeleccionada" onchange="showTextField(this)">
-                            <option value="bautizo" selected>Bautizo</option>
-                            <option value="comunion">Primera comunión</option>
-                            <option value="xv">XV años</option>
-                            <option value="boda">Boda</option>
-                            <option value="cumpleaños">Cumpleaños</option>
-                            <option value="otro">Otro</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-12" id="contenerdorOtraOpcion" style="display: none;">
-                          <div class="md-form ml-n2">
-                            <input type="text" id="otra_opc" name="otra_opc" class="form-control" placeholder="Ingresa los detalles de tu evento">
-                            <label for="otra_opc">Especificar evento</label>
+                    <fieldset>
+                      <div class="form-row mt-n3">
+                        <div class="form-group col-md-6">
+                          <div class="md-form mr-4">
+                            <i class="fas fa-calendar prefix grey-text"></i>
+                            <label for="fecha"> Fecha del evento</label><br><br>
+                            <input type="date" id="fecha" class="form-control mt-n2 ml-0 custom-select-sm">
                           </div>
                         </div>
-                        <script>
-                          function showTextField(selectElement) {
-                            var otherOptionContainer = document.getElementById("contenerdorOtraOpcion");
-                            var otherOptionInput = document.getElementById("otra_opc");
-                            if (selectElement.value === "otro") {
-                              otherOptionContainer.style.display = "block";
-                              otherOptionInput.required = true;
-                            } else {
-                              otherOptionContainer.style.display = "none";
-                              otherOptionInput.required = false;
+                        <div class="form-group col-md-6">
+                          <div class="md-form">
+                            <i class="fas fa-clock prefix grey-text"></i>
+                            <label for="horario"> Horario</label><br><br>
+                            <select class="form-control custom-select-sm">
+                              <option selected>Choose...</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mt-n5">
+                        <div class="form-group col-md-12">
+                          <div class="md-form">
+                            <i class="fas fa-music prefix grey-text"></i>
+                            <label for="evento"> Tipo de evento</label><br><br>
+                            <select class="form-control custom-select-sm" id="OpcionSeleccionada" onchange="showTextField(this)">
+                              <option value="bautizo" selected>Bautizo</option>
+                              <option value="comunion">Primera comunión</option>
+                              <option value="xv">XV años</option>
+                              <option value="boda">Boda</option>
+                              <option value="cumpleaños">Cumpleaños</option>
+                              <option value="otro">Otro</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-12" id="contenerdorOtraOpcion" style="display: none;">
+                            <div class="md-form ml-n2">
+                              <input type="text" id="otra_opc" name="otra_opc" class="form-control" placeholder="Ingresa los detalles de tu evento">
+                              <label for="otra_opc">Especificar evento</label>
+                            </div>
+                          </div>
+                          <script>
+                            function showTextField(selectElement) {
+                              var otherOptionContainer = document.getElementById("contenerdorOtraOpcion");
+                              var otherOptionInput = document.getElementById("otra_opc");
+                              if (selectElement.value === "otro") {
+                                otherOptionContainer.style.display = "block";
+                                otherOptionInput.required = true;
+                              } else {
+                                otherOptionContainer.style.display = "none";
+                                otherOptionInput.required = false;
+                              }
                             }
-                          }
-                        </script>
-                      </div>
-                    </div>
-                    <div class="form-row mt-n5">
-                      <div class="form-group col-md-6">
-                        <div class="md-form mr-4">
-                          <i class="fas fa-tag prefix grey-text"></i>
-                          <label for="horario"> Menú</label><br><br>
-                          <select class="form-control custom-select-sm">
-                            <option value="bautizo" selected>Menú economico</option>
-                          </select>
+                          </script>
                         </div>
                       </div>
-                      <div class="form-group col-md-6">
-                        <div class="md-form">
-                          <i class="fas fa-users prefix grey-text"></i>
-                          <input type="number" id="personas" class="form-control">
-                          <label for="personas"> Número de personas</label>
+                      <div class="form-row mt-n5">
+                        <div class="form-group col-md-6">
+                          <div class="md-form mr-4">
+                            <i class="fas fa-tag prefix grey-text"></i>
+                            <label for="horario"> Menú</label><br><br>
+                            <select class="form-control custom-select-sm">
+                              <option value="m_economico" selected>Menú economico</option>
+                              <option value="m_completo" selected>Menú completo</option>
+                              <option value="m_ejecutivo" selected>Menú ejecutivo</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="md-form">
+                            <i class="fas fa-users prefix grey-text"></i>
+                            <input type="number" id="personas" class="form-control">
+                            <label for="personas"> Número de personas</label>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-group mt-3">
-                      <div class="text-center">
-                        <button class="btn btn-dark">Enviar</button>
-                      </div>
-                    </div> 
+                      <div class="form-group mt-3">
+                        <div class="text-center">
+                          <button class="btn btn-dark">Enviar</button>
+                        </div>
+                      </div> 
+                    </fieldset>
                   </div>
                   <!-- /Grid column -->
                 </div>
