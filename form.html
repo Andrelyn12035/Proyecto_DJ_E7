@@ -60,7 +60,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
       <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="index.html" target="_blank">
+        <a class="navbar-brand" href="index.html">
           <img src="img/logo.png" style="height: 35px;"><strong>RHM</strong>
         </a>
         <!-- Collapse -->
@@ -84,14 +84,13 @@
               <a class="nav-link" href="" target="_blank">Comprobante</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Administrador</a>
+              <a class="nav-link" href="login_admin.html" target="_blank">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
-              <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded"
-                target="_blank">
+              <a href="index.html" class="nav-link border border-light rounded">
                 <i class="fas fa-music mr-2"></i>RhythmMakers
               </a>
             </li>
@@ -99,10 +98,10 @@
         </div>
       </div>
     </nav>
-    <!-- Navbar -->
+    <!-- /.Navbar -->
   
     <!-- Full Page Intro -->
-    <div class="full-page-intro" style="background-image: url('img/contratacion.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div style="background-image: url('img/contratacion.jpg'); background-repeat:no-repeat; background-size: cover;">
       <!-- Mask & flexbox options-->
       <div class="mask rgba-black-light justify-content-center align-items-center">
         <!-- Content -->
@@ -112,12 +111,11 @@
             <!--Card content-->
             <div class="card-body">
               <!-- Form -->
-              <form name="contratacion" class="m-4">
+              <form name="contratacion" onsubmit="return validar()" class="m-4">
                 <!-- Heading -->
                 <h3 class="dark-grey-text text-center font-weight-bold">Servicio de contratación de DJ</h3>
-                <hr>
                 <!-- Grid row -->
-                <div class="row wow fadeIn">
+                <div class="row wow fadeIn mt-4">
                   <!-- Grid column -->
                   <div class="col-md-5 col-xl-6">
                     <h6 class="grey-text text-center"><strong>DATOS PERSONALES</strong></h6>
@@ -125,85 +123,85 @@
                     <fieldset>
                       <div class="form-row">
                         <div class="form-group col-md-12">
-                          <div class="md-form">
+                          <div class="md-form m-0">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text" id="nombre" class="form-control">
+                            <input type="text" name="nombre" id="nombre"  class="form-control" required>
                             <label for="nombre"> Nombre(s)</label>
                           </div>
                         </div>
                       </div>
-                      <div class="form-row ml-5 mt-n5">
+                      <div class="form-row">
                         <div class="form-group col-md-6">
-                          <div class="md-form mr-4">
-                            <input type="text" id="a_paterno" class="form-control">
+                          <div class="md-form m-0 mr-4">
+                            <input type="text" id="a_paterno" name="a_paterno" class="form-control" required>
                             <label for="a_paterno">Apellido paterno</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <div class="md-form">
-                            <input type="text" id="a_materno" class="form-control">
+                          <div class="md-form m-0">
+                            <input type="text" id="a_materno" name="a_materno" class="form-control" required>
                             <label for="a_materno"> Apellido materno</label>
                           </div>
                         </div>
                       </div>
-                      <div class="form-row mt-n5">
+                      <div class="form-row">
                         <div class="form-group col-md-12">
-                          <div class="md-form">
+                          <div class="md-form  m-0">
                             <i class="fas fa-id-badge prefix grey-text"></i>
-                            <input type="text" id="CURP" name="CURP" class="form-control">
+                            <input type="text" id="CURP" name="curp" class="form-control" required>
                             <label for="CURP"> CURP</label>
                           </div>
                         </div>
                       </div>
                       <div class="form-row">
                         <div class="form-group col-md-12">
-                          <div class="md-form">
+                          <div class="md-form m-0">
                             <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="email" id="correo" class="form-control">
+                            <input type="email" name="correo" id="correo" class="form-control" required>
                             <label for="correo"> Correo electronico</label>
                           </div>
                         </div>
                       </div>
-                      <div class="form-group mt-n5">
-                        <div class="md-form">
+                      <div class="form-group">
+                        <div class="md-form m-0">
                           <i class="fas fa-map-marker-alt prefix grey-text"></i>
                           <label> Dirección</label>
                         </div>
                       </div>
                       <br>
-                      <div class="form-row ml-5 ">
+                      <div class="form-row">
                         <div class="form-group col-md-6">
-                          <div class="md-form mr-4">
-                            <input type="text" id="calle" class="form-control">
+                          <div class="md-form mr-4 m-0">
+                            <input type="text" name="calle" id="calle" class="form-control" required>
                             <label for="calle">Calle</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <div class="md-form">
-                            <input type="number" id="num" class="form-control">
+                          <div class="md-form m-0">
+                            <input type="number" name="num" id="num" class="form-control" required>
                             <label for="num"> Número</label>
                           </div>
                         </div>
                       </div>
-                      <div class="form-row ml-5">
+                      <div class="form-row">
                         <div class="form-group col-md-6">
-                          <div class="md-form mr-4">
-                            <input type="text" id="colonia" class="form-control">
+                          <div class="md-form mr-4 m-0">
+                            <input type="text" name="colonia" id="colonia" class="form-control" required>
                             <label for="colonia"> Colonia</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <div class="md-form">
-                            <input type="number" maxlength="5" id="codigo" class="form-control">
+                          <div class="md-form m-0">
+                            <input type="number" maxlength="5" name="codigo" id="codigo" class="form-control" required>
                             <label for="codigo"> Código postal</label>
                           </div>
                         </div>
                       </div>
-                      <div class="form-row ml-5">
+                      <div class="form-row">
                         <div class="form-group col-md-6">
-                          <div class="md-form mr-4">
+                          <div class="md-form mr-4 m-0">
                             <label for="alcaldia"> Alcaldía o municipio</label><br><br>
-                            <select class="form-control custom-select-sm">
+                            <select class="custom-select mr-sm-2" name="alcaldia" id="alcaldia" required>
                               <option value="Alvaro_Obregon">Álvaro Obregón</option>
                               <option value="Azcapotzalco">Azcapotzalco</option>
                               <option value="Benito_Juarez">Benito Juárez</option>
@@ -224,9 +222,9 @@
                           </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <div class="md-form">
+                          <div class="md-form m-0">
                             <label for="entidad"> Entidad federativa</label><br><br>
-                            <select class="form-control custom-select-sm">
+                            <select class="custom-select mr-sm-2" name="estado" id="entidad" required>
                               <option value="Aguascalientes">Aguascalientes</option>
                               <option value="Baja California">Baja California</option>
                               <option value="Baja California Sur">Baja California Sur</option>
@@ -273,30 +271,43 @@
                     <h6 class="grey-text text-center"><strong>EVENTO</strong></h6>
                     <hr>
                     <fieldset>
-                      <div class="form-row mt-n3">
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <div class="md-form m-0">
+                            <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                            <label for="lugar"> Sede del evento</label><br><br>
+                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required>
+                              <option value="salon1" selected>Salon 1</option>
+                              <option value="salon2">Salon 2</option>
+                              <option value="jardin">Jardin</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row">
                         <div class="form-group col-md-6">
-                          <div class="md-form mr-4">
+                          <div class="md-form mr-4 m-0">
                             <i class="fas fa-calendar prefix grey-text"></i>
                             <label for="fecha"> Fecha del evento</label><br><br>
-                            <input type="date" id="fecha" class="form-control mt-n2 ml-0 custom-select-sm">
+                            <input type="date" id="fecha" name="fecha" class="form-control mt-n2 ml-0 custom-select-sm">
                           </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <div class="md-form">
+                          <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="form-control custom-select-sm">
+                            <select class="custom-select mr-sm-2" name="hora" id="horario" required>
                               <option selected>Choose...</option>
                             </select>
                           </div>
                         </div>
                       </div>
-                      <div class="form-row ">
+                      <div class="form-row">
                         <div class="form-group col-md-12">
-                          <div class="md-form">
+                          <div class="md-form m-0">
                             <i class="fas fa-music prefix grey-text"></i>
-                            <label for="evento"> Tipo de evento</label><br><br>
-                            <select class="form-control custom-select-sm" id="OpcionSeleccionada" onchange="showTextField(this)">
+                            <label for="OpcionSeleccionada"> Tipo de evento</label><br><br>
+                            <select class="custom-select mr-sm-2" id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
                               <option value="bautizo" selected>Bautizo</option>
                               <option value="comunion">Primera comunión</option>
                               <option value="xv">XV años</option>
@@ -305,13 +316,19 @@
                               <option value="otro">Otro</option>
                             </select>
                           </div>
-                          <div class="form-group col-md-12" id="contenerdorOtraOpcion" style="display: none;">
-                            <div class="md-form ml-n2">
+                          <div class="form-group col-md-12 mt-4" id="contenerdorOtraOpcion" style="display: none;">
+                            <div class="md-form ml-n2  m-0">
                               <input type="text" id="otra_opc" name="otra_opc" class="form-control" placeholder="Ingresa los detalles de tu evento">
                               <label for="otra_opc">Especificar evento</label>
                             </div>
                           </div>
                           <script>
+                            document.forms["contratacion"].addEventListener("reset", (event) => {
+                              var otherOptionContainer = document.getElementById("contenerdorOtraOpcion");
+                              var otherOptionInput = document.getElementById("otra_opc");
+                              otherOptionContainer.style.display = "none";
+                                otherOptionInput.required = false;
+                            });
                             function showTextField(selectElement) {
                               var otherOptionContainer = document.getElementById("contenerdorOtraOpcion");
                               var otherOptionInput = document.getElementById("otra_opc");
@@ -326,12 +343,12 @@
                           </script>
                         </div>
                       </div>
-                      <div class="form-row mt-n5">
+                      <div class="form-row d-flex align-items-end">
                         <div class="form-group col-md-6">
-                          <div class="md-form mr-4">
+                          <div class="md-form mr-4 m-0">
                             <i class="fas fa-tag prefix grey-text"></i>
-                            <label for="horario"> Menú</label><br><br>
-                            <select class="form-control custom-select-sm">
+                            <label for="menu"> Menú</label><br><br>
+                            <select class="custom-select mr-sm-2" name="menu" id="menu" required>
                               <option value="m_economico" selected>Menú economico</option>
                               <option value="m_completo" selected>Menú completo</option>
                               <option value="m_ejecutivo" selected>Menú ejecutivo</option>
@@ -339,19 +356,17 @@
                           </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <div class="md-form">
+                          <div class="md-form m-0">
                             <i class="fas fa-users prefix grey-text"></i>
-                            <input type="number" id="personas" class="form-control">
+                            <input type="number" name="personas" id="personas" class="form-control" required>
                             <label for="personas"> Número de personas</label>
                           </div>
                         </div>
                       </div>
                       <div class="form-group mt-3">
                         <div class="text-center">
-                          <button class="btn btn-dark" type="submit"><i class="fas fa-paper-plane prefix mr-2"></i> Enviar </button>
-                      </div>
-                      <div class="text-center">
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
+                          <button class="btn btn-dark" type="submit"><i class="fas fa-paper-plane prefix mr-2"></i> Enviar </button>
                         </div>
                       </div> 
                     </fieldset>
@@ -372,7 +387,7 @@
     <!-- Full Page Intro -->
 
     <!--Footer-->
-    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+    <footer class="page-footer text-center font-small wow fadeIn">
       <!--Call to action-->
       <div class="pt-4 mb-4">
         <a class="btn btn-outline-white" href="index.html" target="_blank" role="button">Ven y Conócenos
@@ -385,7 +400,7 @@
       
       <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
-        <a href="#" target="_blank"> RhythmMakers</a>
+        <a href="index.html" target="_self"> RhythmMakers</a>
       </div>
       <!--/.Copyright-->
     </footer>
