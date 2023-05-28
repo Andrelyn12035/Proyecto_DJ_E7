@@ -1,91 +1,33 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: localhost:3307
--- Tiempo de generación: 28-05-2023 a las 05:56:32
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+Create database BD_Proyecto;
+Use BD_Proyecto;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+Create table Cliente (
+	CURP varchar(18) not null,
+	Nombre varchar (40) not null,
+	AMaterno varchar(25) not null,
+	APaterno varchar(25) not null,
+	Num_cas int not null,
+	Colonia varchar(30) not null,
+    Calle varchar(30) not null,
+	Alcadia varchar(30) not null,
+	CP varchar(5) not null,
+	Estado varchar(30) not null,
+	Email varchar(64) not null
+);
 
+alter table Cliente add constraint PK1 primary key(CURP);
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+Create table Contratacion (
+	CURP varchar(18) not null,
+	DiaEvento date not null,
+	HrInicio time not null,
+	HrFinal time not null,
+	EventoTipo varchar(30) not null,
+	NumPersonas int not null,
+	Menu varchar(30) not null,
+	Lugar varchar(20) not null
+);
 
---
--- Base de datos: `bd_proyecto`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE `cliente` (
-  `CURP` varchar(18) NOT NULL,
-  `Nombre` varchar(40) NOT NULL,
-  `AMaterno` varchar(25) NOT NULL,
-  `APaterno` varchar(25) NOT NULL,
-  `Num_cas` int(11) NOT NULL,
-  `Colonia` varchar(30) NOT NULL,
-  `Calle` varchar(30) NOT NULL,
-  `Alcadia` varchar(30) NOT NULL,
-  `CP` varchar(5) NOT NULL,
-  `Estado` varchar(30) NOT NULL,
-  `Email` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `contratacion`
---
-
-CREATE TABLE `contratacion` (
-  `CURP` varchar(18) NOT NULL,
-  `DiaEvento` date NOT NULL,
-  `HrInicio` time NOT NULL,
-  `HrFinal` time NOT NULL,
-  `EventoTipo` varchar(30) NOT NULL,
-  `NumPersonas` int(11) NOT NULL,
-  `Menu` varchar(30) NOT NULL,
-  `Lugar` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`CURP`);
-
---
--- Indices de la tabla `contratacion`
---
-ALTER TABLE `contratacion`
-  ADD PRIMARY KEY (`DiaEvento`,`CURP`),
-  ADD KEY `FK1` (`CURP`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `contratacion`
---
-ALTER TABLE `contratacion`
-  ADD CONSTRAINT `FK1` FOREIGN KEY (`CURP`) REFERENCES `cliente` (`CURP`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+alter table Contratacion
+	add constraint FK1 foreign key(CURP) references Cliente(CURP) on delete cascade on update cascade, 
+    add constraint PK2 primary key(DiaEvento,CURP);
