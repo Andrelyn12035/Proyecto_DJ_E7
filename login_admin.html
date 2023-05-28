@@ -16,63 +16,78 @@
           padding: 15px;
           margin: auto;
         }
+        .admin-icon{
+          font-size: 5rem;
+          text-align: center;
+        }
       </style>
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-        <div class="container">
-          <!-- Brand -->
-          <a class="navbar-brand" href="#" target="_blank">
-            <img src="img/logo.png" style="height: 35px;"><strong>RHM</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- Links -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="form.html" target="_self">Contratación</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">Comprobante</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">Administrador</a>
-              </li>
-            </ul>
-            <!-- Right -->
-            <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item">
-                <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded"
-                  target="_blank">
-                  <i class="fas fa-music mr-2"></i>RhythmMakers
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.png" style="height: 35px;"><strong>RHM</strong>
+        </a>
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="form.html" target="_blank">Contratación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" target="_blank">Comprobante</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#" target="_self">Administrador</a>
+            </li>
+          </ul>
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link border border-light rounded">
+                <i class="fas fa-music mr-2"></i>RhythmMakers
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-  <main class="text-center ">
-      <br><br><br><br>
-        <i></i>
-      <form class="form-signin mt-3" action="" >
-        <h1 class="h3 font-weight-normal text-muted">Iniciar sesion </h1>
-        <div class="mt-4">
-          <label for="correo_admin" class="sr-only">Correo electronico</label>
-          <input type="email" id="correo_admin" name="correo_admin"class="form-control" placeholder="Correo electronico" required autofocus>
-        </div>
+    <!-- /.Navbar -->
 
-        <div class="mt-4">
-          <label for="contra_admin" class="sr-only">Contraseña</label>
-          <input type="password" id="contra_admin" name="contra_admin" class="form-control" placeholder="Contraseña" required>
+    <!-- Main -->
+    <main style="background:linear-gradient(rgba(1, 37, 83, 0.6), rgba(42, 41, 49, 0.6));"><br><br><br><br>
+      <form action="" method="POST" class="form-signin">
+        <div class="card ml-n5 mb-4" style="width: 132%;">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="fas fa-users-cog text-muted text-center admin-icon"></i>
+            </div>
+            <h3 class="text-muted text-center font-weight-bold mt-3">Iniciar sesión</h3>
+            <div class="mt-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <label for="correo_admin" class="grey-text ml-2"> Correo electronico</label>
+              <input type="email" id="correo_admin" name="correo_admin"class="form-control" placeholder="Ingresar correo" required autofocus>
+            </div>
+            <div class="mt-4">
+              <i class="fas fa-key prefix grey-text"></i>
+              <label for="contra_admin" class="grey-text ml-2"> Contraseña</label>
+              <input type="password" id="contra_admin" name="contra_admin" class="form-control" placeholder="Ingresar contraseña" required>
+            </div>
+            <button class="btn btn-dark btn-block mt-5 mb-3" type="submit">Sign in</button>
+          </div>
         </div>
       </form>
     </main>
