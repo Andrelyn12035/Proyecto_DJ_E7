@@ -69,17 +69,17 @@
 
     <!-- Main -->
     <main style="background:linear-gradient(rgba(1, 37, 83, 0.6), rgba(42, 41, 49, 0.6));">
-      <form action="" method="POST" class="form-signin">
-        <div class="card ml-n5 mb-4 " style="width: 132%; margin-top: 6rem;">
+      <form action="php/login.php" method="post" class="form-signin">
+        <div class="card ml-n5 " style="width: 132%; margin-top: 4.1rem;">
           <div class="card-body">
             <div class="text-center">
               <i class="fas fa-users-cog text-muted text-center admin-icon"></i>
             </div>
             <h3 class="text-muted text-center font-weight-bold mt-3">Iniciar sesión</h3>
             <div class="mt-4">
-              <i class="fas fa-envelope prefix grey-text"></i>
-              <label for="correo_admin" class="grey-text ml-2"> Correo electronico</label>
-              <input type="email" id="correo_admin" name="correo_admin"class="form-control" placeholder="Ingresar correo" required autofocus>
+              <i class="fas fa-user prefix grey-text"></i>
+              <label for="usuario_admin" class="grey-text ml-2"> Usuario</label>
+              <input type="text" id="usuario_admin" name="usuario_admin"class="form-control" placeholder="Ingresar usuario" required autofocus>
             </div>
             <div class="mt-4">
               <i class="fas fa-key prefix grey-text"></i>
