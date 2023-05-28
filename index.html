@@ -24,6 +24,21 @@
         .galeria .carousel-inner .carousel-item > div:first-child {
           display: block;
         }
+
+        .galeria .active{
+          margin-left: 19%;
+        }
+      }
+
+      @media (min-width: 550px)and(max-width: 768px) {
+        .galeria .active{
+          margin-left: 19%;
+        }
+      }
+      @media (max-width: 550px) {
+        .galeria .active{
+          margin-left: 11%;
+        }
       }
       .galeria .carousel-inner .carousel-item.active, .galeria .carousel-inner .carousel-item-next, .galeria .carousel-inner .carousel-item-prev {
         display: flex;
@@ -37,9 +52,37 @@
           transform: translateX(-33.333%);
         }
       }
+
+      @media (min-width: 1200px){
+        .galeria .carousel-control-next{
+          transform: translateX(100%);
+        }
+        .galeria .carousel-control-prev{
+          transform: translateX(-80%);
+        }
+      }
+
+      @media (min-width: 990px) and (max-width: 1200px) {
+        .galeria .carousel-control-next{
+          transform: translateX(100%);
+        }
+        .galeria .carousel-control-prev{
+          transform: translateX(-80%);
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 991px) {
+        .galeria .carousel-control-next{
+          transform: translateX(40%);
+        }
+        .galeria .carousel-control-prev{
+          transform: translateX(-180%);
+        }
+      }
       .galeria .carousel-inner .carousel-item-right, .galeria .carousel-inner .carousel-item-left{ 
         transform: translateX(0);
       }
+
       .modal-body .col-sm-8 {
         text-align: center;
       }
@@ -107,7 +150,9 @@
     </nav>
     <!-- Navbar -->
 
-    <!--Carousel Wrapper-->
+    
+    <div class="imagenes">
+      <!--Carousel Wrapper-->
     <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel"   style="height: 500px;">
       <!--Indicators-->
       <ol class="carousel-indicators">
@@ -274,6 +319,8 @@
       <!--/.Controls-->
     </div>
     <!--/.Carousel Wrapper-->
+    </div>
+    
 
     <!--Main layout-->
     <main>
@@ -307,14 +354,169 @@
         </div>
       </section>
       <!-- /.Conócenos -->
-
+      <!-- Modal 1 -->
+      <div class="modal fade" id="learnMore1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="img/jardin1.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
+                  </div>
+                  <div class="col-sm-4 align-self-center"> 
+                    <h5 class="intro-title"> Jardín de eventos </h5>
+                    <h5> Los Pinos </h5>
+                    <i class="fas fa-map-marker-alt ml-2"></i> C. 12 22, San Pedro de los Pinos, Benito Juárez, 03800 Ciudad de México, CDMX
+                  </div>          
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 1 -->
+      <!-- Modal 2 -->
+      <div class="modal fade" id="learnMore2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="img/jardin2.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
+                  </div>
+                  <div class="col-sm-4 align-self-center"> 
+                    <h5 class="intro-title"> Jardín de eventos </h5>
+                    <h5> Santa Fe </h5>
+                    <i class="fas fa-map-marker-alt ml-2"></i> Avenida Santa Fe esquina con Av Carlos Lazo, Sta Fé, 01210 Ciudad de México
+                  </div>          
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 2 -->
+      <!-- Modal 3 -->
+      <div class="modal fade" id="learnMore3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="img/salon1.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
+                  </div>
+                  <div class="col-sm-4 align-self-center"> 
+                    <h5 class="intro-title"> Salón de eventos </h5>
+                    <h5> Gran Salón del Valle </h5>
+                    <i class="fas fa-map-marker-alt ml-2"></i> Av. Coyoacán 39, código 2, Col del Valle Nte, Benito Juárez, 03010 Ciudad de México, CDMX
+                  </div>          
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 3 -->
+      <!-- Modal 4 -->
+      <div class="modal fade" id="learnMore4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="img/salon2.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
+                  </div>
+                  <div class="col-sm-4 align-self-center"> 
+                    <h5 class="intro-title"> Salón de eventos </h5>
+                    <h5> Palazzio Videmar </h5>
+                    <i class="fas fa-map-marker-alt ml-2"></i> Manuel Gonzalez 71, Ex Hipódromo de Peralvillo, Cuauhtémoc, 06220 Ciudad de México, CDMX
+                  </div>          
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 4 -->
+      <!-- Modal 5 -->
+      <div class="modal fade" id="learnMore5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="img/salon3.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
+                  </div>
+                  <div class="col-sm-4 align-self-center"> 
+                    <h5 class="intro-title"> Salón de eventos </h5>
+                    <h5> Gran Salón Del Prado </h5>
+                    <i class="fas fa-map-marker-alt ml-2"></i> División del Norte 4515 Prados Coapa, 3a. Sección, Tlalpan, 14350 CDMX
+                  </div>          
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 5 -->
+      <!-- Modal 6 -->
+      <div class="modal fade" id="learnMore6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="img/salon4.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
+                  </div>
+                  <div class="col-sm-4 align-self-center"> 
+                    <h5 class="intro-title"> Salón de eventos </h5>
+                    <h5> Lion's Palace </h5>
+                    <i class="fas fa-map-marker-alt ml-2"></i> C. Moctezuma 25, Santa Lucía, Álvaro Obregón, 01500 Ciudad de México, CDMX
+                  </div>          
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 6 -->
       <!-- Galeria -->
       <section>
       <div class="container text-center my-3 galeria">
         <br><br><h2 class="font-weight-light">GALERIA DE FOTOS</h2><br><!--https://www.codeply.com/go/EIOtI7nkP8-->
         <div class="row mx-auto my-auto">
           <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-            <div class="carousel-inner w-100 ml-4 mr-4" role="listbox">
+            <div class="carousel-inner w-100" role="listbox">
               <!-- Carousel-item 1 -->
               <div class="carousel-item active">
                 <div class="col-lg-4 col-md-6 col-12">
@@ -326,32 +528,7 @@
                       <button type="button" class="btn btn-dark m-0" data-toggle="modal" data-target="#learnMore1">VER</button>
                     </div>
                   </div>
-                  <!-- Modal 1 -->
-                  <div class="modal fade" id="learnMore1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="dialog">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          </br>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <img src="img/jardin1.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
-                              </div>
-                              <div class="col-sm-4 align-self-center"> 
-                                <h5 class="intro-title"> Jardín de eventos </h5>
-                                <h5> Los Pinos </h5>
-                                <i class="fas fa-map-marker-alt ml-2"></i> C. 12 22, San Pedro de los Pinos, Benito Juárez, 03800 Ciudad de México, CDMX
-                              </div>          
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.Modal 1 -->
+                  
                 </div>
               </div>
               <!-- /.Carousel-item 1 -->
@@ -367,32 +544,7 @@
                       <button type="button" class="btn btn-dark m-0" data-toggle="modal" data-target="#learnMore2">VER</button>
                     </div>
                   </div>
-                  <!-- Modal 2 -->
-                  <div class="modal fade" id="learnMore2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="dialog">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          </br>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <img src="img/jardin2.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
-                              </div>
-                              <div class="col-sm-4 align-self-center"> 
-                                <h5 class="intro-title"> Jardín de eventos </h5>
-                                <h5> Santa Fe </h5>
-                                <i class="fas fa-map-marker-alt ml-2"></i> Avenida Santa Fe esquina con Av Carlos Lazo, Sta Fé, 01210 Ciudad de México
-                              </div>          
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.Modal 2 -->
+                  
                 </div>
               </div>
               <!-- /.Carousel-item 2 -->
@@ -408,32 +560,7 @@
                       <button type="button" class="btn btn-dark m-0" data-toggle="modal" data-target="#learnMore3">VER</button>
                     </div>
                   </div>
-                  <!-- Modal 3 -->
-                  <div class="modal fade" id="learnMore3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="dialog">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          </br>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <img src="img/salon1.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
-                              </div>
-                              <div class="col-sm-4 align-self-center"> 
-                                <h5 class="intro-title"> Salón de eventos </h5>
-                                <h5> Gran Salón del Valle </h5>
-                                <i class="fas fa-map-marker-alt ml-2"></i> Av. Coyoacán 39, código 2, Col del Valle Nte, Benito Juárez, 03010 Ciudad de México, CDMX
-                              </div>          
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.Modal 3 -->
+                  
                 </div>
               </div>
               <!-- /.Carousel-item 3 -->
@@ -449,32 +576,7 @@
                       <button type="button" class="btn btn-dark m-0" data-toggle="modal" data-target="#learnMore4">VER</button>
                     </div>
                   </div>
-                  <!-- Modal 4 -->
-                  <div class="modal fade" id="learnMore4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="dialog">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          </br>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <img src="img/salon2.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
-                              </div>
-                              <div class="col-sm-4 align-self-center"> 
-                                <h5 class="intro-title"> Salón de eventos </h5>
-                                <h5> Palazzio Videmar </h5>
-                                <i class="fas fa-map-marker-alt ml-2"></i> Manuel Gonzalez 71, Ex Hipódromo de Peralvillo, Cuauhtémoc, 06220 Ciudad de México, CDMX
-                              </div>          
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.Modal 4 -->
+                  
                 </div>
               </div>
               <!-- /.Carousel-item 4 -->
@@ -490,32 +592,7 @@
                       <button type="button" class="btn btn-dark m-0" data-toggle="modal" data-target="#learnMore5">VER</button>
                     </div>
                   </div>
-                  <!-- Modal 5 -->
-                  <div class="modal fade" id="learnMore5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="dialog">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          </br>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <img src="img/salon3.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
-                              </div>
-                              <div class="col-sm-4 align-self-center"> 
-                                <h5 class="intro-title"> Salón de eventos </h5>
-                                <h5> Gran Salón Del Prado </h5>
-                                <i class="fas fa-map-marker-alt ml-2"></i> División del Norte 4515 Prados Coapa, 3a. Sección, Tlalpan, 14350 CDMX
-                              </div>          
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.Modal 5 -->
+                  
                 </div>
               </div>
               <!-- /.Carousel-item 5 -->
@@ -531,32 +608,7 @@
                       <button type="button" class="btn btn-dark m-0" data-toggle="modal" data-target="#learnMore6">VER</button>
                     </div>
                   </div>
-                  <!-- Modal 6 -->
-                  <div class="modal fade" id="learnMore6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="dialog">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          </br>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <img src="img/salon4.jpg" alt="Jardín de eventos" width=90% style="margin-bottom: 5%;"/>
-                              </div>
-                              <div class="col-sm-4 align-self-center"> 
-                                <h5 class="intro-title"> Salón de eventos </h5>
-                                <h5> Lion's Palace </h5>
-                                <i class="fas fa-map-marker-alt ml-2"></i> C. Moctezuma 25, Santa Lucía, Álvaro Obregón, 01500 Ciudad de México, CDMX
-                              </div>          
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.Modal 6 -->
+                  
                 </div>
               </div>
               <!-- /.Carousel-item 6 -->
