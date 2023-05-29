@@ -12,10 +12,4 @@
     </script>
 </body>
 </html>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a href="#" class="navbar-brand font-weight-bold">MENU ADMINISTRADOR</a>
-            <a href="../login_admin.html"><button type="button" class="btn btn-danger font-weight-bold">SALIR</button></a>
-        </div>
-    </nav>
 
