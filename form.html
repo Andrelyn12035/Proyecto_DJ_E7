@@ -368,6 +368,24 @@
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
                           <button class="btn btn-dark" type="submit"><i class="fas fa-paper-plane prefix mr-2"></i> Enviar </button>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="alert alert-danger" role="alert">
+                              Error en el campo: <span id="alerta"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="exito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="alert alert-succes" role="alert">
+                              Campos validos
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Modal -->
                       </div> 
                     </fieldset>
                   </div>
@@ -415,6 +433,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
       // Animations initialization
