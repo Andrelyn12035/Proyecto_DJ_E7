@@ -2,10 +2,10 @@
    session_start();
 
    $conn = mysqli_connect(
-   'proyecto-dj.cvnwmcsl2fhb.us-east-1.rds.amazonaws.com',//Host
-   'admin',//user
-   'antonioselacome',//password
-   'music'//database
+   'localhost:3307',//Host
+   'root',//user
+   '',//password
+   'bd_proyecto'//database
    ) or die(mysqli_erro($mysqli));
-      
+   
 ?>
