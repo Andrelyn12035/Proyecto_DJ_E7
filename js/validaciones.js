@@ -19,7 +19,7 @@ function validar() {
    let personas = document.forms["contratacion"]["personas"].value;
    let alerta = document.getElementById("alerta")
 
-   let nom = new RegExp("^[A-Z][a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:\s+[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+){0,5}(?:\s+[-\sa-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+)?$","")
+   let nom = new RegExp("^[A-Z][a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:\\s+[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+){0,5}(?:\\s+[-\\sa-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+)?$","")
    let corr = new RegExp("^\\w+([.-_+]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,10})+$","")
    let call = new RegExp("^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:\s+[0-9a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+){0,5}(?:\s+[-\sa-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+)?$","")
    
