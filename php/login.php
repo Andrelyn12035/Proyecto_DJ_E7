@@ -9,7 +9,7 @@
 	$contra_admin=$_POST["contra_admin"];
 
 	if($usuario_admin == $usuario && $contra_admin == $contraseña){
-		echo "hola";
+    
 	}
 	else{
         echo "<nav class='navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar'>";
