@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Administrador</title>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/mdb.min.css" rel="stylesheet">
-      <link href="css/style.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
       <style>
         .form-signin {
           width: 100%;
@@ -19,6 +23,27 @@
         .admin-icon{
           font-size: 5rem;
           text-align: center;
+        }
+        html, body, header, .view {
+        height: 100%;
+      }
+      @media (max-width: 740px) {
+        html, body, header, .view {
+          height: 1000px;
+        }
+      }
+      @media (min-width: 800px) and (max-width: 850px) {
+        html, body, header, .view {
+          height: 650px;
+        }
+      }
+      @media (min-width: 800px) and (max-width: 850px) {
+        .navbar:not(.top-nav-collapse) {
+          background: #1C2331!important;
+        }
+      }
+        main{
+          height: 100%;
         }
       </style>
   </head>
@@ -50,8 +75,8 @@
             <li class="nav-item">
               <a class="nav-link" href="comprobante.html" target="_self">Comprobante</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#" target="_self">Administrador</a>
+            <li class="nav-item">
+              <a class="nav-link" href="login_admin.html" target="_blank">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
@@ -100,5 +125,19 @@
         <a href="index.html" target="_self"> RhythmMakers</a>
       </div>
     </footer>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+      // Animations initialization
+      new WOW().init();
+    </script>
   </body>
 </html>
