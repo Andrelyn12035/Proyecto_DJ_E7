@@ -2,7 +2,7 @@
    session_start();
 
    $conn = mysqli_connect(
-   'localhost',//Host
+   'localhost:3307',//Host
    'root',//user
    '',//password
    'bd_proyecto'//database
