@@ -27,7 +27,7 @@
             <a class='nav-link' href='../form.html' target='_self'>Contratación</a>
             </li>";
         echo "<li class='nav-item'>
-              <a class='nav-link' href='' target='_self'>Comprobante</a>
+              <a class='nav-link' href='../comprobante.html' target='_self'>Comprobante</a>
             </li>";
         echo "<li class='nav-item active'>
               <a class='nav-link' href='../login_admin.html' target='_self'>Administrador</a>
