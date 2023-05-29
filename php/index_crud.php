@@ -1,9 +1,13 @@
 <?php include("db.php"); ?>
 <?php include("header.php")?>
-    <div class="container-lg my-3 mx-4">
-    <a href="../form.html"><button type="button" class="btn btn-primary btn-lg btn-block ">AGREGAR</button></a>
-    
-    <h3 class="text-center  my-4">Cliente</h3>
+    <div class="container-lg my-auto mx-4">
+    <div class="" style="margin-top:8rem; ">
+        <h3 style="display:inline;" class="ml-5">Cliente</h3>
+        <div style="display:inline;" class="ml-5">
+        <a  href="../form.html"><button type="button" class="btn btn-primary btn-lg">AGREGAR</button></a>
+        </div>
+    </div>
+
     
     <table class="table table-bordered mt-4">
         <tr>
@@ -23,5 +27,6 @@
             <!--Consulatas a la base  -->
         </tbody>
     </table>
+
     </div>
 <?php include("footer.php")?>
