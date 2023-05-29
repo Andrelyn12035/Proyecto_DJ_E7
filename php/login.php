@@ -11,7 +11,7 @@
         include("header_login.php");
         echo "<main style='background:linear-gradient(rgba(1, 37, 83, 0.6), rgba(42, 41, 49, 0.6));'>";
         echo "<div style='width: 100%; max-width: 330px; padding: 15px; margin: auto;'>";
-        echo "<div class='card ml-n5' style='width: 132%; margin-top: 6rem; margin-bottom: 3.45rem'>";
+        echo "<div class='card ml-n5' style='width: 132%; margin-top: 9rem; margin-bottom: 3.45rem'>";
         echo "<div class='card-body'>";
         echo "<div class='text-center'>";
         echo "<i class='fas fa-lock text-muted text-center' style='font-size: 5rem; text-align: center;'></i>";

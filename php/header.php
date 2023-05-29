@@ -13,6 +13,26 @@
     <link href="../css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="../css/style.min.css" rel="stylesheet">
+    <style>
+        html, body, header, .view {
+        height: 100%;
+        }
+        @media (max-width: 740px) {
+          html, body, header, .view {
+            height: 1000px;
+          }
+        }
+        @media (min-width: 800px) and (max-width: 850px) {
+          html, body, header, .view {
+            height: 650px;
+          }
+        }
+        @media (min-width: 800px) and (max-width: 850px) {
+          .navbar:not(.top-nav-collapse) {
+            background: #1C2331!important;
+          }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-dark">

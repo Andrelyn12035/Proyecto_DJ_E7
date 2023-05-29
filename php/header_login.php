@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Iniciar Sesión</title>
+    <title>Iniciar sesión</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -31,6 +31,9 @@
           .navbar:not(.top-nav-collapse) {
             background: #1C2331!important;
           }
+        }
+        main{
+          height: 100%;
         }
       </style>
   </head>
