@@ -81,3 +81,22 @@
       </div>
     </nav>
     <!-- /.Navbar -->
+    <main style="background:linear-gradient(rgba(1, 37, 83, 0.6), rgba(42, 41, 49, 0.6));">
+      <div style="width: 100%; max-width: 330px; padding: 15px; margin: auto;">
+        <div class="card ml-n5" style="width: 132%; margin-top: 9rem; margin-bottom: 3.45rem">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="fas fa-lock text-muted text-center" style="font-size: 5rem; text-align: center;"></i>
+            </div>
+            <h3 class="text-muted text-center font-weight-bold mt-3">ERROR</h3>
+            <h5 class="grey-text text-center mt-4">Acceso a administrador denegado</h5>
+            <h6 class="grey-text text-center mt-5 mb-3">El usuario o contraseña ingresados son incorrectos.</h6>
+            <a class="btn btn-dark btn-block mt-3 mb-3" href="../login_admin.html" target="_self" role="button">Volver a Intentarlo
+              <i class="fas fa-chevron-left ml-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <?php
+      include("footer.php");
+    ?>
