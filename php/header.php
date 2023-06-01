@@ -16,20 +16,24 @@
     <style>
         html, body, header, .view {
         height: 100%;
-        }
-        @media (max-width: 740px) {
-          html, body, header, .view {
-            height: 1000px;
-          }
-        }
-        @media (min-width: 800px) and (max-width: 850px) {
-          html, body, header, .view {
-            height: 650px;
-          }
+        width: 100%;
         }
         @media (min-width: 800px) and (max-width: 850px) {
           .navbar:not(.top-nav-collapse) {
             background: #1C2331!important;
+          }
+        }
+        @media(max-width: 600px) {
+          .hola{
+            flex-direction: column;
+            align-items: center;
+          }
+          .btn{
+            padding: .3rem;
+          }
+          .card{
+            font-size: 9px;
+            justify-content: center;
           }
         }
     </style>
