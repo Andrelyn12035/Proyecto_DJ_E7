@@ -19,12 +19,12 @@
         }
         @media (max-width: 740px) {
           html, body, header, .view {
-            height: 1000px;
+            height: 100%;
           }
         }
         @media (min-width: 800px) and (max-width: 850px) {
           html, body, header, .view {
-            height: 650px;
+            height: 100%;
           }
         }
         @media (min-width: 800px) and (max-width: 850px) {
@@ -83,7 +83,7 @@
     <!-- /.Navbar -->
     <main style="background:linear-gradient(rgba(1, 37, 83, 0.6), rgba(42, 41, 49, 0.6));">
       <div style="width: 100%; max-width: 330px; padding: 15px; margin: auto;">
-        <div class="card ml-n5" style="width: 132%; margin-top: 9rem; margin-bottom: 3.45rem">
+        <div class="card ml-n5" style="width: 132%; margin-top: 5rem; margin-bottom: 3.45rem;">
           <div class="card-body">
             <div class="text-center">
               <i class="fas fa-lock text-muted text-center" style="font-size: 5rem; text-align: center;"></i>
