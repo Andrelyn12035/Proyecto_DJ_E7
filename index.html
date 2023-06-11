@@ -43,7 +43,7 @@
       .galeria .carousel-inner .carousel-item.active, .galeria .carousel-inner .carousel-item-next, .galeria .carousel-inner .carousel-item-prev {
         display: flex;
       }
-      /* display 3 */
+      /* Galeria */
       @media (min-width: 768px) {
         .galeria .carousel-inner .carousel-item-right.active, .galeria .carousel-inner .carousel-item-next {
           transform: translateX(33.333%);
@@ -101,6 +101,11 @@
         .modal-dialog {
           max-width: 650px;
         }
+      }
+      /* Galeria de eventos */
+      .thumb{
+        margin-bottom: 30px;
+        border-radius: 8px;
       }
     </style>
   </head>
@@ -320,8 +325,7 @@
       </div>
     <!--/.Carousel Wrapper-->
     </div>
-    
-
+  
     <!--Main layout-->
     <main>
       <!-- Conócenos -->
@@ -354,6 +358,159 @@
         </div>
       </section>
       <!-- /.Conócenos -->
+      
+      <!-- Galeria de eventos-->
+      <!-- Modal 1 -->
+      <div class="modal fade" id="img1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <img src="img/evento_bautizo.jpg" alt="Jardín de eventos" class="card-img-top mb-4"/>
+                <h5 class="text-center"> Bautizo </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 1 -->
+      <!-- Modal 2 -->
+      <div class="modal fade" id="img2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <img src="img/evento_comunion.jpg" alt="Jardín de eventos" class="card-img-top mb-4"/>
+                <h5 class="text-center"> Primera Comunión </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 2 -->
+      <!-- Modal 3 -->
+      <div class="modal fade" id="img3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <img src="img/evento_XV.jpg" alt="Jardín de eventos" class="card-img-top mb-4"/>
+                <h5 class="text-center"> XV años </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 3 -->
+      <!-- Modal 4 -->
+      <div class="modal fade" id="img4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <img src="img/evento_cumpleaños.jpg" alt="Jardín de eventos" class="card-img-top mb-4"/>
+                <h5 class="text-center"> Cumpleaños </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 4 -->
+      <!-- Modal 5 -->
+      <div class="modal fade" id="img5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <img src="img/evento_boda.jpg" alt="Jardín de eventos" class="card-img-top mb-4"/>
+                <h5 class="text-center"> Boda </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 5 -->
+      <!-- Modal 6 -->
+      <div class="modal fade" id="img6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </br>
+              <div class="container">
+                <img src="img/evento_infantil.jpg" alt="Jardín de eventos" class="card-img-top mb-4"/>
+                <h5 class="text-center"> Fiesta Infantil </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.Modal 6 -->
+
+      <section>
+        <div class="container text-center my-3 galeria">
+          <br><br><h2 class="font-weight-light">GALERIA DE EVENTOS</h2><br>
+          <!-- Grid row -->
+          <div class="row wow fadeIn mt-4 d-flex justify-content-around">
+            <!-- Grid column -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <a href="#" data-toggle="modal" data-target="#img1">
+                <img src="img/evento_bautizo.jpg" class="img-fluid thumb" alt="Bautizo" title="Bautizo">
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <a href="#" data-toggle="modal" data-target="#img2">
+                <img src="img/evento_comunion.jpg" class="img-fluid thumb" title="Primera Comunión">
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <a href="#" data-toggle="modal" data-target="#img3">
+                <img src="img/evento_XV.jpg" class="img-fluid thumb" title="XV años">
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <a href="#" data-toggle="modal" data-target="#img4">
+                <img src="img/evento_cumpleaños.jpg" class="img-fluid thumb" title="Cumpleaños">
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <a href="#" data-toggle="modal" data-target="#img5">
+                <img src="img/evento_boda.jpg" class="img-fluid thumb" title="Boda">
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <a href="#" data-toggle="modal" data-target="#img6">
+              <img src="img/evento_infantil.jpg" class="img-fluid thumb" title="Fiesta infantil">
+            </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ./Galeria de eventos-->
+
+      <!-- Galeria de salones y jardines-->
       <!-- Modal 1 -->
       <div class="modal fade" id="learnMore1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="dialog">
@@ -510,10 +667,10 @@
         </div>
       </div>
       <!-- /.Modal 6 -->
-      <!-- Galeria -->
+      
       <section>
       <div class="container text-center my-3 galeria">
-        <br><br><h2 class="font-weight-light">GALERIA DE FOTOS</h2><br><!--https://www.codeply.com/go/EIOtI7nkP8-->
+        <br><br><h2 class="font-weight-light">SALONES Y JARDINES</h2><br><!--https://www.codeply.com/go/EIOtI7nkP8-->
         <div class="row mx-auto my-auto">
           <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
