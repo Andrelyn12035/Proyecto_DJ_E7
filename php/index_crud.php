@@ -1,6 +1,6 @@
 <?php 
-    include("db.php");
-    session_start();
+  include("db.php");
+  session_start();
 	if($_SESSION["usuario"] == NULL && $_SESSION["contraseña"] == NULL){
 		header("Location: ../index.html");
 	}
@@ -47,9 +47,6 @@
           justify-content: center;
         }
       }
-      main{
-        height: 100%;
-      }
     </style>
 </head>
 <body>
@@ -88,7 +85,7 @@
     </nav>
     <!-- /.Navbar -->
 
-    <main>
+    <main style="margin-top: 7%;">
       <h6 class="text-dark m-5">Bienvenido <?php echo $usuario ?></h6>
       <div class="container d-flex justify-content-between align-items-center tarjeta" style="margin-top: 8rem; width: 100%">
         <div class="container w-50 d-flex justify-content-center">
