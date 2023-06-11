@@ -1,11 +1,11 @@
 <?php 
     include("db.php");
     session_start();
-	if($_SESSION["usuario"] == NULL && $_SESSION["contraseña"] == NULL){
-		header("Location: ../index.html");
+	if(isset($_SESSION["usuario"])){
+		$usuario = $_SESSION["usuario"];
 	}
 	else{
-		$usuario = $_SESSION["usuario"];
+    header("Location: ../login_admin.html");
 	}
 ?>
 
@@ -79,7 +79,7 @@
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
               <a href="logout.php?cerrar=yes" class="nav-link border border-light rounded">
-                <i class="fas fa-chevron-left mr-2"></i> Salir&nbsp;&nbsp;
+                <i class="fas fa-chevron-left mr-2"></i> Cerrar sesión&nbsp;&nbsp;
               </a>
             </li>
           </ul>

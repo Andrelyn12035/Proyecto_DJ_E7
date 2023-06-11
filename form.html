@@ -13,6 +13,10 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
+    <!-- picker -->
+    
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <style type="text/css">
       html, body, header, .view {
         height: 100%;
@@ -86,7 +90,7 @@
               <a class="nav-link" href="comprobante.html" target="_self">Comprobante</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login_admin.html" target="_self">Administrador</a>
+              <a class="nav-link" href="php/index_crud.php" target="_self">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
@@ -278,8 +282,9 @@
                           <div class="md-form m-0">
                             <i class="fas fa-map-marked-alt prefix grey-text"></i>
                             <label for="lugar"> Sede del evento</label><br><br>
-                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required>
-                              <option value="salon1" selected>Gran Salón del Valle</option>
+                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required onchange="hora()">
+                              <option hidden disabled selected value> Selecciona un lugar </option>
+                              <option value="salon1">Gran Salón del Valle</option>
                               <option value="salon2">Lion's Palace</option>
                               <option value="jardin">Jardin Santa Fe</option>
                             </select>
@@ -290,16 +295,16 @@
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
                             <i class="fas fa-calendar prefix grey-text"></i>
-                            <label for="fecha"> Fecha del evento</label><br><br>
-                            <input type="date" id="fecha" name="fecha" class="form-control mt-n2 ml-0 custom-select-sm" required>
+                            <label for="fecha">Fecha</label><br><br>
+                            <input type="date"  id="fecha" name="fecha" class="form-control mt-n2 ml-0 custom-select-sm" required>   
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="custom-select mr-sm-2" name="hora" id="horario" required>
-                              <option selected>Choose...</option>
+                            <select class="custom-select mr-sm-2" disabled name="hora" id="horario" required>
+                              
                             </select>
                           </div>
                         </div>
@@ -429,7 +434,9 @@
     <!-- SCRIPTS -->
     <!-- JQuery -->
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
     <!-- Bootstrap tooltips -->
+
     <script type="text/javascript" src="js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -437,8 +444,12 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script type="text/javascript" src="js/validaciones.js"></script>
     <!-- Initializations -->
+    <!-- Bootstrap Datepicker JS -->
     <script type="text/javascript">
       // Animations initialization
+      $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
       new WOW().init();
     </script>
   </body>

@@ -89,6 +89,28 @@ INSERT INTO `administrador` (`usuario`, `contraseña`) VALUES
 ('andrelyn12035', 'kevin12');
 
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*
+CREATE TABLE IF NOT EXISTS `evento` (
+  `id_evento` INT COLLATE utf8_spanish_ci NOT NULL AUTO_INCREMENT,
+  `folio` varchar(26) COLLATE utf8_spanish_ci NOT NULL,
+  `sede` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` date NOT NULL,
+  `horario` time NOT NULL,
+  `tipo` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `menu` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `no_personas` int COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `a_paterno` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `a_materno` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `curp` varchar(18) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(64) COLLATE utf8_spanish_ci NOT NULL,
+  `calle` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `numero` int COLLATE utf8_spanish_ci NOT NULL,
+  `colonia` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `cp` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
+  `alcaldia` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `entidad` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_evento`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+*/
