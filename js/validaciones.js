@@ -1,3 +1,4 @@
+
 function validar() {
    let nombre = document.forms["contratacion"]["nombre"].value;
    let paterno = document.forms["contratacion"]["a_paterno"].value; 
@@ -94,3 +95,52 @@ function curpValida(str) {
        
    return true; //Validado
 }
+
+$("#lugar").on('change',function(){
+   // para obter el id del pais
+   let cal = this.value;
+
+   let currentDate = new Date();
+   // Add one day to the current date
+   let dia = new Date(currentDate);
+   dia.setDate(currentDate.getDate() + 1);
+   n_dia = dia.toLocaleDateString('en-GB');
+   let data = {
+      lugar: cal,
+      fecha: n_dia
+   };
+
+   fetch('https://localhost/E7_DJ/php/fecha.php', {
+      method: 'POST',
+      body: data,
+      headers: {
+         'Content-Type': 'application/json'
+      },
+       body: JSON.stringify(data) 
+    }).then(response => response.json())
+    .then(result => {
+      // Handle the response from PHP
+      let dis = []
+      
+      console.log(result);
+      console.log(result.length);
+      if (result.length == 0) {
+         console.log("disponibles")
+      }else{
+         result.forEach(element => {
+            let fe = new Date(element.fecha);
+            if (fe.getDay()) {
+               
+            }
+         });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+   
+    
+
+
+});
+

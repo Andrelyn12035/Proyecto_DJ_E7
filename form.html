@@ -14,9 +14,12 @@
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
     <!-- picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.min.css" integrity="sha512-aQb0/doxDGrw/OC7drNaJQkIKFu6eSWnVMAwPN64p6sZKeJ4QCDYL42Rumw2ZtL8DB9f66q4CnLIUnAw28dEbg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.standalone.min.css" integrity="sha512-t+00JqxGbnKSfg/4We7ulJjd3fGJWsleNNBSXRk9/3417ojFqSmkBfAJ/3+zpTFfGNZyKxPVGwWvaRuGdtpEEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+    <!-- datepicker styles -->
     <style type="text/css">
       html, body, header, .view {
         height: 100%;
@@ -114,7 +117,7 @@
             <!--Card content-->
             <div class="card-body">
               <!-- Form -->
-              <form name="contratacion" onsubmit="return validar()" class="m-4">
+              <form name="contratacion" action="php/form.php" method="POST" onsubmit="return validar()" class="m-4">
                 <!-- Heading -->
                 <h3 class="dark-grey-text text-center font-weight-bold">Servicio de contratación de DJ</h3>
                 <!-- Grid row -->
@@ -279,11 +282,11 @@
                           <div class="md-form m-0">
                             <i class="fas fa-map-marked-alt prefix grey-text"></i>
                             <label for="lugar"> Sede del evento</label><br><br>
-                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required onchange="hora()">
+                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required >
                               <option hidden disabled selected value> Selecciona un lugar </option>
-                              <option value="salon1">Gran Salón del Valle</option>
-                              <option value="salon2">Lion's Palace</option>
-                              <option value="jardin">Jardin Santa Fe</option>
+                              <option value="S1">Gran Salón del Valle</option>
+                              <option value="S2">Lion's Palace</option>
+                              <option value="J1">Jardin Santa Fe</option>
                             </select>
                           </div>
                         </div>
@@ -293,15 +296,19 @@
                           <div class="md-form mr-4 m-0">
                             <i class="fas fa-calendar prefix grey-text"></i>
                             <label for="fecha">Fecha</label><br><br>
-                            <input type="date"  id="fecha" name="fecha" class="form-control mt-n2 ml-0 custom-select-sm" required>   
+                            <!-- Date Picker -->
+                            <div class="input-group date">
+                              <input type="text" id="fecha" name="fecha" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            </div>
+                            <!-- // Date Picker --> 
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="custom-select mr-sm-2" disabled name="hora" id="horario" required>
-                              
+                            <select class="custom-select mr-sm-2" name="hora" id="horario" required>
+                              <option value="1">Lion's Palace</option>
                             </select>
                           </div>
                         </div>
@@ -370,7 +377,7 @@
                       <div class="form-group mt-3">
                         <div class="text-center">
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
-                          <button class="btn btn-dark" type="submit"><i class="fas fa-paper-plane prefix mr-2"></i> Enviar </button>
+                          <button class="btn btn-dark" name="form" type="submit"><i class="fas fa-paper-plane prefix mr-2"></i> Enviar </button>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -439,14 +446,23 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
-    <script type="text/javascript" src="js/validaciones.js"></script>
+    
     <!-- Initializations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.es.min.js" integrity="sha512-5pjEAV8mgR98bRTcqwZ3An0MYSOleV04mwwYj2yw+7PBhFVf/0KcE+NEox0XrFiU5+x5t5qidmo5MgBkDD9hEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script type="text/javascript" src="js/validaciones.js"></script>
+     <!-- Bootstrap JS -->
     <!-- Bootstrap Datepicker JS -->
     <script type="text/javascript">
       // Animations initialization
-      $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
+      $('.input-group.date').datepicker({
+          language: "es",
+          daysOfWeekDisabled: "1,2,3,4",
+          datesDisabled: ["25/06/2023"],
+          startDate: "+1d",
+          format: "dd-mm-yyyy"
+      });
       new WOW().init();
     </script>
   </body>
