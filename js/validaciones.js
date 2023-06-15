@@ -1,5 +1,6 @@
 
 function validar() {
+   
    let nombre = document.forms["contratacion"]["nombre"].value;
    let paterno = document.forms["contratacion"]["a_paterno"].value; 
    let materno = document.forms["contratacion"]["a_materno"].value; 
@@ -66,8 +67,8 @@ function validar() {
       $('#exampleModal').modal('show');
       return false;
    }
-   $('#exito').modal('show');
-   return true;
+   $('#confirmar').modal('show');
+   
 }
 
 function curpValida(str) {
@@ -95,11 +96,18 @@ function curpValida(str) {
        
    return true; //Validado
 }
-
+let pend = [], obj = {}, dis = [];
 $("#lugar").on('change',function(){
    // para obter el id del pais
+   $('.input-group.date').datepicker(
+      'setDatesDisabled', ''
+  );
+   document.getElementById("fecha").value = '';
+   document.getElementById("horario").innerHTML = '';
+   document.getElementById("fecha").disabled = true;
+   document.getElementById("horario").disabled = true;
    let cal = this.value;
-
+   
    let currentDate = new Date();
    // Add one day to the current date
    let dia = new Date(currentDate);
@@ -120,7 +128,7 @@ $("#lugar").on('change',function(){
     }).then(response => response.json())
     .then(result => {
       // Handle the response from PHP
-      let dis = []
+      pend = [], obj = {}, dis = [];
       
       console.log(result);
       console.log(result.length);
@@ -128,12 +136,28 @@ $("#lugar").on('change',function(){
          console.log("disponibles")
       }else{
          result.forEach(element => {
-            let fe = new Date(element.fecha);
-            if (fe.getDay()) {
-               
+            let dateString = element.fecha
+            let [day, month, year] = dateString.split('/')
+            const fe = new Date(+year, +month - 1, +day)
+            if (fe.getDay() != 0 ) {
+               if (pend.includes(element.fecha)) {
+                  dis.push(element.fecha)
+               }else{
+                  obj[element.fecha] = element.hora;
+                  pend.push(element.fecha);
+               }
+            }else{
+               dis.push(element.fecha)
             }
-         });
+         })
+         $('.input-group.date').datepicker(
+            'setDatesDisabled', dis
+        );
+         console.log(pend)
+         console.log(dis)
+         console.log(obj)
       }
+      document.getElementById("fecha").disabled = false;
     })
     .catch(error => {
       console.error('Error:', error);
@@ -144,3 +168,95 @@ $("#lugar").on('change',function(){
 
 });
 
+$("#fecha").on('change',function(){
+   let fecha = this.value
+   document.getElementById("horario").innerHTML = '';
+   let dateString = fecha;
+   let [day, month, year] = dateString.split('/')
+   const fe = new Date(+year, +month - 1, +day)
+   if (fe.getDay == 0) {
+      document.getElementById("horario").innerHTML += '<option value="3">9-14 hrs</option>'
+   }else if(fe.getDay == 6){
+      if (Object.keys(obj).includes(fecha)) {
+         let pos = Object.keys(obj).indexOf(fecha)
+         let oc = Object.values(obj)[pos]
+         console.log(oc)
+         if (oc == 1) {
+            document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+         }else{
+            document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
+         }
+      }else{
+         document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+      }
+   }else{
+      if (Object.keys(obj).includes(fecha)) {
+         let pos = Object.keys(obj).indexOf(fecha)
+         let oc = Object.values(obj)[pos]
+         console.log(oc)
+         if (oc == 1) {
+            document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+         }else{
+            document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
+         }
+      }else{
+         document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+      }
+   }
+   document.getElementById("horario").disabled = false;
+
+});
+
+$("#entidad").on('change',function(){
+      var otherOptionContainer = document.getElementById("otro_estado");
+      var otherOptionInput = document.getElementById("col");
+   if (this.value == "CDMX") {
+         otherOptionContainer.style.display = "none";
+         otherOptionInput.required = false;
+
+         otherOptionInput.name = "otro"
+         otherOptionInput.required = false
+         document.getElementById("alcaldia").name = "alcaldia"
+         document.getElementById("alcaldia").required = true
+         document.getElementById("alcaldia").disabled = false
+      } else {
+         otherOptionContainer.style.display = "block";
+         otherOptionInput.required = true;
+
+         otherOptionInput.name = "alcaldia"
+         otherOptionInput.required = true
+         document.getElementById("alcaldia").name = "otro"
+         document.getElementById("alcaldia").required = false
+         document.getElementById("alcaldia").disabled = true
+      }
+    
+   
+})
+
+$('#confirmar').on('shown.bs.modal', function (e) {
+   console.log("hoa")
+   document.getElementById("nom").innerHTML = document.getElementsByName("nombre")[0].value
+   document.getElementById("pat").innerHTML = document.getElementsByName("a_paterno")[0].value
+   document.getElementById("mat").innerHTML = document.getElementsByName("a_materno")[0].value
+   document.getElementById("cur").innerHTML = document.getElementsByName("curp")[0].value
+   document.getElementById("cor").innerHTML = document.getElementsByName("correo")[0].value
+   document.getElementById("cal").innerHTML = document.getElementsByName("calle")[0].value
+   document.getElementById("nu").innerHTML = document.getElementsByName("num")[0].value
+   document.getElementById("co").innerHTML = document.getElementsByName("colonia")[0].value
+   document.getElementById("c").innerHTML = document.getElementsByName("codigo")[0].value
+   document.getElementById("mu").innerHTML =  document.getElementsByName("alcaldia")[0].value
+   document.getElementById("es").innerHTML = document.getElementsByName("estado")[0].value
+   document.getElementById("sed").innerHTML = document.getElementsByName("lugar")[0].value
+   document.getElementById("fec").innerHTML = document.getElementsByName("fecha")[0].value
+   document.getElementById("hor").innerHTML = document.getElementsByName("hora")[0].value
+   document.getElementById("des").innerHTML = document.getElementsByName("evento")[0].value
+   document.getElementById("men").innerHTML = document.getElementsByName("menu")[0].value
+   document.getElementById("per").innerHTML = document.getElementsByName("personas")[0].value
+   
+})
+
+$('#btnYes').click(function() {
+   $('#fin').trigger( "click" );
+});

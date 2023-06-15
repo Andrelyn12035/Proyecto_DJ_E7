@@ -31,6 +31,7 @@
       echo "Colonia: " . $colonia . "<br>";
       echo "Código Postal: " . $codigo . "<br>";
       echo "Alcaldía: " . $alc . "<br>";
+      echo "Estado: " . $entidad . "<br>";
       echo "Lugar: " . $lugar . "<br>";
       echo "Fecha: " . $fecha . "<br>";
       echo "Hora: " . $hora . "<br>";
@@ -39,7 +40,7 @@
       echo "Menú: " . $menu . "<br>";
       echo "Personas: " . $personas . "<br>";
 
-      $sql = "INSERT INTO evento(folio, sede, fecha, tipo, menu, no_personas, nombre, a_paterno, a_materno, curp, correo, calle, numero, colonia, cp, alcaldia, entidad, hora) VALUES ('$folio', '$lugar', STR_TO_DATE('$fecha', '%d-%m-%Y') , '$evento', '$menu', '$personas', '$nombre', '$a_pat', '$a_mat', '$curp', '$correo', '$calle', '$num', '$colonia', '$codigo', '$alc', '$entidad', '$hora')";
+      $sql = "INSERT INTO evento(folio, sede, fecha, tipo, menu, no_personas, nombre, a_paterno, a_materno, curp, correo, calle, numero, colonia, cp, alcaldia, entidad, hora) VALUES ('$folio', '$lugar', STR_TO_DATE('$fecha', '%d/%m/%Y') , '$evento', '$menu', '$personas', '$nombre', '$a_pat', '$a_mat', '$curp', '$correo', '$calle', '$num', '$colonia', '$codigo', '$alc', '$entidad', '$hora')";
 
       $res = mysqli_query($conexion, $sql);
 

@@ -58,6 +58,10 @@
           margin-bottom: 0px;
         }
       }
+
+      td{
+        color:darkblue;
+      }
     </style>
   </head>
 
@@ -117,14 +121,14 @@
             <!--Card content-->
             <div class="card-body">
               <!-- Form -->
-              <form name="contratacion" action="php/form.php" method="POST" onsubmit="return validar()" class="m-4">
+              <form name="contratacion" action="php/form.php" id="contratacion" method="POST" class="m-4">
                 <!-- Heading -->
                 <h3 class="dark-grey-text text-center font-weight-bold">Servicio de contratación de DJ</h3>
                 <!-- Grid row -->
                 <div class="row wow fadeIn mt-4 d-flex justify-content-around">
                   <!-- Grid column -->
                   <div class="col-md-5 col-xl-6">
-                    <h6 class="grey-text text-center"><strong>DATOS PERSONALES</strong></h6>
+                    <h6 class="grey-text text-center"><strong>CONTACTO</strong></h6>
                     <hr>
                     <fieldset>
                       <div class="form-row">
@@ -267,11 +271,23 @@
                           </div>
                         </div>
                       </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <div class="md-form  m-0">
+                            <div class="form-group col-md-12 mt-4" id="otro_estado" style="display: none;">
+                              <div class="md-form ml-n2  m-0">
+                                <input type="text" id="col" name="otro" class="form-control" >
+                                <label for="col">Especificar municipio</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </fieldset>
                   </div> 
                   
                   <!-- /.Grid column -->
-
+                  
                   <!-- Grid column -->
                   <div class="col-md-5 col-xl-6 mb-4 ">
                     <h6 class="grey-text text-center"><strong>EVENTO</strong></h6>
@@ -298,7 +314,7 @@
                             <label for="fecha">Fecha</label><br><br>
                             <!-- Date Picker -->
                             <div class="input-group date">
-                              <input type="text" id="fecha" name="fecha" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              <input type="text" id="fecha" name="fecha" class="form-control" disabled required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                             </div>
                             <!-- // Date Picker --> 
                           </div>
@@ -307,8 +323,7 @@
                           <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="custom-select mr-sm-2" name="hora" id="horario" required>
-                              <option value="1">Lion's Palace</option>
+                            <select class="custom-select mr-sm-2" name="hora" id="horario" disabled required>
                             </select>
                           </div>
                         </div>
@@ -339,6 +354,9 @@
                               var otherOptionInput = document.getElementById("otra_opc");
                               otherOptionContainer.style.display = "none";
                                 otherOptionInput.required = false;
+
+                              document.getElementById("otro_estado").style.display = "none";
+                              document.getElementById("col").style.display = "none";
                             });
                             function showTextField(selectElement) {
                               var otherOptionContainer = document.getElementById("contenerdorOtraOpcion");
@@ -346,9 +364,19 @@
                               if (selectElement.value === "otro") {
                                 otherOptionContainer.style.display = "block";
                                 otherOptionInput.required = true;
+
+                                otherOptionInput.name = "evento"
+                                otherOptionInput.required = true
+                                document.getElementById("OpcionSeleccionada").name = "otra_opc"
+                                document.getElementById("OpcionSeleccionada").required = false
                               } else {
                                 otherOptionContainer.style.display = "none";
                                 otherOptionInput.required = false;
+
+                                otherOptionInput.name = "otra_opc"
+                                otherOptionInput.required = false
+                                document.getElementById("OpcionSeleccionada").name = "evento"
+                                document.getElementById("OpcionSeleccionada").required = true
                               }
                             }
                           </script>
@@ -377,7 +405,10 @@
                       <div class="form-group mt-3">
                         <div class="text-center">
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
-                          <button class="btn btn-dark" name="form" type="submit"><i class="fas fa-paper-plane prefix mr-2"></i> Enviar </button>
+                          <button class="btn btn-dark" name="form" style="display: none;" id="fin" type="submit"></button>
+                          <button type="button" onclick="validar()" class="btn btn-dark">
+                            <i class="fas fa-paper-plane prefix mr-2"></i>Enviar
+                          </button>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -396,6 +427,44 @@
                             </div>
                           </div>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="confirmar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">¿Los datos son correctos?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p><span style="font-weight: bold;">Nombre: </span> <span id="nom"></span></p>
+                                <p><span style="font-weight: bold;">Apellido paterno: </span> <span id="pat"></span></p>
+                                <p><span style="font-weight: bold;">Apellido materno: </span> <span id="mat"></span></p>
+                                <p><span style="font-weight: bold;">CURP: </span> <span id="cur"></span></p>
+                                <p><span style="font-weight: bold;">Correo: </span> <span id="cor"></span></p>
+                                <p><span style="font-weight: bold;">Calle: </span> <span id="cal"></span></p>
+                                <p><span style="font-weight: bold;">Número: </span> <span id="nu"></span></p>
+                                <p><span style="font-weight: bold;">Colonia: </span> <span id="co"></span></p>
+                                <p><span style="font-weight: bold;">CP: </span> <span id="c"></span></p>
+                                <p><span style="font-weight: bold;">Municipio: </span> <span id="mu"></span></p>
+                                <p><span style="font-weight: bold;">Estado: </span> <span id="es"></span></p>
+                                <p><span style="font-weight: bold;">Sede del evento: </span> <span id="sed"></span></p>
+                                <p><span style="font-weight: bold;">Fecha: </span> <span id="fec"></span></p>
+                                <p><span style="font-weight: bold;">Horario: </span> <span id="hor"></span></p>
+                                <p><span style="font-weight: bold;">Descripción: </span> <span id="des"></span></p>
+                                <p><span style="font-weight: bold;">Menú: </span> <span id="men"></span></p>
+                                <p><span style="font-weight: bold;">Número de personas: </span> <span id="per"></span></p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-caution" data-dismiss="modal">Regresar</button>
+                                <button type="button" name="form" id="btnYes" class="btn btn-dark">Aceptar y enviar</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Modal -->
+                        
                         <!-- Modal -->
                       </div> 
                     </fieldset>
@@ -459,9 +528,8 @@
       $('.input-group.date').datepicker({
           language: "es",
           daysOfWeekDisabled: "1,2,3,4",
-          datesDisabled: ["25/06/2023"],
           startDate: "+1d",
-          format: "dd-mm-yyyy"
+          format: "dd/mm/yyyy"
       });
       new WOW().init();
     </script>
