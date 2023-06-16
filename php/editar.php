@@ -622,7 +622,7 @@
       $('.input-group.date').datepicker({
           language: "es",
           daysOfWeekDisabled: "1,2,3,4",
-          startDate: "+1d",
+          startDate: "+0d",
           format: "dd/mm/yyyy"
       });
       new WOW().init();

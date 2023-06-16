@@ -111,7 +111,7 @@ $("#lugar").on('change',function(){
    let currentDate = new Date();
    // Add one day to the current date
    let dia = new Date(currentDate);
-   dia.setDate(currentDate.getDate() + 1);
+   dia.setDate(currentDate.getDate());
    n_dia = dia.toLocaleDateString('en-GB');
    let data = {
       lugar: cal,
