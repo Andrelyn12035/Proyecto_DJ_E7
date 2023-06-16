@@ -118,7 +118,7 @@ $("#lugar").on('change',function(){
       fecha: n_dia
    };
 
-   fetch('https://localhost/E7_DJ/php/fecha.php', {
+   fetch('php/fecha.php', {
       method: 'POST',
       mode: "cors",
       headers: {

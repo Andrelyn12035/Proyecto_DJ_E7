@@ -187,7 +187,7 @@
         let data = {
           id: nombre
         }
-        fetch('https://localhost/E7_DJ/php/borrar.php', {
+        fetch('borrar.php', {
           method: 'POST',
           mode: "cors",
           headers: {
@@ -212,7 +212,7 @@
         let data = {
           fecha: n_dia
         };
-        fetch('https://localhost/E7_DJ/php/tabla.php', {
+        fetch('tabla.php', {
           method: 'POST',
           body: data,
           headers: {
