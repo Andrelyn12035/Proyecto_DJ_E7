@@ -47,6 +47,26 @@
           justify-content: center;
         }
       }
+
+      .dtHorizontalVerticalExampleWrapper {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      #dtHorizontalVerticalExample th, td {
+        white-space: nowrap;
+      }
+      table.dataTable thead .sorting:after,
+      table.dataTable thead .sorting:before,
+      table.dataTable thead .sorting_asc:after,
+      table.dataTable thead .sorting_asc:before,
+      table.dataTable thead .sorting_asc_disabled:after,
+      table.dataTable thead .sorting_asc_disabled:before,
+      table.dataTable thead .sorting_desc:after,
+      table.dataTable thead .sorting_desc:before,
+      table.dataTable thead .sorting_desc_disabled:after,
+      table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
+      }
     </style>
 </head>
 <body>
@@ -85,41 +105,165 @@
     </nav>
     <!-- /.Navbar -->
 
-    <main style="margin-top: 7%;">
+    
       <h6 class="text-dark m-5">Bienvenido <?php echo $usuario ?></h6>
-      <div class="container d-flex justify-content-between align-items-center tarjeta" style="margin-top: 8rem; width: 100%">
-        <div class="container w-50 d-flex justify-content-center">
-          <a href="../form.html" class="btn btn-success">Crear nuevo evento</a>
+        <div class="container">
+        <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+    width="75%">
+          <thead>
+            <tr>
+              <th>Editar</th>
+              <th>Eliminar</th>
+              <th>Folio</th>
+              <th>Nombre(s)</th>
+              <th>Apellido paterno</th>
+              <th>Apellido materno</th>
+              <th>CURP</th>
+              <th>Correo</th>
+              <th>Calle</th>
+              <th>Número</th>
+              <th>Colonia</th>
+              <th>Código postal</th>
+              <th>Alcaldía</th>
+              <th>Estado</th>
+              <th>Lugar</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Evento</th>
+              <th>Menú</th>
+              <th>No. de personas</th>
+            </tr>
+          </thead>
+          <tbody id="tabla">
+            
+          </tbody>
+        </table>
         </div>
-        <div class="container w-50 d-flex flex-column justify-content-around">
-          <div class="card m-2">
-            <h5 class="card-header">Folio: ####</h5>
-              <div class="card-body">
-                <h5 class="card-title">Fecha: #####</h5>
-                  <p class="card-text">Datos del evento:</p>
-                  <a href="../form.html" class="btn btn-primary">Editar evento</a>
-                  <a href="#" class="btn btn-danger">Borrar evento</a>
-              </div>
-          </div>
-          <div class="card m-2">
-            <h5 class="card-header">Folio: ####</h5>
-              <div class="card-body">
-                <h5 class="card-title">Fecha: #####</h5>
-                <p class="card-text">Datos del evento:</p>
-                <a href="../form.html" class="btn btn-primary">Editar evento</a>
-                <a href="#" class="btn btn-danger">Borrar evento</a>
-              </div>
-          </div>
-        </div>
+      <div class="container">
+        <a  href="../form.html"><button type="button"  class="btn btn-primary btn-lg">Agregar evento</button></a>
       </div>
-      <hr>
-      <div class="container-lg my-auto mx-4">
-        <div class="" style="margin-top:8rem; ">
-          <h3 style="display:inline;" class="ml-5">Cliente</h3>
-          <div style="display:inline;" class="ml-5">
-            <a  href="../form.html"><button type="button" class="btn btn-primary btn-lg">AGREGAR</button></a>
-          </div>
-        </div>
-      </div>
-    </main>
-<?php include("footer.php")?>
+    
+    
+
+    
+  <footer class="page-footer text-center font-small wow fadeIn">
+    <!--Copyright-->
+    <div class="footer-copyright py-3">© 2023 Copyright:
+        <a href="../index.html" target="_self"> RhythmMakers</a>
+    </div>
+  </footer>
+
+    <!-- SCRIPTS -->
+    
+    
+    <!-- JQuery -->
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript" src="../js/addons/datatables.min.js"></script>
+    <script>
+      new WOW().init();
+      $(document).ready(function () {
+        $('#dtHorizontalVerticalExample').DataTable({
+          "scrollX": true,
+          "scrollY": true,
+          "searching": false,
+          "paging": false,
+          "bInfo" : false
+
+        });
+        $('.dataTables_length').addClass('bs-select');
+        tabla()
+      });
+
+      function borrar(elemento) {
+        let nombre = elemento.getAttribute("name")
+        console.log(nombre)
+        let data = {
+          id: nombre
+        }
+        fetch('https://localhost/E7_DJ/php/borrar.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then()
+        .then(result => {
+          tabla()
+          $('#dtHorizontalVerticalExample').DataTable().columns.adjust()
+          })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+
+      function tabla() {
+        let currentDate = new Date();
+        let dia = new Date(currentDate);
+        dia.setDate(currentDate.getDate() - 1);
+        let n_dia = dia.toLocaleDateString('en-GB');
+        let data = {
+          fecha: n_dia
+        };
+        fetch('https://localhost/E7_DJ/php/tabla.php', {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data) 
+        }).then(response => response.json())
+        .then(result => {
+          console.log(result);
+          console.log(result.length);
+          let tr = ''
+          document.getElementById("tabla").innerHTML = tr; 
+          result.forEach(element => {
+            tr += 
+            `
+            <tr>
+              <td><a href="editar.php?id=`+element.id_evento+`"  class="btn btn-info btn-sm" name="">
+                  <i class="fas fa-marker"></i>
+                </a>
+              </td>
+              <td><a onclick="borrar(this)" class="btn btn-danger btn-sm" name="`+element.id_evento+`">
+                <i class="far fa-trash-alt"></i>
+                </a>
+              </td>
+              <td>`+element.folio+`</td>
+              <td>`+element.nombre+`</td>
+              <td>`+element.a_paterno+`</td>
+              <td>`+element.a_materno+`</td>
+              <td>`+element.curp+`</td>
+              <td>`+element.correo+`</td>
+              <td>`+element.calle+`</td>
+              <td>`+element.numero+`</td>
+              <td>`+element.colonia+`</td>
+              <td>`+element.cp+`</td>
+              <td>`+element.alcaldia+`</td>
+              <td>`+element.entidad+`</td>
+              <td>`+element.sede+`</td>
+              <td>`+element.fecha+`</td>
+              <td>`+element.hora+`</td>
+              <td>`+element.tipo+`</td>
+              <td>`+element.menu+`</td>
+              <td>`+element.no_personas+`</td>
+            </tr>
+            `
+          });
+          document.getElementById("tabla").innerHTML = tr;
+          $('#dtHorizontalVerticalExample').DataTable().columns.adjust()
+          })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+    </script>
+  </body>
+</html>

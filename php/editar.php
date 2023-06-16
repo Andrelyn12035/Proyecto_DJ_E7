@@ -1,3 +1,97 @@
+<?php
+   header("Access-Control-Allow-Origin: *");
+   header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+   header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+   header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
+   include("db.php");
+   session_start();
+   if(isset($_SESSION["usuario"])){
+		$usuario = $_SESSION["usuario"];
+	}
+	else{
+    header("Location: ../login_admin.html");
+	}
+
+
+   $id = "";
+   $nombre = "";
+   $a_pat = "";
+   $a_mat = "";
+   $curp = "";
+   $correo = "";
+   $calle = "";
+   $num = "";
+   $colonia = "";
+   $codigo = "";
+   $alc = "";
+   $entidad = "";
+   $lugar = "";
+   $fecha = "";
+   $hora = "";
+   $evento = "";
+   $desc = "";
+   $menu = "";
+   $personas = "";
+
+
+   if  (isset($_GET['id'])) {
+      $id = $_GET['id'];
+      $query = "SELECT *, DATE_FORMAT(fecha, '%d/%m/%Y') as fec FROM evento WHERE id_evento=$id";
+      $result = mysqli_query($conexion, $query);
+      if (mysqli_num_rows($result) == 1) {
+         $row = mysqli_fetch_array($result);
+         $nombre = $row['nombre'];
+         $a_pat = $row['a_paterno'];
+         $a_mat = $row['a_materno'];
+         $curp = $row['curp'];
+         $correo = $row['correo'];
+         $calle = $row['calle'];
+         $num = $row['numero'];
+         $colonia = $row['colonia'];
+         $codigo = $row['cp'];
+         $alc = $row['alcaldia'];
+         $entidad = $row['entidad'];
+         $lugar = $row['sede'];
+         $fecha = $row['fec'];
+         $hora = $row['hora'];
+         $evento = $row['tipo'];
+         $menu = $row['menu'];
+         $personas = $row['no_personas'];
+      }
+      }
+   
+      if (isset($_POST['update'])) {
+         $nombre = $_POST['nombre'];
+         $a_pat = $_POST['a_paterno'];
+         $a_mat = $_POST['a_materno'];
+         $curp = $_POST['curp'];
+         $correo = $_POST['correo'];
+         $calle = $_POST['calle'];
+         $num = $_POST['num'];
+         $colonia = $_POST['colonia'];
+         $codigo = $_POST['codigo'];
+         $alc = $_POST['alcaldia'];
+         $entidad = $_POST['estado'];
+         $lugar = $_POST['lugar'];
+         $fecha = $_POST['fecha'];
+         $hora = $_POST['hora'];
+         $evento = $_POST['evento'];
+         $menu = $_POST['menu'];
+         $personas = $_POST['personas'];
+         $id = $_POST['id'];
+         $folio = $curp.$lugar.$fecha.$hora;
+
+         $sql = "UPDATE evento set folio = '$folio',sede = '$lugar',fecha = STR_TO_DATE('$fecha', '%d/%m/%Y'),tipo = '$evento',menu = '$menu',no_personas ='$personas',nombre ='$nombre',a_paterno = '$a_pat',a_materno = '$a_mat',curp = '$curp',correo = '$correo',calle = '$calle',numero = '$num',colonia = '$colonia',cp = '$codigo',alcaldia = '$alc',entidad = '$entidad',hora = '$hora' WHERE id_evento = $id";
+
+         $res = mysqli_query($conexion, $sql);
+         if (!$res) {
+            die("Error en query");
+         }
+         $_SESSION['message'] = 'Task Updated Successfully';
+      }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -8,11 +102,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="../css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../css/style.min.css" rel="stylesheet">
     <!-- picker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -71,7 +165,7 @@
       <div class="container">
         <!-- Brand -->
         <a class="navbar-brand" href="index.html">
-          <img src="img/logo.png" style="height: 35px;"><strong>RHM</strong>
+          <img src="../img/logo.png" style="height: 35px;"><strong>RHM</strong>
         </a>
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -83,18 +177,18 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html" target="_self">Inicio
+              <a class="nav-link" href="../index.html" target="_self">Inicio
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#" target="_self">Contratación</a>
+              <a class="nav-link" href="../form.html" target="_self">Contratación</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="comprobante.html" target="_self">Comprobante</a>
+              <a class="nav-link" href="../comprobante.html" target="_self">Comprobante</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="php/index_crud.php" target="_self">Administrador</a>
+              <a class="nav-link" href="index_crud.php" target="_self">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
@@ -111,7 +205,7 @@
     <!-- /.Navbar -->
   
     <!-- Full Page Intro -->
-    <main style="background-image: url('img/form.jpg'); background-repeat:no-repeat; background-size: cover;">
+    <main style="background-image: url('../img/form.jpg'); background-repeat:no-repeat; background-size: cover;">
       <!-- Mask & flexbox options-->
       <div class="mask rgba-black-light justify-content-center align-items-center">
         <!-- Content -->
@@ -121,7 +215,7 @@
             <!--Card content-->
             <div class="card-body">
               <!-- Form -->
-              <form name="contratacion" action="php/form.php" id="contratacion" method="POST" class="m-4">
+              <form name="contratacion" action="editar.php" id="contratacion" method="POST" class="m-4">
                 <!-- Heading -->
                 <h3 class="dark-grey-text text-center font-weight-bold">Servicio de contratación de DJ</h3>
                 <!-- Grid row -->
@@ -135,7 +229,7 @@
                         <div class="form-group col-md-12">
                           <div class="md-form m-0">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text" name="nombre" id="nombre"  class="form-control" required>
+                            <input type="text"  name="nombre" id="nombre"  class="form-control h" required>
                             <label for="nombre"> Nombre(s)</label>
                           </div>
                         </div>
@@ -143,13 +237,13 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <div class="md-form m-0 mr-4">
-                            <input type="text" id="a_paterno" name="a_paterno" class="form-control" required>
+                            <input type="text" id="a_paterno"  name="a_paterno" class="form-control h" required>
                             <label for="a_paterno">Apellido paterno</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="text" id="a_materno" name="a_materno" class="form-control" required>
+                            <input type="text" id="a_materno"  name="a_materno" class="form-control h" required>
                             <label for="a_materno"> Apellido materno</label>
                           </div>
                         </div>
@@ -158,7 +252,7 @@
                         <div class="form-group col-md-12">
                           <div class="md-form  m-0">
                             <i class="fas fa-id-badge prefix grey-text"></i>
-                            <input type="text" id="CURP" name="curp" class="form-control" required>
+                            <input type="text" id="CURP"  name="curp" class="form-control h" required>
                             <label for="CURP"> CURP</label>
                           </div>
                         </div>
@@ -167,7 +261,7 @@
                         <div class="form-group col-md-12">
                           <div class="md-form m-0">
                             <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="email" name="correo" id="correo" class="form-control" required>
+                            <input type="email" name="correo"  id="correo" class="form-control h" required>
                             <label for="correo"> Correo electrónico</label>
                           </div>
                         </div>
@@ -182,13 +276,13 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
-                            <input type="text" name="calle" id="calle" class="form-control" required>
+                            <input type="text" name="calle" id="calle"  class="form-control h" required>
                             <label for="calle">Calle</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="number" name="num" id="num" class="form-control" required>
+                            <input type="number" name="num" id="num" class="form-control h" required>
                             <label for="num"> Número</label>
                           </div>
                         </div>
@@ -196,13 +290,13 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
-                            <input type="text" name="colonia" id="colonia" class="form-control" required>
+                            <input type="text" name="colonia" id="colonia"  class="form-control h" required>
                             <label for="colonia"> Colonia</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="number" maxlength="5" name="codigo" id="codigo" class="form-control" required>
+                            <input type="number" maxlength="5"  name="codigo" id="codigo" class="form-control h" required>
                             <label for="codigo"> Código postal</label>
                           </div>
                         </div>
@@ -211,7 +305,7 @@
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
                             <label for="alcaldia"> Alcaldía o municipio</label><br><br>
-                            <select class="custom-select mr-sm-2" name="alcaldia" id="alcaldia" required>
+                            <select class="custom-select mr-sm-2"  name="alcaldia" id="alcaldia" required>
                               <option value="Alvaro_Obregon">Álvaro Obregón</option>
                               <option value="Azcapotzalco">Azcapotzalco</option>
                               <option value="Benito_Juarez">Benito Juárez</option>
@@ -234,7 +328,7 @@
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <label for="entidad"> Entidad federativa</label><br><br>
-                            <select class="custom-select mr-sm-2" name="estado" id="entidad" required>
+                            <select class="custom-select mr-sm-2"  name="estado" id="entidad" required>
                               <option value="Aguascalientes">Aguascalientes</option>
                               <option value="Baja California">Baja California</option>
                               <option value="Baja California Sur">Baja California Sur</option>
@@ -276,7 +370,7 @@
                           <div class="md-form  m-0">
                             <div class="form-group col-md-12 mt-4" id="otro_estado" style="display: none;">
                               <div class="md-form ml-n2  m-0">
-                                <input type="text" id="col" name="otro" class="form-control" >
+                                <input type="text" id="col" name="otro" class="form-control h" >
                                 <label for="col">Especificar municipio</label>
                               </div>
                             </div>
@@ -298,7 +392,7 @@
                           <div class="md-form m-0">
                             <i class="fas fa-map-marked-alt prefix grey-text"></i>
                             <label for="lugar"> Sede del evento</label><br><br>
-                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required >
+                            <select class="custom-select mr-sm-2" id="lugar"  name="lugar" required >
                               <option hidden disabled selected value> Selecciona un lugar </option>
                               <option value="S1">Gran Salón del Valle</option>
                               <option value="S2">Lion's Palace</option>
@@ -314,7 +408,7 @@
                             <label for="fecha">Fecha</label><br><br>
                             <!-- Date Picker -->
                             <div class="input-group date">
-                              <input type="text" id="fecha" name="fecha" class="form-control" disabled required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              <input type="text" id="fecha" name="fecha"  class="form-control" required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                             </div>
                             <!-- // Date Picker --> 
                           </div>
@@ -323,7 +417,7 @@
                           <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="custom-select mr-sm-2" name="hora" id="horario" disabled required>
+                            <select class="custom-select mr-sm-2"  name="hora" id="horario" required>
                             </select>
                           </div>
                         </div>
@@ -333,7 +427,7 @@
                           <div class="md-form m-0">
                             <i class="fas fa-music prefix grey-text"></i>
                             <label for="OpcionSeleccionada"> Tipo de evento</label><br><br>
-                            <select class="custom-select mr-sm-2" id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
+                            <select class="custom-select mr-sm-2"  id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
                               <option value="bautizo" selected>Bautizo</option>
                               <option value="comunion">Primera comunión</option>
                               <option value="xv">XV años</option>
@@ -387,7 +481,7 @@
                           <div class="md-form mr-4 m-0">
                             <i class="fas fa-tag prefix grey-text"></i>
                             <label for="menu"> Menú</label><br><br>
-                            <select class="custom-select mr-sm-2" name="menu" id="menu" required>
+                            <select class="custom-select mr-sm-2" name="menu"  id="menu" required>
                               <option value="m_economico" selected>Menú economico</option>
                               <option value="m_completo" selected>Menú completo</option>
                               <option value="m_ejecutivo" selected>Menú ejecutivo</option>
@@ -397,16 +491,17 @@
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <i class="fas fa-users prefix grey-text"></i>
-                            <input type="number" name="personas" id="personas" class="form-control" required>
+                            <input type="number" name="personas"  id="personas" class="form-control h" required>
                             <label for="personas"> Número de personas</label>
+                            <input value="<?php echo $id; ?>" name="id" style="display: none;">
                           </div>
                         </div>
                       </div>
                       <div class="form-group mt-3">
                         <div class="text-center">
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
-                          <button class="btn btn-dark" name="form" style="display: none;" id="fin" type="submit"></button>
-                          <button type="button" onclick="validar()" class="btn btn-dark">
+                          <button class="btn btn-dark" name="update" style="display: none;" id="fin" type="submit"></button>
+                          <button type="button" onclick="val()" class="btn btn-dark">
                             <i class="fas fa-paper-plane prefix mr-2"></i>Enviar
                           </button>
                         </div>
@@ -458,7 +553,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-caution" data-dismiss="modal">Regresar</button>
-                                <button type="button" name="form" id="btnYes" class="btn btn-dark">Aceptar y enviar</button>
+                                <button type="button" name="form" id="btnYes" class="btn btn-dark">Aceptar y actualizar</button>
                               </div>
                             </div>
                           </div>
@@ -506,20 +601,20 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
 
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="../js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
     
     <!-- Initializations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.es.min.js" integrity="sha512-5pjEAV8mgR98bRTcqwZ3An0MYSOleV04mwwYj2yw+7PBhFVf/0KcE+NEox0XrFiU5+x5t5qidmo5MgBkDD9hEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <script type="text/javascript" src="js/validaciones.js"></script>
+    <script type="text/javascript" src="../js/update.js"></script>
      <!-- Bootstrap JS -->
     <!-- Bootstrap Datepicker JS -->
     <script type="text/javascript">
@@ -532,5 +627,98 @@
       });
       new WOW().init();
     </script>
+   <script type="text/javascript">
+      const $estado = document.querySelector('#entidad');
+      $estado.value = "<?php echo $entidad; ?>"
+
+      var otherOptionContainer = document.getElementById("otro_estado");
+      var otherOptionInput = document.getElementById("col");
+      if ("<?php echo $entidad; ?>" == "CDMX") {
+         otherOptionContainer.style.display = "none";
+         otherOptionInput.required = false;
+
+         otherOptionInput.name = "otro"
+         otherOptionInput.required = false
+         document.getElementById("alcaldia").name = "alcaldia"
+         document.getElementById("alcaldia").required = true
+         document.getElementById("alcaldia").disabled = false
+      } else {
+         otherOptionContainer.style.display = "block";
+         otherOptionInput.required = true;
+
+         otherOptionInput.name = "alcaldia"
+         otherOptionInput.required = true
+         otherOptionInput.value = "<?php echo $alc; ?>"
+         document.getElementById("alcaldia").name = "otro"
+         document.getElementById("alcaldia").required = false
+         document.getElementById("alcaldia").disabled = true
+      }
+
+      
+
+      let fecha = "<?php echo $fecha; ?>"
+      document.getElementById("horario").innerHTML = '';
+      let dateString = fecha;
+      let [day, month, year] = dateString.split('/')
+      const fe = new Date(+year, +month - 1, +day)
+      date = fe.toLocaleDateString('en-GB');
+      console.log(date)
+      document.getElementById("fecha").value= date;
+      if (fe.getDay == 0) {
+         document.getElementById("horario").innerHTML += '<option value="3">9-14 hrs</option>'
+      }else if(fe.getDay == 6){
+         if (Object.keys(obj).includes(fecha)) {
+            let pos = Object.keys(obj).indexOf(fecha)
+            let oc = Object.values(obj)[pos]
+            console.log(oc)
+            if (oc == 1) {
+               document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+            }else{
+               document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
+            }
+         }else{
+            document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+         }
+      }else{
+         if (Object.keys(obj).includes(fecha)) {
+            let pos = Object.keys(obj).indexOf(fecha)
+            let oc = Object.values(obj)[pos]
+            console.log(oc)
+            if (oc == 1) {
+               document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+            }else{
+               document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
+            }
+         }else{
+            document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+         }
+      }
+      document.getElementById("horario").disabled = false;
+
+      const $horario = document.querySelector('#horario');
+      $horario.value = "<?php echo $hora; ?>"
+
+      const $lugar = document.querySelector('#lugar');
+      $lugar.value = "<?php echo $lugar; ?>"
+      document.getElementById("nombre").value="<?php echo $nombre; ?>"
+      document.getElementById("a_paterno").value="<?php echo $a_pat; ?>"
+      document.getElementById("a_materno").value="<?php echo $a_mat; ?>"
+      document.getElementById("CURP").value="<?php echo $curp; ?>"
+      document.getElementById("correo").value="<?php echo $correo; ?>"
+      document.getElementById("calle").value="<?php echo $calle; ?>"
+      document.getElementById("num").value="<?php echo $num; ?>"
+      document.getElementById("colonia").value="<?php echo $colonia; ?>"
+      document.getElementById("codigo").value="<?php echo $codigo; ?>"
+      
+      document.getElementById("personas").value="<?php echo $personas; ?>"
+
+
+      $(document).ready(function () {
+         $('.h').trigger( "focus" );
+      });
+   </script>
+   
   </body>
 </html>

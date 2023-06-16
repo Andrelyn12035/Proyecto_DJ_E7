@@ -1,5 +1,5 @@
 
-function validar() {
+function val() {
    
    let nombre = document.forms["contratacion"]["nombre"].value;
    let paterno = document.forms["contratacion"]["a_paterno"].value; 
