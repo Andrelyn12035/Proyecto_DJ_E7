@@ -203,7 +203,7 @@
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <input type="number" maxlength="5" name="codigo" id="codigo" class="form-control" required>
-                            <label for="codigo"> Código postal</label>
+                            <label for="codigo"> Código Postal</label>
                           </div>
                         </div>
                       </div>
@@ -277,7 +277,7 @@
                             <div class="form-group col-md-12 mt-4" id="otro_estado" style="display: none;">
                               <div class="md-form ml-n2  m-0">
                                 <input type="text" id="col" name="otro" class="form-control" >
-                                <label for="col">Especificar municipio</label>
+                                <label for="col">Especificar Municipio</label>
                               </div>
                             </div>
                           </div>
@@ -302,7 +302,7 @@
                               <option hidden disabled selected value> Selecciona un lugar </option>
                               <option value="S1">Gran Salón del Valle</option>
                               <option value="S2">Lion's Palace</option>
-                              <option value="J1">Jardin Santa Fe</option>
+                              <option value="J1">Jardín Santa Fe</option>
                             </select>
                           </div>
                         </div>
@@ -334,11 +334,11 @@
                             <i class="fas fa-music prefix grey-text"></i>
                             <label for="OpcionSeleccionada"> Tipo de evento</label><br><br>
                             <select class="custom-select mr-sm-2" id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
-                              <option value="bautizo" selected>Bautizo</option>
-                              <option value="comunion">Primera comunión</option>
-                              <option value="xv">XV años</option>
-                              <option value="boda">Boda</option>
-                              <option value="cumpleaños">Cumpleaños</option>
+                              <option value="Bautizo" selected>Bautizo</option>
+                              <option value="Comunion">Primera comunión</option>
+                              <option value="XV">XV años</option>
+                              <option value="Boda">Boda</option>
+                              <option value="Cumpleaños">Cumpleaños</option>
                               <option value="otro">Otro</option>
                             </select>
                           </div>
@@ -388,9 +388,9 @@
                             <i class="fas fa-tag prefix grey-text"></i>
                             <label for="menu"> Menú</label><br><br>
                             <select class="custom-select mr-sm-2" name="menu" id="menu" required>
-                              <option value="m_economico" selected>Menú economico</option>
-                              <option value="m_completo" selected>Menú completo</option>
-                              <option value="m_ejecutivo" selected>Menú ejecutivo</option>
+                              <option value="Economico" selected>Menú economico</option>
+                              <option value="Completo" selected>Menú completo</option>
+                              <option value="Ejecutivo" selected>Menú ejecutivo</option>
                             </select>
                           </div>
                         </div>
@@ -413,8 +413,8 @@
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
-                            <div class="alert alert-danger" role="alert">
-                              Error en el campo: <span id="alerta"></span>
+                            <div class="alert alert-danger text-center" role="alert">
+                              ERROR<br>El campo <span id="alerta" class="font-weight-bold"></span> es incorrecto
                             </div>
                           </div>
                         </div>
@@ -422,8 +422,8 @@
                         <!-- Modal -->
                         <div class="modal fade" id="exito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
-                            <div class="alert alert-succes" role="alert">
-                              Campos validos
+                            <div class="alert alert-succes text-center" role="alert">
+                              Datos ingresados correctamente
                             </div>
                           </div>
                         </div>
@@ -432,29 +432,31 @@
                           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">¿Los datos son correctos?</h5>
+                                <h6 class="modal-title text-center" id="staticBackdropLabel">Hola <span id="nom"></span>, verifica que los datos de tu contratación/reservación que ingresaste sean correctos:</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p><span style="font-weight: bold;">Nombre: </span> <span id="nom"></span></p>
-                                <p><span style="font-weight: bold;">Apellido paterno: </span> <span id="pat"></span></p>
-                                <p><span style="font-weight: bold;">Apellido materno: </span> <span id="mat"></span></p>
+                                <p><span style="font-weight: bold;">Nombre: </span> <span id="cliente"></span></p>
+                                <p><span style="font-weight: bold;">Apellido Paterno: </span> <span id="pat"></span></p>
+                                <p><span style="font-weight: bold;">Apellido Materno: </span> <span id="mat"></span></p>
                                 <p><span style="font-weight: bold;">CURP: </span> <span id="cur"></span></p>
-                                <p><span style="font-weight: bold;">Correo: </span> <span id="cor"></span></p>
+                                <p><span style="font-weight: bold;">Correo Electrónico: </span> <span id="cor"></span></p>
+                                <p><span style="font-weight: bold;">Dirección</span></p>
                                 <p><span style="font-weight: bold;">Calle: </span> <span id="cal"></span></p>
                                 <p><span style="font-weight: bold;">Número: </span> <span id="nu"></span></p>
                                 <p><span style="font-weight: bold;">Colonia: </span> <span id="co"></span></p>
-                                <p><span style="font-weight: bold;">CP: </span> <span id="c"></span></p>
-                                <p><span style="font-weight: bold;">Municipio: </span> <span id="mu"></span></p>
-                                <p><span style="font-weight: bold;">Estado: </span> <span id="es"></span></p>
-                                <p><span style="font-weight: bold;">Sede del evento: </span> <span id="sed"></span></p>
+                                <p><span style="font-weight: bold;">Código Postal: </span> <span id="c"></span></p>
+                                <p><span style="font-weight: bold;">Alcaldía o Municipio: </span> <span id="mu"></span></p>
+                                <p><span style="font-weight: bold;">Entidad Federativa: </span> <span id="es"></span></p>
+                                <p><span style="font-weight: bold;">Sede del Evento: </span> <span id="sed"></span></p>
                                 <p><span style="font-weight: bold;">Fecha: </span> <span id="fec"></span></p>
                                 <p><span style="font-weight: bold;">Horario: </span> <span id="hor"></span></p>
-                                <p><span style="font-weight: bold;">Descripción: </span> <span id="des"></span></p>
+                                <p><span style="font-weight: bold;">Evento: </span> <span id="des"></span></p>
                                 <p><span style="font-weight: bold;">Menú: </span> <span id="men"></span></p>
                                 <p><span style="font-weight: bold;">Número de personas: </span> <span id="per"></span></p>
+                                <p><span style="font-weight: bold;">Folio: </span> <span id=""></span></p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-caution" data-dismiss="modal">Regresar</button>
