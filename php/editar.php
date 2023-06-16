@@ -282,7 +282,7 @@
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="number" name="num" id="num" class="form-control h" required>
+                            <input type="number" name="num" id="num" class="form-control h>
                             <label for="num"> Número</label>
                           </div>
                         </div>
