@@ -120,6 +120,7 @@ $("#lugar").on('change',function(){
 
    fetch('https://localhost/E7_DJ/php/fecha.php', {
       method: 'POST',
+      mode: "cors",
       headers: {
          'Content-Type': 'application/json'
       },
