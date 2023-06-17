@@ -146,12 +146,7 @@
     
 
     
-  <footer class="page-footer text-center font-small wow fadeIn">
-    <!--Copyright-->
-    <div class="footer-copyright py-3">© 2023 Copyright:
-        <a href="../index.html" target="_self"> RhythmMakers</a>
-    </div>
-  </footer>
+  
 
     <!-- SCRIPTS -->
     
@@ -179,6 +174,8 @@
         });
         $('.dataTables_length').addClass('bs-select');
         tabla()
+        const element = document.getElementsByClassName("hiddendiv common")[0];
+        element.remove();
       });
 
       function borrar(elemento) {
@@ -265,6 +262,7 @@
           console.error('Error:', error);
         });
       }
+      
     </script>
   </body>
 </html>
