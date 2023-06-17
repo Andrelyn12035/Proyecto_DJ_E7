@@ -164,7 +164,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
       <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="#">
           <img src="../img/logo.png" style="height: 35px;"><strong>RHM</strong>
         </a>
         <!-- Collapse -->
@@ -177,25 +177,16 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="../index.html" target="_self">Inicio
+              <a class="nav-link" href="#" target="_self">Menu Administrador
                 <span class="sr-only">(current)</span>
               </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="../form.html" target="_self">Contratación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../comprobante.html" target="_self">Comprobante</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index_crud.php" target="_self">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
-              <a href="index.html" class="nav-link border border-light rounded">
-                <i class="fas fa-music mr-2"></i>RhythmMakers
+              <a href="logout.php?cerrar=yes" class="nav-link border border-light rounded">
+                <i class="fas fa-chevron-left mr-2"></i> Cerrar sesión&nbsp;&nbsp;
               </a>
             </li>
           </ul>
@@ -580,17 +571,6 @@
     <!-- Full Page Intro -->
 
     <!--Footer-->
-    <footer class="page-footer text-center font-small wow fadeIn">
-      <!--Call to action-->
-      <div class="pt-4 mb-4">
-        <a class="btn btn-outline-white" href="index.html" target="_self" role="button">Ven y Conócenos
-          <i class="fas fa-users ml-2"></i>
-        </a>
-        <a class="btn btn-outline-white" href="comprobante.html" target="_self" role="button">Recuperar Comprobante
-          <i class="fas fa-file-pdf ml-2"></i>
-        </a>
-      </div>
-      
       <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
         <a href="index.html" target="_self"> RhythmMakers</a>
