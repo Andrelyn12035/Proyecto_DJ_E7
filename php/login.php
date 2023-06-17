@@ -8,6 +8,10 @@
 	$registro = mysqli_fetch_assoc($tabla);
 	$cantidad = mysqli_num_rows($tabla);
 
+  if(isset($_SESSION["usuario"])){
+		header("Location: ../index.html");
+	}
+
   if($cantidad == 1){
     session_start();
     $_SESSION["usuario"] = $registro["usuario"];
