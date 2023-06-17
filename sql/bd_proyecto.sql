@@ -18,7 +18,7 @@ CREATE TABLE `administrador` (
 --
 
 LOCK TABLES `administrador` WRITE;
-INSERT INTO `administrador` VALUES ('antonioESCOM','antonio14'),('amedinaa17','ana23'),('andrelyn12035','kevin12');
+INSERT INTO `administrador` VALUES ('antonioESCOM','antonio14'),('amedinaa17','ana23'),('andrelyn12035','kevin12'),('ArturoRodrigo29','rodrigo56');
 UNLOCK TABLES;
 
 --

@@ -13,8 +13,8 @@
       $alc = $_POST['alcaldia'];
       $entidad = $_POST['estado'];
       $lugar = $_POST['lugar'];
-      $fecha = $_POST['fecha'];
-      $hora = $_POST['hora'];
+      $fecha = isset($_POST['fecha']) ? $_POST['fecha'] : ""; 
+      $hora = isset($_POST['hora']) ? $_POST['hora'] : "";
       $evento = $_POST['evento'];
       $desc = $_POST['otra_opc'];
       $menu = $_POST['menu'];
@@ -49,5 +49,16 @@
       }
 
    }
-
+   
 ?>
+<div class='modal-footer'>
+   <button type='button' class='btn btn-caution' data-dismiss='modal' onclick='goBack()'>Modificar</button>
+   <button type='button' name='form' id='btnYes' class='btn btn-dark' onclick="window.open('fpdf/PruebaV.php', '_blank')">GENERAR PDF</button>
+
+</div>
+
+<script>
+   function goBack() {
+      window.history.back();
+   }
+</script>
