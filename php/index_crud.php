@@ -47,6 +47,9 @@
           justify-content: center;
         }
       }
+      main{
+        height: 100%;
+      }
 
       .dtHorizontalVerticalExampleWrapper {
         max-width: 600px;
@@ -105,15 +108,13 @@
     </nav>
     <!-- /.Navbar -->
 
-    
-      <h6 class="text-dark m-5">Bienvenido <?php echo $usuario ?></h6>
-        <div class="container">
+    <main>
+    <h6 class="text-dark ml-4" style="margin-top:7%;">Bienvenido <?php echo $usuario ?></h6>
+        <div class="container mt-5">
         <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
     width="75%">
           <thead>
             <tr>
-              <th>Editar</th>
-              <th>Eliminar</th>
               <th>Folio</th>
               <th>Nombre(s)</th>
               <th>Apellido paterno</th>
@@ -132,6 +133,8 @@
               <th>Evento</th>
               <th>Menú</th>
               <th>No. de personas</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody id="tabla">
@@ -142,7 +145,7 @@
       <div class="container">
         <a  href="../form.html"><button type="button"  class="btn btn-primary btn-lg">Agregar evento</button></a>
       </div>
-    
+    </main>
     
 
     
@@ -226,14 +229,6 @@
             tr += 
             `
             <tr>
-              <td><a href="editar.php?id=`+element.id_evento+`"  class="btn btn-info btn-sm" name="">
-                  <i class="fas fa-marker"></i>
-                </a>
-              </td>
-              <td><a onclick="borrar(this)" class="btn btn-danger btn-sm" name="`+element.id_evento+`">
-                <i class="far fa-trash-alt"></i>
-                </a>
-              </td>
               <td>`+element.folio+`</td>
               <td>`+element.nombre+`</td>
               <td>`+element.a_paterno+`</td>
@@ -252,6 +247,14 @@
               <td>`+element.tipo+`</td>
               <td>`+element.menu+`</td>
               <td>`+element.no_personas+`</td>
+              <td><a href="editar.php?id=`+element.id_evento+`"  class="btn btn-info btn-sm" name="">
+                  <i class="fas fa-marker"></i>
+                </a>
+              </td>
+              <td><a onclick="borrar(this)" class="btn btn-danger btn-sm" name="`+element.id_evento+`">
+                <i class="far fa-trash-alt"></i>
+                </a>
+              </td>
             </tr>
             `
           });
