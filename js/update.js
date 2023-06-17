@@ -174,9 +174,9 @@ $("#fecha").on('change',function(){
    let dateString = fecha;
    let [day, month, year] = dateString.split('/')
    const fe = new Date(+year, +month - 1, +day)
-   if (fe.getDay == 0) {
+   if (fe.getDay() == 0) {
       document.getElementById("horario").innerHTML += '<option value="3">9-14 hrs</option>'
-   }else if(fe.getDay == 6){
+   }else if(fe.getDay() == 6){
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)
          let oc = Object.values(obj)[pos]
