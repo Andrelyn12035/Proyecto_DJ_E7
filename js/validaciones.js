@@ -255,7 +255,7 @@ $('#confirmar').on('shown.bs.modal', function (e) {
    document.getElementById("des").innerHTML = document.getElementsByName("evento")[0].value
    document.getElementById("men").innerHTML = document.getElementsByName("menu")[0].value
    document.getElementById("per").innerHTML = document.getElementsByName("personas")[0].value
-   
+   document.getElementById("folio").innerHTML = document.getElementsByName("curp")[0].value+document.getElementsByName("lugar")[0].value+document.getElementsByName("fecha")[0].value+document.getElementsByName("hora")[0].value
 })
 
 $('#btnYes').click(function() {
