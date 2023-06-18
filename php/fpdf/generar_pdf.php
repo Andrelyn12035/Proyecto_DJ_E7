@@ -34,51 +34,63 @@
 
     include('../db.php');
 
-    $sql = "SELECT * FROM evento WHERE folio = 'RAMK030718HNEMRVB5S116/06/20231'";
-    $tabla = mysqli_query($conexion, $sql);
-    $evento = mysqli_fetch_array($tabla);
+    if (isset($_POST['generar'])) {
+        $folio = $_POST['folio'];
+        $sql = "SELECT * FROM evento WHERE folio = '$folio'";
+        $tabla = mysqli_query($conexion, $sql);
+        $evento = mysqli_fetch_array($tabla);
 
-    $pdf = new PDF();
-    $pdf->AliasNBPages();
-    $pdf->AddPage();
+        if (!$tabla) {
+           die("Error en query");
+        }
 
-    $pdf->Ln(3);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Nombre: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[7], 0, 1, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Apellido Paterno: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[8], 0, 1, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Apellido Materno: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[9], 0, 1, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('CURP: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[10], 0, 1, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Correo Electrónico: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[11], 0, 1, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Dirección'), 0, 1, 'L', 0);
-    $pdf->Cell(45, 8, utf8_decode('Calle: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(60, 8, $evento[12], 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Número: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[13], 0, 1, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Colonia: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(60, 8, $evento[14], 0, 0, '', 0);
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->Cell(45, 8, utf8_decode('Código Postal: '), 0, 0, 'L', 0);
-    $pdf->SetFont('Arial', '', 11);
-    $pdf->Cell(0, 8, $evento[15], 0, 1, '', 0);
-    $pdf->Output();
+        
+        $pdf = new PDF();
+        $pdf->AliasNBPages();
+        $pdf->AddPage();
+
+        $pdf->Ln(3);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Nombre: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[7], 0, 1, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Apellido Paterno: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[8], 0, 1, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Apellido Materno: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[9], 0, 1, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('CURP: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[10], 0, 1, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Correo Electrónico: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[11], 0, 1, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Dirección'), 0, 1, 'L', 0);
+        $pdf->Cell(45, 8, utf8_decode('Calle: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(60, 8, $evento[12], 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Número: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[13], 0, 1, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Colonia: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(60, 8, $evento[14], 0, 0, '', 0);
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(45, 8, utf8_decode('Código Postal: '), 0, 0, 'L', 0);
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(0, 8, $evento[15], 0, 1, '', 0);
+        $pdf->Output();
+        
+     }
+
+    
+
 ?>

@@ -115,7 +115,7 @@
     <!-- Main -->
     <main style="background-image: url('../img/index.jpg'); background-repeat:no-repeat; background-size: cover;">
       <div class="my-auto">
-        <form action="" method="post" class="form-comp">
+      <form name="pdf" action="fpdf/generar_pdf.php" id="generar" method="POST" class="form-comp">
           <div class="card" style="margin-top: 4.1rem;">
             <div class="card-body">
               <div class="text-center">
@@ -123,8 +123,9 @@
               </div>
               <h3 class="text-muted text-center font-weight-bold mt-3">Tus datos fueron guardador correctamente</h3>
               <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento puedes hacerlo ahora mismo o en otra ocasion a traves de la pestaña "Comprobante"</h6>
+              <input type="text" style="display:none;" name="folio" value="<?php echo $folio; ?>"> </input>
               <div class="text-center mt-4 mb-3">
-                  <button type='button' name='form' id='btnYes' class='btn btn-dark' onclick="window.open('fpdf/generar_pdf.php', '_blank')">GENERAR PDF</button>
+                  <button type='submit' name='generar' id='btnYes' class='btn btn-dark'>GENERAR PDF</button>
               </div>
               
             </div>
@@ -133,7 +134,7 @@
       </div>
     </main>
     <!-- /.Main -->
-
+    
     <!--Footer-->
     <footer class="page-footer text-center font-small wow fadeIn">
         <!--Call to action-->
