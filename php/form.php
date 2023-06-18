@@ -25,15 +25,11 @@
       $folio = $curp.$lugar.$fecha.$hora;
 
       $sql = "INSERT INTO evento(folio, sede, fecha, tipo, menu, no_personas, nombre, a_paterno, a_materno, curp, correo, calle, numero, colonia, cp, alcaldia, entidad, hora) VALUES ('$folio', '$lugar', STR_TO_DATE('$fecha', '%d/%m/%Y') , '$evento', '$menu', '$personas', '$nombre', '$a_pat', '$a_mat', '$curp', '$correo', '$calle', '$num', '$colonia', '$codigo', '$alc', '$entidad', '$hora')";
-
       $res = mysqli_query($conexion, $sql);
-
       if (!$res) {
          die("Error en query");
       }
-
    }
-   
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -128,7 +124,7 @@
               <h3 class="text-muted text-center font-weight-bold mt-3">Tus datos fueron guardador correctamente</h3>
               <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento puedes hacerlo ahora mismo o en otra ocasion a traves de la pestaña "Comprobante"</h6>
               <div class="text-center mt-4 mb-3">
-                  <button type='button' name='form' id='btnYes' class='btn btn-dark' onclick="window.open('fpdf/PruebaV.php', '_blank')">GENERAR PDF</button>
+                  <button type='button' name='form' id='btnYes' class='btn btn-dark' onclick="window.open('fpdf/generar_pdf.php', '_blank')">GENERAR PDF</button>
               </div>
               
             </div>

@@ -77,7 +77,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-dark">
       <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../index.html">
           <img src="../img/logo.png" style="height: 35px;"><strong>RHM</strong>
         </a>
         <!-- Collapse -->
@@ -146,14 +146,8 @@
         <a  href="../form.html"><button type="button"  class="btn btn-primary btn-lg">Agregar evento</button></a>
       </div>
     </main>
-    
-
-    
-  
 
     <!-- SCRIPTS -->
-    
-    
     <!-- JQuery -->
     <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
