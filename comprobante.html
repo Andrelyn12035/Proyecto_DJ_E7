@@ -91,20 +91,34 @@
               <h3 class="text-muted text-center font-weight-bold mt-3">Recuperar Comprobante</h3>
               <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento es necesario verificar los siguientes datos.</h6>
               <div class="mt-4">
+                <i class="fas fa-id-badge prefix grey-text"></i>
+                <label for="curp" class="grey-text ml-2"> CURP</label>
+                <input type="text" id="curp" name="curp" class="form-control font-smaller" placeholder="Ingresar CURP" required>
+              </div>
+              <div class="mt-4">
                 <i class="fas fa-calendar prefix grey-text"></i>
                 <label for="fecha" class="grey-text ml-2"> Fecha de Evento</label>
                 <input type="date" id="fecha" name="fecha"class="form-control" placeholder="Ingresar Fecha" required>
               </div>
               <div class="mt-4">
                 <i class="fas fa-id-badge prefix grey-text"></i>
-                <label for="curp" class="grey-text ml-2"> CURP</label>
-                <input type="text" id="curp" name="curp" class="form-control font-smaller" placeholder="Ingresar CURP" required>
+                <label for="hora" class="grey-text ml-2"> Hora de Evento</label>
+                <input type="time" id="hora" name="hora" class="form-control font-smaller" placeholder="Ingresar Hora" required>
+              </div>
+              <div class="mt-4">
+                <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                <label for="lugar" class="grey-text ml-2 mb-0">Sede de Evento</label><br><br>
+                <select class="custom-select mr-sm-2 mt-0" id="lugar" name="lugar" required >
+                  <option hidden disabled selected value> Selecciona un lugar </option>
+                  <option value="S1">Gran Salón del Valle</option>
+                  <option value="S2">Lion's Palace</option>
+                  <option value="J1">Jardín Santa Fe</option>
+                </select>
               </div>
               <div class="text-center mt-4 mb-3">
                   <button class="btn btn-dark" type="reset">Limpiar</button>
                   <button class="btn btn-dark" type="submit">Enviar</button>
               </div>
-              
             </div>
           </div>
         </form>

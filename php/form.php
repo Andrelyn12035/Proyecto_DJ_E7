@@ -65,6 +65,9 @@
             background: #1C2331!important;
           }
         }
+        main{
+          height:100%;
+        }
       </style>
   </head>
   <body>
@@ -89,10 +92,10 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="../form.html" target="_self">Contratación</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="../comprobante.html" target="_self">Comprobante</a>
             </li>
             <li class="nav-item">
@@ -118,16 +121,20 @@
       <form name="pdf" action="fpdf/generar_pdf.php" id="generar" method="POST" class="form-comp">
           <div class="card" style="margin-top: 4.1rem;">
             <div class="card-body">
-              <div class="text-center">
-                <i class="fas fa-id-card text-muted text-center admin-icon"></i>
+              <div class="text-center mt-3">
+                <i class="fas fa-user-check text-muted text-center admin-icon"></i>
               </div>
-              <h3 class="text-muted text-center font-weight-bold mt-3">Tus datos fueron guardador correctamente</h3>
-              <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento puedes hacerlo ahora mismo o en otra ocasion a traves de la pestaña "Comprobante"</h6>
+              <h3 class="text-muted text-center font-weight-bold mt-3">SERVICIO DE DJ CONTRATADO</h3>
+              <hr>
+              <h6 class="text-muted text-center ml-5 mr-5 mt-4">Tus datos de <span class="font-weight-bold">CONTACTO</span> y <span class="font-weight-bold">EVENTO</span> han sido guardados correctamente.</h6> 
+              <h6 class="text-muted text-center ml-5 mr-5 mt-4 mb-5">Haz click en <span class="font-weight-bold">DESCARGAR COMPROBANTE</span> para obtener el comprobante de la reservación de tu evento.</h6>
               <input type="text" style="display:none;" name="folio" value="<?php echo $folio; ?>"> </input>
-              <div class="text-center mt-4 mb-3">
-                  <button type='submit' name='generar' id='btnYes' class='btn btn-dark'>GENERAR PDF</button>
+              <div class="text-center mt-5 mb-3">
+                  <button type='submit' name='generar' id='btnYes' class='btn btn-dark'>
+                  <i class="fas fa-download prefix mr-2"></i>DESCARGAR COMPROBANTE
+                </button>
               </div>
-              
+              <h6 class="text-muted text-center ml-5 mr-5 mt-5 mb-2">Para recuperar tu comprobante en caso de pérdida, podrás hacerlo a través de la pestaña <a href="../comprobante.html">Comprobante</a></h6>
             </div>
           </div>
         </form>
@@ -137,15 +144,7 @@
     
     <!--Footer-->
     <footer class="page-footer text-center font-small wow fadeIn">
-        <!--Call to action-->
-      <div class="pt-4 mb-4">
-        <a class="btn btn-outline-white" href="index.html" target="_self" role="button">Ven y Conócenos
-          <i class="fas fa-users ml-2"></i>
-        </a>
-        <a class="btn btn-outline-white" href="form.html" target="_self" role="button">Contratar Servicio
-            <i class="fas fa-pen ml-2"></i>
-        </a>
-      </div>
+        
       <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
         <a href="index.html" target="_self"> RhythmMakers</a>

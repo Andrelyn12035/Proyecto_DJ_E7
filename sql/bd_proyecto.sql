@@ -54,6 +54,7 @@ CREATE TABLE `evento` (
 --
 
 LOCK TABLES `evento` WRITE;
-INSERT INTO `evento` VALUES (9,'RAMK030718HNEMRVB5S118/06/20232','S1','2023-06-18','Otro','m_ejecutivo',100,'Andr','Ram','Ds','RAMK030718HNEMRVB5','KRANDYM1993@HOTMAIL.COM','CLA',5,'SAN','56335','Alvaro_Obregon','CDMX',2),(8,'RAMK030718HNEMRVB5S116/06/20231','S1','2023-06-16','Si','m_ejecutivo',100,'Andres','Ramk','Mart','RAMK030718HNEMRVB5','KRANDYM1993@HOTMAIL.COM','Clave',5,'Dlave','56335','Alvaro_Obregon','CDMX',1),(16,'RAMK030718HNEMRVB5J125/06/20231','J1','2023-06-25','bautizo','m_ejecutivo',100,'Kevisssssssdddd','Ram','Mar','RAMK030718HNEMRVB5','krandym1993@hiotmail.com','Dos',5,'Dsd','56335','Tres','Coahuila',1);
+INSERT INTO `evento` VALUES (1,'MEAA050423MMCDPPA5S225/06/20233	','S2','2023-06-18','Cumpleaños','Completo',100,'Ana Cristina','Medina','Angeles','MEAA050423MMCDPPA5','ana@gmail.com','Palmas',5,'Huertas','52734','Naucalpan de Juárez','Estado de México',2),
+(2,'RAMK030718HNEMRVB5J125/06/20231','J1','2023-06-25','Bautizo','Ejecutivo',100,'Kevin','Ramirez','Martinez','RAMK030718HNEMRVB5','krandym1993@hiotmail.com','Dalias',5,'Lomas','56335','Chimalhuacán','Estado de México',1);
 
 UNLOCK TABLES;
