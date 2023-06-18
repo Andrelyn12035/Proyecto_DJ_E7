@@ -41,19 +41,16 @@
       echo "Personas: " . $personas . "<br>";
 
       $sql = "INSERT INTO evento(folio, sede, fecha, tipo, menu, no_personas, nombre, a_paterno, a_materno, curp, correo, calle, numero, colonia, cp, alcaldia, entidad, hora) VALUES ('$folio', '$lugar', STR_TO_DATE('$fecha', '%d/%m/%Y') , '$evento', '$menu', '$personas', '$nombre', '$a_pat', '$a_mat', '$curp', '$correo', '$calle', '$num', '$colonia', '$codigo', '$alc', '$entidad', '$hora')";
-
       $res = mysqli_query($conexion, $sql);
-
       if (!$res) {
          die("Error en query");
       }
-
    }
-   
 ?>
+
 <div class='modal-footer'>
    <button type='button' class='btn btn-caution' data-dismiss='modal' onclick='goBack()'>Modificar</button>
-   <button type='button' name='form' id='btnYes' class='btn btn-dark' onclick="window.open('fpdf/PruebaV.php', '_blank')">GENERAR PDF</button>
+   <button type='button' name='form' id='btnYes' class='btn btn-dark' onclick="window.open('fpdf/generar_pdf.php', '_blank')">GENERAR PDF</button>
 
 </div>
 
