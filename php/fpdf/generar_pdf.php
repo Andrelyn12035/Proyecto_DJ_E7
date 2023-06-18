@@ -50,7 +50,7 @@
 
         $pdf->Ln(3);
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->Cell(116, 8, utf8_decode('FOLIO: '), 0, 0, 'R', 0);
+        $pdf->Cell(114, 8, utf8_decode('FOLIO: '), 0, 0, 'R', 0);
         $pdf->SetFont('Arial', '', 11);
         $pdf->Cell(0, 8, utf8_decode($evento[1]), 0, 1, 'L', 0);
         $pdf->Ln(2);
@@ -105,11 +105,22 @@
         $n_lugar = "";
         if ($evento[2] == "S1") {
             $n_lugar = "Gran Salón del Valle";
-        }elseif ($evento[2] == ""){
+        }elseif ($evento[2] == "S2"){
             $n_lugar = "Lion's Palace";
         }else{
             $n_lugar = "Jardín Santa Fe";
         }
+
+        if($evento[18] == 21){
+            $hora_fin = '02';
+        }
+        elseif($evento[18] == 19){
+            $hora_fin = '00';
+        }
+        else{
+            $hora_fin = $evento[18]+5;
+        }
+        
         $pdf->Ln(3);
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(35, 8, utf8_decode('EVENTO'), 0, 1, 'R', 0);
@@ -122,9 +133,9 @@
         $pdf->SetFont('Arial', '', 11);
         $pdf->Cell(60, 8, utf8_decode($evento[3]), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->Cell(50, 8, utf8_decode('Hora de inicio: '), 0, 0, 'L', 0);
+        $pdf->Cell(50, 8, utf8_decode('Hora: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
-        $pdf->Cell(0, 8, utf8_decode($evento[18].' hrs'), 0, 1, '', 0);
+        $pdf->Cell(0, 8, utf8_decode($evento[18].' - '.$hora_fin).' hrs', 0, 1, '', 0);
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(50, 8, utf8_decode('Tipo de Evento: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
