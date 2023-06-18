@@ -175,20 +175,20 @@ $("#fecha").on('change',function(){
    let [day, month, year] = dateString.split('/')
    const fe = new Date(+year, +month - 1, +day)
    if (fe.getDay() == 0) {
-      document.getElementById("horario").innerHTML += '<option value="3">9-14 hrs</option>'
+      document.getElementById("horario").innerHTML += '<option value="9">9-14 hrs</option>'
    }else if(fe.getDay() == 6){
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)
          let oc = Object.values(obj)[pos]
          console.log(oc)
-         if (oc == 1) {
-            document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+         if (oc == 14) {
+            document.getElementById("horario").innerHTML += '<option value="21">21-2 hrs</option>'
          }else{
-            document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="14">14-19 hrs</option>'
          }
       }else{
-         document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
-         document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="14">14-19 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="21">21-2 hrs</option>'
       }
    }else{
       if (Object.keys(obj).includes(fecha)) {
@@ -196,13 +196,13 @@ $("#fecha").on('change',function(){
          let oc = Object.values(obj)[pos]
          console.log(oc)
          if (oc == 1) {
-            document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="19">19-0 hrs</option>'
          }else{
-            document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="12">12-17 hrs</option>'
          }
       }else{
-         document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
-         document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="12">12-17 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="19">19-0 hrs</option>'
       }
    }
    document.getElementById("horario").disabled = false;

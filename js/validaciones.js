@@ -176,34 +176,34 @@ $("#fecha").on('change',function(){
    const fe = new Date(+year, +month - 1, +day)
    console.log(fe.getDay())
    if (fe.getDay() == 0) {
-      document.getElementById("horario").innerHTML += '<option value="3">9-14 hrs</option>'
+      document.getElementById("horario").innerHTML += '<option value="9">9-14 hrs</option>'
    }else if(fe.getDay() == 6){
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)
          let oc = Object.values(obj)[pos]
          console.log(oc)
-         if (oc == 1) {
-            document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+         if (oc == 14) {
+            document.getElementById("horario").innerHTML += '<option value="21">21-2 hrs</option>'
          }else{
-            document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="14">14-19 hrs</option>'
          }
       }else{
-         document.getElementById("horario").innerHTML += '<option value="1">14-19 hrs</option>'
-         document.getElementById("horario").innerHTML += '<option value="2">21-2 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="14">14-19 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="21">21-2 hrs</option>'
       }
    }else{
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)
          let oc = Object.values(obj)[pos]
          console.log(oc)
-         if (oc == 1) {
-            document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+         if (oc == 12) {
+            document.getElementById("horario").innerHTML += '<option value="19">19-0 hrs</option>'
          }else{
-            document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="12">12-17 hrs</option>'
          }
       }else{
-         document.getElementById("horario").innerHTML += '<option value="1">12-17 hrs</option>'
-         document.getElementById("horario").innerHTML += '<option value="2">19-0 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="12">12-17 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="19">19-0 hrs</option>'
       }
    }
    document.getElementById("horario").disabled = false;
@@ -250,7 +250,13 @@ $('#confirmar').on('shown.bs.modal', function (e) {
    document.getElementById("c").innerHTML = document.getElementsByName("codigo")[0].value
    document.getElementById("mu").innerHTML =  document.getElementsByName("alcaldia")[0].value
    document.getElementById("es").innerHTML = document.getElementsByName("estado")[0].value
-   document.getElementById("sed").innerHTML = document.getElementsByName("lugar")[0].value
+   if (document.getElementsByName("lugar")[0].value = "S1") {
+      document.getElementById("sed").innerHTML = "Gran Salón del Valle"
+   }else if (document.getElementsByName("lugar")[0].value = "S2"){
+      document.getElementById("sed").innerHTML = "Lion's Palace"
+   }else{
+      document.getElementById("sed").innerHTML = "Jardín Santa Fe"
+   }
    document.getElementById("fec").innerHTML = document.getElementsByName("fecha")[0].value
    document.getElementById("hor").innerHTML = document.getElementsByName("hora")[0].value
    document.getElementById("des").innerHTML = document.getElementsByName("evento")[0].value
