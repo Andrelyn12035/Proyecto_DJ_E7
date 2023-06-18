@@ -102,21 +102,29 @@
         $pdf->SetFont('Arial', '', 11);
         $pdf->Cell(0, 8, utf8_decode($evento[17]), 0, 1, '', 0);
 
+        $n_lugar = "";
+        if ($evento[2] == "S1") {
+            $n_lugar = "Gran Salón del Valle";
+        }elseif ($evento[2] == ""){
+            $n_lugar = "Lion's Palace";
+        }else{
+            $n_lugar = "Jardín Santa Fe";
+        }
         $pdf->Ln(3);
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(35, 8, utf8_decode('EVENTO'), 0, 1, 'R', 0);
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(50, 8, utf8_decode('Sede del Evento: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
-        $pdf->Cell(0, 8, utf8_decode($evento[2]), 0, 1, '', 0);
+        $pdf->Cell(0, 8, utf8_decode($n_lugar), 0, 1, '', 0);
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(50, 8, utf8_decode('Fecha: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
         $pdf->Cell(60, 8, utf8_decode($evento[3]), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->Cell(50, 8, utf8_decode('Hora: '), 0, 0, 'L', 0);
+        $pdf->Cell(50, 8, utf8_decode('Hora de inicio: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
-        $pdf->Cell(0, 8, utf8_decode($evento[18]), 0, 1, '', 0);
+        $pdf->Cell(0, 8, utf8_decode($evento[18].' hrs'), 0, 1, '', 0);
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(50, 8, utf8_decode('Tipo de Evento: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
