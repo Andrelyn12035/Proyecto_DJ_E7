@@ -645,7 +645,7 @@
       document.getElementById("horario").innerHTML = '';
       let dateString = fecha;
       let [day, month, year] = dateString.split('/')
-      const fe = new Date(+year, +month - 2, +day)
+      const fe = new Date(+year, +month - 1, +day)
       date = fe.toLocaleDateString('en-GB');
       console.log(date)
       document.getElementById("fecha").value= date;

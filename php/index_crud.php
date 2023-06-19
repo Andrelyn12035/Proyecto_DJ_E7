@@ -190,7 +190,24 @@
         let data = {
           id: nombre
         }
-        fetch('borrar.php', {
+
+        $.ajax({
+            url: 'borrar.php',
+            type: 'POST',
+            crossDomain: true,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function() {
+              console.log("si")
+              tabla()
+              $('#dtHorizontalVerticalExample').DataTable().columns.adjust()
+            },
+            error: function (request, status, error) {
+                console.log("error: " + error);
+            }
+        });
+
+       /* fetch('borrar.php', {
           method: 'POST',
           mode: "cors",
           headers: {
@@ -204,7 +221,7 @@
           })
         .catch(error => {
           console.error('Error:', error);
-        });
+        });*/
       }
 
       function tabla() {
@@ -215,7 +232,62 @@
         let data = {
           fecha: n_dia
         };
-        fetch('tabla.php', {
+        
+        $.ajax({
+            url: 'tabla.php',
+            type: 'POST',
+            dataType: 'json',
+            crossDomain: true,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function(result) {
+              console.log(result);
+              console.log(result.length);
+              let tr = ''
+              document.getElementById("tabla").innerHTML = tr; 
+              result.forEach(element => {
+                tr += 
+                `
+                <tr>
+                  <td>`+element.folio+`</td>
+                  <td>`+element.nombre+`</td>
+                  <td>`+element.a_paterno+`</td>
+                  <td>`+element.a_materno+`</td>
+                  <td>`+element.curp+`</td>
+                  <td>`+element.correo+`</td>
+                  <td>`+element.calle+`</td>
+                  <td>`+element.numero+`</td>
+                  <td>`+element.colonia+`</td>
+                  <td>`+element.cp+`</td>
+                  <td>`+element.alcaldia+`</td>
+                  <td>`+element.entidad+`</td>
+                  <td>`+element.sede+`</td>
+                  <td>`+element.fecha+`</td>
+                  <td>`+element.hora+`</td>
+                  <td>`+element.tipo+`</td>
+                  <td>`+element.menu+`</td>
+                  <td>`+element.no_personas+`</td>
+                  <td><a href="editar.php?id=`+element.id_evento+`"  class="btn btn-info btn-sm" name="">
+                      <i class="fas fa-marker"></i>
+                    </a>
+                  </td>
+                  <td><a onclick="borrar(this)" class="btn btn-danger btn-sm" name="`+element.id_evento+`">
+                    <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+                `
+              });
+              document.getElementById("tabla").innerHTML = tr;
+              $('#dtHorizontalVerticalExample').DataTable().columns.adjust()
+            },
+            error: function (request, status, error) {
+                // handle errors here
+            }
+        });
+
+
+       /* fetch('tabla.php', {
           method: 'POST',
           body: data,
           headers: {
@@ -266,7 +338,7 @@
           })
         .catch(error => {
           console.error('Error:', error);
-        });
+        });*/
       }
       
     </script>

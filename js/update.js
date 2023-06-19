@@ -118,6 +118,50 @@ $("#lugar").on('change',function(){
       fecha: n_dia
    };
 
+   $.ajax({
+      url: 'php/fecha.php',
+      type: 'POST',
+      crossDomain: true,
+      dataType: 'json',
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      success: function(result) {
+         pend = [], obj = {}, dis = [];
+      
+         console.log(result);
+         console.log(result.length);
+         if (result.length == 0) {
+            console.log("disponibles")
+         }else{
+            result.forEach(element => {
+               let dateString = element.fecha
+               let [day, month, year] = dateString.split('/')
+               const fe = new Date(+year, +month - 1, +day)
+               if (fe.getDay() != 0 ) {
+                  if (pend.includes(element.fecha)) {
+                     dis.push(element.fecha)
+                  }else{
+                     obj[element.fecha] = element.hora;
+                     pend.push(element.fecha);
+                  }
+               }else{
+                  dis.push(element.fecha)
+               }
+            })
+            $('.input-group.date').datepicker(
+               'setDatesDisabled', dis
+         );
+            console.log(pend)
+            console.log(dis)
+            console.log(obj)
+         }
+         document.getElementById("fecha").disabled = false;
+      },
+      error: function (request, status, error) {
+         console.log(request.responseText);
+      }
+  });
+/*
    fetch('fecha.php', {
       method: 'POST',
       mode: "cors",
@@ -162,7 +206,7 @@ $("#lugar").on('change',function(){
     .catch(error => {
       console.error('Error:', error);
     });
-   
+   */
     
 
 
@@ -173,7 +217,9 @@ $("#fecha").on('change',function(){
    document.getElementById("horario").innerHTML = '';
    let dateString = fecha;
    let [day, month, year] = dateString.split('/')
-   const fe = new Date(+year, +month - 2, +day)
+   const fe = new Date(+year, +month - 1, +day)
+   date = fe.toLocaleDateString('en-GB');
+   console.log(date)
    if (fe.getDay() == 0) {
       document.getElementById("horario").innerHTML += '<option value="9">9 - 14 hrs</option>'
    }else if(fe.getDay() == 6){
