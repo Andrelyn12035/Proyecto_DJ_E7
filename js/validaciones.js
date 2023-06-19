@@ -237,7 +237,6 @@ $("#entidad").on('change',function(){
 })
 
 $('#confirmar').on('shown.bs.modal', function (e) {
-   console.log("hoa")
    document.getElementById("cliente").innerHTML = document.getElementsByName("nombre")[0].value
    document.getElementById("nom").innerHTML = document.getElementsByName("nombre")[0].value
    document.getElementById("pat").innerHTML = document.getElementsByName("a_paterno")[0].value

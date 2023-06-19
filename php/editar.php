@@ -13,7 +13,6 @@
     header("Location: ../login_admin.html");
 	}
 
-
    $id = "";
    $nombre = "";
    $a_pat = "";
@@ -98,7 +97,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Contratación</title>
+    <title>Actualizar</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -177,7 +176,7 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" target="_self">Menu Administrador
+              <a class="nav-link" href="index_crud.php" target="_self">Menu Administrador
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -216,11 +215,11 @@
                     <h6 class="grey-text text-center"><strong>CONTACTO</strong></h6>
                     <hr>
                     <fieldset>
-                      <div class="form-row">
+                      <div class="form-row mt-3">
                         <div class="form-group col-md-12">
                           <div class="md-form m-0">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text"  name="nombre" id="nombre"  class="form-control h" required>
+                            <input type="text" name="nombre" id="nombre"  class="form-control h" required>
                             <label for="nombre"> Nombre(s)</label>
                           </div>
                         </div>
@@ -228,13 +227,13 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <div class="md-form m-0 mr-4">
-                            <input type="text" id="a_paterno"  name="a_paterno" class="form-control h" required>
+                            <input type="text" id="a_paterno" name="a_paterno" class="form-control h" required>
                             <label for="a_paterno">Apellido paterno</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="text" id="a_materno"  name="a_materno" class="form-control h" required>
+                            <input type="text" id="a_materno" name="a_materno" class="form-control h" required>
                             <label for="a_materno"> Apellido materno</label>
                           </div>
                         </div>
@@ -243,7 +242,7 @@
                         <div class="form-group col-md-12">
                           <div class="md-form  m-0">
                             <i class="fas fa-id-badge prefix grey-text"></i>
-                            <input type="text" id="CURP"  name="curp" class="form-control h" required>
+                            <input type="text" id="CURP" name="curp" class="form-control h" required>
                             <label for="CURP"> CURP</label>
                           </div>
                         </div>
@@ -252,7 +251,7 @@
                         <div class="form-group col-md-12">
                           <div class="md-form m-0">
                             <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="email" name="correo"  id="correo" class="form-control h" required>
+                            <input type="email" name="correo" id="correo" class="form-control h" required>
                             <label for="correo"> Correo electrónico</label>
                           </div>
                         </div>
@@ -264,16 +263,16 @@
                         </div>
                       </div>
                       <br>
-                      <div class="form-row">
+                      <div class="form-row mt-3">
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
-                            <input type="text" name="calle" id="calle"  class="form-control h" required>
+                            <input type="text" name="calle" id="calle" class="form-control h" required>
                             <label for="calle">Calle</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="number" name="num" id="num" class="form-control h>
+                            <input type="number" name="num" id="num" class="form-control h" >
                             <label for="num"> Número</label>
                           </div>
                         </div>
@@ -281,14 +280,14 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
-                            <input type="text" name="colonia" id="colonia"  class="form-control h" required>
+                            <input type="text" name="colonia" id="colonia" class="form-control h" required>
                             <label for="colonia"> Colonia</label>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
-                            <input type="number" maxlength="5"  name="codigo" id="codigo" class="form-control h" required>
-                            <label for="codigo"> Código postal</label>
+                            <input type="number" maxlength="5" name="codigo" id="codigo" class="form-control h" required>
+                            <label for="codigo"> Código Postal</label>
                           </div>
                         </div>
                       </div>
@@ -296,22 +295,22 @@
                         <div class="form-group col-md-6">
                           <div class="md-form mr-4 m-0">
                             <label for="alcaldia"> Alcaldía o municipio</label><br><br>
-                            <select class="custom-select mr-sm-2"  name="alcaldia" id="alcaldia" required>
-                              <option value="Alvaro_Obregon">Álvaro Obregón</option>
+                            <select class="custom-select mr-sm-2" name="alcaldia" id="alcaldia" required>
+                              <option value="Álvaro Obregón" selected>Álvaro Obregón</option>
                               <option value="Azcapotzalco">Azcapotzalco</option>
-                              <option value="Benito_Juarez">Benito Juárez</option>
-                              <option value="Coyoacan">Coyoacán</option>
-                              <option value="Cuajimalpa_de_Morelos">Cuajimalpa de Morelos</option>
-                              <option value="Cuauhtemoc">Cuauhtémoc</option>
-                              <option value="Gustavo_A_Madero">Gustavo A. Madero</option>
+                              <option value="Benito Juárez">Benito Juárez</option>
+                              <option value="Coyoacán">Coyoacán</option>
+                              <option value="Cuajimalpa de Morelos">Cuajimalpa de Morelos</option>
+                              <option value="Cuauhtémoc">Cuauhtémoc</option>
+                              <option value="Gustavo A. Madero">Gustavo A. Madero</option>
                               <option value="Iztacalco">Iztacalco</option>
                               <option value="Iztapalapa">Iztapalapa</option>
-                              <option value="La_Magdalena_Contreras">La Magdalena Contreras</option>
-                              <option value="Miguel_Hidalgo">Miguel Hidalgo</option>
-                              <option value="Milpa_Alta">Milpa Alta</option>
-                              <option value="Tlahuac">Tláhuac</option>
+                              <option value="La Magdalena Contreras">La Magdalena Contreras</option>
+                              <option value="Miguel Hidalgo">Miguel Hidalgo</option>
+                              <option value="Milpa Alta">Milpa Alta</option>
+                              <option value="Tláhuac">Tláhuac</option>
                               <option value="Tlalpan">Tlalpan</option>
-                              <option value="Venustiano_Carranza">Venustiano Carranza</option>
+                              <option value="Venustiano Carranza">Venustiano Carranza</option>
                               <option value="Xochimilco">Xochimilco</option>
                             </select>
                           </div>
@@ -319,7 +318,7 @@
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <label for="entidad"> Entidad federativa</label><br><br>
-                            <select class="custom-select mr-sm-2"  name="estado" id="entidad" required>
+                            <select class="custom-select mr-sm-2" name="estado" id="entidad" required>
                               <option value="Aguascalientes">Aguascalientes</option>
                               <option value="Baja California">Baja California</option>
                               <option value="Baja California Sur">Baja California Sur</option>
@@ -362,7 +361,7 @@
                             <div class="form-group col-md-12 mt-4" id="otro_estado" style="display: none;">
                               <div class="md-form ml-n2  m-0">
                                 <input type="text" id="col" name="otro" class="form-control h" >
-                                <label for="col">Especificar municipio</label>
+                                <label for="col">Especificar Municipio</label>
                               </div>
                             </div>
                           </div>
@@ -378,16 +377,16 @@
                     <h6 class="grey-text text-center"><strong>EVENTO</strong></h6>
                     <hr>
                     <fieldset>
-                      <div class="form-row">
+                      <div class="form-row mt-3">
                         <div class="form-group col-md-12">
                           <div class="md-form m-0">
                             <i class="fas fa-map-marked-alt prefix grey-text"></i>
                             <label for="lugar"> Sede del evento</label><br><br>
-                            <select class="custom-select mr-sm-2" id="lugar"  name="lugar" required >
+                            <select class="custom-select mr-sm-2" id="lugar" name="lugar" required >
                               <option hidden disabled selected value> Selecciona un lugar </option>
                               <option value="S1">Gran Salón del Valle</option>
                               <option value="S2">Lion's Palace</option>
-                              <option value="J1">Jardin Santa Fe</option>
+                              <option value="J1">Jardín Santa Fe</option>
                             </select>
                           </div>
                         </div>
@@ -399,7 +398,7 @@
                             <label for="fecha">Fecha</label><br><br>
                             <!-- Date Picker -->
                             <div class="input-group date">
-                              <input type="text" id="fecha" name="fecha"  class="form-control" required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              <input type="text" id="fecha" name="fecha" class="form-control" required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                             </div>
                             <!-- // Date Picker --> 
                           </div>
@@ -408,7 +407,7 @@
                           <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="custom-select mr-sm-2"  name="hora" id="horario" required>
+                            <select class="custom-select mr-sm-2" name="hora" id="horario" required>
                             </select>
                           </div>
                         </div>
@@ -418,12 +417,12 @@
                           <div class="md-form m-0">
                             <i class="fas fa-music prefix grey-text"></i>
                             <label for="OpcionSeleccionada"> Tipo de evento</label><br><br>
-                            <select class="custom-select mr-sm-2"  id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
-                              <option value="bautizo" selected>Bautizo</option>
-                              <option value="comunion">Primera comunión</option>
-                              <option value="xv">XV años</option>
-                              <option value="boda">Boda</option>
-                              <option value="cumpleaños">Cumpleaños</option>
+                            <select class="custom-select mr-sm-2" id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
+                              <option value="Bautizo" selected>Bautizo</option>
+                              <option value="Comunion">Primera comunión</option>
+                              <option value="XV">XV años</option>
+                              <option value="Boda">Boda</option>
+                              <option value="Cumpleaños">Cumpleaños</option>
                               <option value="otro">Otro</option>
                             </select>
                           </div>
@@ -472,17 +471,17 @@
                           <div class="md-form mr-4 m-0">
                             <i class="fas fa-tag prefix grey-text"></i>
                             <label for="menu"> Menú</label><br><br>
-                            <select class="custom-select mr-sm-2" name="menu"  id="menu" required>
-                              <option value="m_economico" selected>Menú economico</option>
-                              <option value="m_completo" selected>Menú completo</option>
-                              <option value="m_ejecutivo" selected>Menú ejecutivo</option>
+                            <select class="custom-select mr-sm-2" name="menu" id="menu" required>
+                              <option value="Economico">Menú económico</option>
+                              <option value="Completo">Menú completo</option>
+                              <option value="Ejecutivo">Menú ejecutivo</option>
                             </select>
                           </div>
                         </div>
                         <div class="form-group col-md-6">
                           <div class="md-form m-0">
                             <i class="fas fa-users prefix grey-text"></i>
-                            <input type="number" name="personas"  id="personas" class="form-control h" required>
+                            <input type="number" name="personas" id="personas" class="form-control h" required>
                             <label for="personas"> Número de personas</label>
                             <input value="<?php echo $id; ?>" name="id" style="display: none;">
                           </div>
@@ -493,14 +492,14 @@
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
                           <button class="btn btn-dark" name="update" style="display: none;" id="fin" type="submit"></button>
                           <button type="button" onclick="val()" class="btn btn-dark">
-                            <i class="fas fa-paper-plane prefix mr-2"></i>Enviar
+                            <i class="fas fa-paper-plane prefix mr-2"></i>Registrar
                           </button>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
-                            <div class="alert alert-danger" role="alert">
-                              Error en el campo: <span id="alerta"></span>
+                            <div class="alert alert-danger text-center" role="alert">
+                              ERROR<br>El campo <span id="alerta" class="font-weight-bold"></span> es incorrecto
                             </div>
                           </div>
                         </div>
@@ -508,8 +507,8 @@
                         <!-- Modal -->
                         <div class="modal fade" id="exito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
-                            <div class="alert alert-succes" role="alert">
-                              Campos validos
+                            <div class="alert alert-succes text-center" role="alert">
+                              Datos ingresados correctamente
                             </div>
                           </div>
                         </div>
@@ -518,29 +517,31 @@
                           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">¿Los datos son correctos?</h5>
+                                <h6 class="modal-title text-center" id="staticBackdropLabel">Verifica que los datos ingresados sean correctos:</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
                               <div class="modal-body">
                                 <p><span style="font-weight: bold;">Nombre: </span> <span id="nom"></span></p>
-                                <p><span style="font-weight: bold;">Apellido paterno: </span> <span id="pat"></span></p>
-                                <p><span style="font-weight: bold;">Apellido materno: </span> <span id="mat"></span></p>
+                                <p><span style="font-weight: bold;">Apellido Paterno: </span> <span id="pat"></span></p>
+                                <p><span style="font-weight: bold;">Apellido Materno: </span> <span id="mat"></span></p>
                                 <p><span style="font-weight: bold;">CURP: </span> <span id="cur"></span></p>
-                                <p><span style="font-weight: bold;">Correo: </span> <span id="cor"></span></p>
+                                <p><span style="font-weight: bold;">Correo Electrónico: </span> <span id="cor"></span></p>
+                                <p><span style="font-weight: bold;">Dirección</span></p>
                                 <p><span style="font-weight: bold;">Calle: </span> <span id="cal"></span></p>
                                 <p><span style="font-weight: bold;">Número: </span> <span id="nu"></span></p>
                                 <p><span style="font-weight: bold;">Colonia: </span> <span id="co"></span></p>
-                                <p><span style="font-weight: bold;">CP: </span> <span id="c"></span></p>
-                                <p><span style="font-weight: bold;">Municipio: </span> <span id="mu"></span></p>
-                                <p><span style="font-weight: bold;">Estado: </span> <span id="es"></span></p>
-                                <p><span style="font-weight: bold;">Sede del evento: </span> <span id="sed"></span></p>
+                                <p><span style="font-weight: bold;">Código Postal: </span> <span id="c"></span></p>
+                                <p><span style="font-weight: bold;">Alcaldía o Municipio: </span> <span id="mu"></span></p>
+                                <p><span style="font-weight: bold;">Entidad Federativa: </span> <span id="es"></span></p>
+                                <p><span style="font-weight: bold;">Sede del Evento: </span> <span id="sed"></span></p>
                                 <p><span style="font-weight: bold;">Fecha: </span> <span id="fec"></span></p>
-                                <p><span style="font-weight: bold;">Horario: </span> <span id="hor"></span></p>
-                                <p><span style="font-weight: bold;">Descripción: </span> <span id="des"></span></p>
+                                <p><span style="font-weight: bold;">Hora: </span><span id="hor"></span></p>
+                                <p><span style="font-weight: bold;">Evento: </span> <span id="des"></span></p>
                                 <p><span style="font-weight: bold;">Menú: </span> <span id="men"></span></p>
                                 <p><span style="font-weight: bold;">Número de personas: </span> <span id="per"></span></p>
+                                <p><span style="font-weight: bold;">Folio: </span> <span id="folio"></span></p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-caution" data-dismiss="modal">Regresar</button>
@@ -571,11 +572,11 @@
     <!-- Full Page Intro -->
 
     <!--Footer-->
-      <!--Copyright-->
+    <footer class="page-footer text-center font-small wow fadeIn">
+    <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
-        <a href="index.html" target="_self"> RhythmMakers</a>
+        <a href="../index.html" target="_self"> RhythmMakers</a>
       </div>
-      <!--/.Copyright-->
     </footer>
     <!--/.Footer-->
 
@@ -645,20 +646,20 @@
       console.log(date)
       document.getElementById("fecha").value= date;
       if (fe.getDay() == 0) {
-         document.getElementById("horario").innerHTML += '<option value="3">9-14 hrs</option>'
+        document.getElementById("horario").innerHTML += '<option value="09">09 - 14 hrs</option>'
       }else if(fe.getDay() == 6){
          if (Object.keys(obj).includes(fecha)) {
             let pos = Object.keys(obj).indexOf(fecha)
             let oc = Object.values(obj)[pos]
             console.log(oc)
             if (oc == 14) {
-               document.getElementById("horario").innerHTML += '<option value="21">21-2 hrs</option>'
+              document.getElementById("horario").innerHTML += '<option value="21">21 - 02 hrs</option>'
             }else{
-               document.getElementById("horario").innerHTML += '<option value="14">14-19 hrs</option>'
-            }
-         }else{
-            document.getElementById("horario").innerHTML += '<option value="14">14-19 hrs</option>'
-            document.getElementById("horario").innerHTML += '<option value="21">21-2 hrs</option>'
+            document.getElementById("horario").innerHTML += '<option value="14">14 - 19 hrs</option>'
+         }
+      }else{
+         document.getElementById("horario").innerHTML += '<option value="14">14 - 19 hrs</option>'
+         document.getElementById("horario").innerHTML += '<option value="21">21 - 02 hrs</option>'
          }
       }else{
          if (Object.keys(obj).includes(fecha)) {
@@ -666,14 +667,14 @@
             let oc = Object.values(obj)[pos]
             console.log(oc)
             if (oc == 12) {
-               document.getElementById("horario").innerHTML += '<option value="19">19-0 hrs</option>'
+              document.getElementById("horario").innerHTML += '<option value="19">19 - 00 hrs</option>'
             }else{
-               document.getElementById("horario").innerHTML += '<option value="12">12-17 hrs</option>'
+              document.getElementById("horario").innerHTML += '<option value="12">12 - 17 hrs</option>'
             }
-         }else{
-            document.getElementById("horario").innerHTML += '<option value="12">12-17 hrs</option>'
-            document.getElementById("horario").innerHTML += '<option value="19">19-0 hrs</option>'
-         }
+            }else{
+              document.getElementById("horario").innerHTML += '<option value="12">12 - 17 hrs</option>'
+              document.getElementById("horario").innerHTML += '<option value="19">19 - 00 hrs</option>'
+            }
       }
       document.getElementById("horario").disabled = false;
 
@@ -682,6 +683,7 @@
 
       const $lugar = document.querySelector('#lugar');
       $lugar.value = "<?php echo $lugar; ?>"
+
       document.getElementById("nombre").value="<?php echo $nombre; ?>"
       document.getElementById("a_paterno").value="<?php echo $a_pat; ?>"
       document.getElementById("a_materno").value="<?php echo $a_mat; ?>"
@@ -691,10 +693,7 @@
       document.getElementById("num").value="<?php echo $num; ?>"
       document.getElementById("colonia").value="<?php echo $colonia; ?>"
       document.getElementById("codigo").value="<?php echo $codigo; ?>"
-      
       document.getElementById("personas").value="<?php echo $personas; ?>"
-
-
       $(document).ready(function () {
          $('.h').trigger( "focus" );
       });

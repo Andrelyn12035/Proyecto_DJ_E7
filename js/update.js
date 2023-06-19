@@ -231,8 +231,6 @@ $("#entidad").on('change',function(){
          document.getElementById("alcaldia").required = false
          document.getElementById("alcaldia").disabled = true
       }
-    
-   
 })
 
 $('#confirmar').on('shown.bs.modal', function (e) {
@@ -248,13 +246,30 @@ $('#confirmar').on('shown.bs.modal', function (e) {
    document.getElementById("c").innerHTML = document.getElementsByName("codigo")[0].value
    document.getElementById("mu").innerHTML =  document.getElementsByName("alcaldia")[0].value
    document.getElementById("es").innerHTML = document.getElementsByName("estado")[0].value
-   document.getElementById("sed").innerHTML = document.getElementsByName("lugar")[0].value
+   if (document.getElementsByName("lugar")[0].value == "S1") {
+      document.getElementById("sed").innerHTML = "Gran Salón del Valle"
+   }else if (document.getElementsByName("lugar")[0].value == "S2"){
+      document.getElementById("sed").innerHTML = "Lion's Palace"
+   }else{
+      document.getElementById("sed").innerHTML = "Jardín Santa Fe"
+   }
    document.getElementById("fec").innerHTML = document.getElementsByName("fecha")[0].value
-   document.getElementById("hor").innerHTML = document.getElementsByName("hora")[0].value
+   var hora_i= document.getElementsByName("hora")[0].value;
+   var hora_f;
+   if(hora_i == 21){
+      hora_f='02';
+   }
+   else if(document.getElementsByName("hora")[0].value == 19){
+      hora_f='00';
+   }
+   else{
+      hora_f= parseInt(hora_i)+5;
+   }   
+   document.getElementById("hor").innerHTML = hora_i+' - '+hora_f+' hrs'
    document.getElementById("des").innerHTML = document.getElementsByName("evento")[0].value
    document.getElementById("men").innerHTML = document.getElementsByName("menu")[0].value
    document.getElementById("per").innerHTML = document.getElementsByName("personas")[0].value
-   
+   document.getElementById("folio").innerHTML = document.getElementsByName("curp")[0].value+document.getElementsByName("lugar")[0].value+document.getElementsByName("fecha")[0].value+document.getElementsByName("hora")[0].value
 })
 
 $('#btnYes').click(function() {
