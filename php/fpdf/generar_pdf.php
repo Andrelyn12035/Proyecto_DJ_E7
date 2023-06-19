@@ -39,10 +39,13 @@
         $sql = "SELECT * FROM evento WHERE folio = '$folio'";
         $tabla = mysqli_query($conexion, $sql);
         $evento = mysqli_fetch_array($tabla);
-
         if (!$tabla) {
-           die("Error en query");
-        }
+            die("Error en query");
+         }
+        if(mysqli_num_rows($tabla) > 0) {
+        
+
+        
 
         $pdf = new PDF();
         $pdf->AliasNBPages();
@@ -150,5 +153,14 @@
         $pdf->Cell(0, 8, utf8_decode($evento[6]), 0, 1, '', 0);
  
         $pdf->Output('D', $folio.'.pdf', true);
+
+        } else {
+            session_start();
+            // Handle exception or error here.
+            $_SESSION['comp'] = 'No se encontro registro de algun evento con los datos proporcionados, ingrese nuevamente los campos';
+
+            header("Location: ../comprobante.php");
+        }
+
      }
 ?>

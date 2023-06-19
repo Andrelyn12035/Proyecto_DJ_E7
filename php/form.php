@@ -97,7 +97,7 @@
               <a class="nav-link" href="../form.html" target="_self">Contratación</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../comprobante.html" target="_self">Comprobante</a>
+              <a class="nav-link" href="comprobante.php" target="_self">Comprobante</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index_crud.php" target="_self">Administrador</a>

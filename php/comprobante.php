@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -9,11 +12,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="../css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../css/style.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -50,8 +53,8 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
       <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="index.html">
-          <img src="img/logo.png" style="height: 35px;"><strong>RHM</strong>
+        <a class="navbar-brand" href="../index.html">
+          <img src="../img/logo.png" style="height: 35px;"><strong>RHM</strong>
         </a>
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -63,18 +66,18 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html" target="_self">Inicio
+              <a class="nav-link" href="../index.html" target="_self">Inicio
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.html" target="_self">Contratación</a>
+              <a class="nav-link" href="../form.html" target="_self">Contratación</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#" target="_self">Comprobante</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="php/index_crud.php" target="_self">Administrador</a>
+              <a class="nav-link" href="index_crud.php" target="_self">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
@@ -91,9 +94,9 @@
     <!-- /.Navbar -->
 
     <!-- Main -->
-    <main style="background-image: url('img/index.jpg'); background-repeat:no-repeat; background-size: cover;">
+    <main style="background-image: url('../img/index.jpg'); background-repeat:no-repeat; background-size: cover;">
       <div class="my-auto">
-        <form action="php/fpdf/generar_pdf.php" method="POST" name="comprobante" class="form-comp">
+        <form action="fpdf/generar_pdf.php" method="POST" name="comprobante" class="form-comp">
           <div class="card" style="margin-top: 4.1rem;">
             <div class="card-body">
               <div class="text-center">
@@ -102,6 +105,14 @@
               <h3 class="text-muted text-center font-weight-bold mt-3">Recuperar Comprobante</h3>
               <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento es necesario verificar los siguientes datos.</h6>
               <div class="mt-4">
+              <?php if (isset($_SESSION['comp'])) { ?>
+              <div class="alert alert-primary alert-dismissible fade show w-100" role="alert">
+                <?= $_SESSION['comp']?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <?php unset($_SESSION['comp']); } ?>
                 <i class="fas fa-id-badge prefix grey-text"></i>
                 <label for="curp" class="grey-text ml-2"> CURP</label>
                 <input type="text" id="curp" name="curp" class="form-control font-smaller" placeholder="Ingresar CURP" required>
@@ -136,7 +147,7 @@
                   <button class="btn btn-dark" name="generar" style="display: none;" id="comp" type="submit"></button>
                   <input type="text" style="display:none;" name="folio" id="fol"> </input>
                   <button type="button" onclick="validarCo()" class="btn btn-dark">
-                    <i class="fas fa-paper-plane prefix mr-2"></i>Registrar
+                    <i class="fas fa-paper-plane prefix mr-2"></i>Verificar
                   </button>
               </div>
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,25 +177,25 @@
       </div>
       <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
-        <a href="index.html" target="_self"> RhythmMakers</a>
+        <a href="../index.html" target="_self"> RhythmMakers</a>
       </div>
     </footer>
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="../js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
 
     <!-- Initializations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.es.min.js" integrity="sha512-5pjEAV8mgR98bRTcqwZ3An0MYSOleV04mwwYj2yw+7PBhFVf/0KcE+NEox0XrFiU5+x5t5qidmo5MgBkDD9hEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script type="text/javascript" src="js/validarComprobante.js"></script>
+    <script type="text/javascript" src="../js/validarComprobante.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
       // Animations initialization
