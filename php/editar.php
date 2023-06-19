@@ -87,7 +87,10 @@
          if (!$res) {
             die("Error en query");
          }
-         $_SESSION['message'] = 'Task Updated Successfully';
+         $_SESSION['message'] = 'Los datos del evento fueron actualizados';
+
+         header("Location: index_crud.php");
+         
       }
 
 ?>
@@ -98,6 +101,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Actualizar</title>
+    <link rel="icon" href="../img/icono.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -641,12 +645,12 @@
       document.getElementById("horario").innerHTML = '';
       let dateString = fecha;
       let [day, month, year] = dateString.split('/')
-      const fe = new Date(+year, +month - 1, +day)
+      const fe = new Date(+year, +month - 2, +day)
       date = fe.toLocaleDateString('en-GB');
       console.log(date)
       document.getElementById("fecha").value= date;
       if (fe.getDay() == 0) {
-        document.getElementById("horario").innerHTML += '<option value="09">09 - 14 hrs</option>'
+        document.getElementById("horario").innerHTML += '<option value="9">9 - 14 hrs</option>'
       }else if(fe.getDay() == 6){
          if (Object.keys(obj).includes(fecha)) {
             let pos = Object.keys(obj).indexOf(fecha)

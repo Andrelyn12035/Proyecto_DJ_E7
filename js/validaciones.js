@@ -173,10 +173,10 @@ $("#fecha").on('change',function(){
    document.getElementById("horario").innerHTML = '';
    let dateString = fecha;
    let [day, month, year] = dateString.split('/')
-   const fe = new Date(+year, +month - 1, +day)
+   const fe = new Date(+year, +month - 2, +day)
    console.log(fe.getDay())
    if (fe.getDay() == 0) {
-      document.getElementById("horario").innerHTML += '<option value="09">09 - 14 hrs</option>'
+      document.getElementById("horario").innerHTML += '<option value="9">9 - 14 hrs</option>'
    }else if(fe.getDay() == 6){
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="img/icono.png">
     <title>Comprobante</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -13,6 +14,12 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.min.css" integrity="sha512-aQb0/doxDGrw/OC7drNaJQkIKFu6eSWnVMAwPN64p6sZKeJ4QCDYL42Rumw2ZtL8DB9f66q4CnLIUnAw28dEbg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.standalone.min.css" integrity="sha512-t+00JqxGbnKSfg/4We7ulJjd3fGJWsleNNBSXRk9/3417ojFqSmkBfAJ/3+zpTFfGNZyKxPVGwWvaRuGdtpEEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
       <style>
         .form-comp {
           width: 100%;
@@ -82,7 +89,7 @@
     <!-- Main -->
     <main style="background-image: url('img/index.jpg'); background-repeat:no-repeat; background-size: cover;">
       <div class="my-auto">
-        <form action="" method="post" class="form-comp">
+        <form action="php/fpdf/generar_pdf.php" method="POST" name="comprobante" class="form-comp">
           <div class="card" style="margin-top: 4.1rem;">
             <div class="card-body">
               <div class="text-center">
@@ -97,13 +104,18 @@
               </div>
               <div class="mt-4">
                 <i class="fas fa-calendar prefix grey-text"></i>
-                <label for="fecha" class="grey-text ml-2"> Fecha de Evento</label>
-                <input type="date" id="fecha" name="fecha"class="form-control" placeholder="Ingresar Fecha" required>
+                <label for="fecha">Fecha</label><br><br>
+                <!-- Date Picker -->
+                <div class="input-group date">
+                  <input type="text" id="fecha" name="fecha" class="form-control" required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                </div>
               </div>
               <div class="mt-4">
-                <i class="fas fa-id-badge prefix grey-text"></i>
-                <label for="hora" class="grey-text ml-2"> Hora de Evento</label>
-                <input type="time" id="hora" name="hora" class="form-control font-smaller" placeholder="Ingresar Hora" required>
+                  <i class="fas fa-clock prefix grey-text"></i>
+                  <label for="horario"> Horario</label><br><br>
+                  <select class="custom-select mr-sm-2" name="hora" id="horario" required disabled>
+
+                  </select>
               </div>
               <div class="mt-4">
                 <i class="fas fa-map-marked-alt prefix grey-text"></i>
@@ -117,7 +129,18 @@
               </div>
               <div class="text-center mt-4 mb-3">
                   <button class="btn btn-dark" type="reset">Limpiar</button>
-                  <button class="btn btn-dark" type="submit">Enviar</button>
+                  <button class="btn btn-dark" name="generar" style="display: none;" id="comp" type="submit"></button>
+                  <input type="text" style="display:none;" name="folio" id="fol"> </input>
+                  <button type="button" onclick="validarCo()" class="btn btn-dark">
+                    <i class="fas fa-paper-plane prefix mr-2"></i>Registrar
+                  </button>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="alert alert-danger text-center" role="alert">
+                    El campo <span id="alerta" class="font-weight-bold"></span> es incorrecto
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -152,9 +175,21 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <!-- Initializations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.es.min.js" integrity="sha512-5pjEAV8mgR98bRTcqwZ3An0MYSOleV04mwwYj2yw+7PBhFVf/0KcE+NEox0XrFiU5+x5t5qidmo5MgBkDD9hEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" src="js/validarComprobante.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
       // Animations initialization
+      $('.input-group.date').datepicker({
+          language: "es",
+          daysOfWeekDisabled: "1,2,3,4",
+          format: "dd/mm/yyyy"
+      });
+
       new WOW().init();
     </script>
   </body>

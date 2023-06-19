@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Menú Administrador</title>
+    <link rel="icon" href="../img/icono.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -109,10 +110,18 @@
     <!-- /.Navbar -->
 
     <main>
-    <h6 class="text-dark ml-4" style="margin-top:7%;">Bienvenido <?php echo $usuario ?></h6>
-        <div class="container mt-5">
-        <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
-    width="75%">
+        <h3 class="text-dark ml-4" style="margin-top:7rem;">Bienvenido <?php echo $usuario ?></h6>
+        <?php if (isset($_SESSION['message'])) { ?>
+        <div class="alert alert-primary alert-dismissible fade show w-25 ml-4" role="alert">
+          <?= $_SESSION['message']?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <?php unset($_SESSION['message']); } ?>
+        <div class="container mt-5" >
+          
+        <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0">
           <thead>
             <tr>
               <th>Folio</th>
