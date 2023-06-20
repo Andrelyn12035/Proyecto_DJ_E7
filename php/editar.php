@@ -613,12 +613,11 @@
       new WOW().init();
     </script>
    <script type="text/javascript">
-      const $estado = document.querySelector('#entidad');
-      $estado.value = "<?php echo $entidad; ?>"
-
+      $("#entidad").on('change',function(){
+        console.log(this.value);
       var otherOptionContainer = document.getElementById("otro_estado");
       var otherOptionInput = document.getElementById("col");
-      if ("<?php echo $entidad; ?>" == "CDMX") {
+   if (this.value == "CDMX") {
          otherOptionContainer.style.display = "none";
          otherOptionInput.required = false;
 
@@ -633,13 +632,65 @@
 
          otherOptionInput.name = "alcaldia"
          otherOptionInput.required = true
+         document.getElementById("alcaldia").name = "otro"
+         document.getElementById("alcaldia").required = false
+         document.getElementById("alcaldia").disabled = true
+      }
+    
+   
+})
+
+
+      var otherOptionContainer = document.getElementById("otro_estado");
+      var otherOptionInput = document.getElementById("col");
+      if ("<?php echo $entidad; ?>" == "CDMX") {
+         otherOptionContainer.style.display = "none";
+         otherOptionInput.required = false;
+
+         otherOptionInput.name = "otro"
+         otherOptionInput.required = false
+         document.getElementById("alcaldia").value =  "<?php echo $alc; ?>"
+         document.getElementById("alcaldia").name = "alcaldia"
+         document.getElementById("alcaldia").required = true
+         document.getElementById("alcaldia").disabled = false
+      } else {
+         otherOptionContainer.style.display = "block";
+         otherOptionInput.required = true;
+
+         otherOptionInput.name = "alcaldia"
+         otherOptionInput.required = true
          otherOptionInput.value = "<?php echo $alc; ?>"
          document.getElementById("alcaldia").name = "otro"
          document.getElementById("alcaldia").required = false
          document.getElementById("alcaldia").disabled = true
       }
-
       
+      var contenedorOtro = document.getElementById("contenerdorOtraOpcion");
+      var otraEntrada = document.getElementById("otra_opc");
+      if ("<?php echo $evento; ?>" == "Bautizo" || "<?php echo $evento; ?>" == "Comunion" || "<?php echo $evento; ?>" == "XV" || "<?php echo $evento; ?>" == "Boda" || "<?php echo $evento; ?>" == "Cumpleaños") {  
+
+        contenedorOtro.style.display = "none";
+        otraEntrada.required = false;
+
+        otraEntrada.name = "otra_opc"
+        otraEntrada.required = false
+        document.getElementById("OpcionSeleccionada").value = "<?php echo $evento; ?>"
+        document.getElementById("OpcionSeleccionada").name = "evento"
+        document.getElementById("OpcionSeleccionada").required = true
+        document.getElementById("OpcionSeleccionada").disabled = false
+
+      } else {
+      contenedorOtro.style.display = "block";
+      otraEntrada.required = true;
+
+      otraEntrada.name = "evento"
+      otraEntrada.required = true
+      otraEntrada.value = "<?php echo $evento; ?>"
+      document.getElementById("OpcionSeleccionada").name = "otra_opc"
+      document.getElementById("OpcionSeleccionada").required = false
+      document.getElementById("OpcionSeleccionada").value = "otro"
+      }
+
 
       let fecha = "<?php echo $fecha; ?>"
       document.getElementById("horario").innerHTML = '';
@@ -687,6 +738,8 @@
 
       const $lugar = document.querySelector('#lugar');
       $lugar.value = "<?php echo $lugar; ?>"
+      const $estado = document.querySelector('#entidad');
+      $estado.value = "<?php echo $entidad; ?>"
 
       document.getElementById("nombre").value="<?php echo $nombre; ?>"
       document.getElementById("a_paterno").value="<?php echo $a_pat; ?>"
