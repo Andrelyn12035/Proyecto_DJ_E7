@@ -423,8 +423,8 @@
                             <label for="OpcionSeleccionada"> Tipo de evento</label><br><br>
                             <select class="custom-select mr-sm-2" id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
                               <option value="Bautizo" selected>Bautizo</option>
-                              <option value="Comunion">Primera comunión</option>
-                              <option value="XV">XV años</option>
+                              <option value="Primera Comunión">Primera comunión</option>
+                              <option value="XV años">XV años</option>
                               <option value="Boda">Boda</option>
                               <option value="Cumpleaños">Cumpleaños</option>
                               <option value="otro">Otro</option>
@@ -476,7 +476,7 @@
                             <i class="fas fa-tag prefix grey-text"></i>
                             <label for="menu"> Menú</label><br><br>
                             <select class="custom-select mr-sm-2" name="menu" id="menu" required>
-                              <option value="Economico">Menú económico</option>
+                              <option value="Económico">Menú económico</option>
                               <option value="Completo">Menú completo</option>
                               <option value="Ejecutivo">Menú ejecutivo</option>
                             </select>
@@ -701,7 +701,7 @@
       console.log(date)
       document.getElementById("fecha").value= date;
       if (fe.getDay() == 0) {
-        document.getElementById("horario").innerHTML += '<option value="9">9 - 14 hrs</option>'
+        document.getElementById("horario").innerHTML += '<option value="9">09 - 14 hrs</option>'
       }else if(fe.getDay() == 6){
          if (Object.keys(obj).includes(fecha)) {
             let pos = Object.keys(obj).indexOf(fecha)
@@ -740,6 +740,9 @@
       $lugar.value = "<?php echo $lugar; ?>"
       const $estado = document.querySelector('#entidad');
       $estado.value = "<?php echo $entidad; ?>"
+
+      const $menu = document.querySelector('#menu');
+      $menu.value = "<?php echo $menu; ?>"
 
       document.getElementById("nombre").value="<?php echo $nombre; ?>"
       document.getElementById("a_paterno").value="<?php echo $a_pat; ?>"

@@ -114,16 +114,23 @@
             $n_lugar = "Jardín Santa Fe";
         }
 
-        if($evento[18] == 21){
-            $hora_fin = '02';
-        }
-        elseif($evento[18] == 19){
-            $hora_fin = '00';
-        }
-        else{
-            $hora_fin = $evento[18]+5;
-        }
-        
+        $hora_i=$evento[18];
+        if($hora_i == 12){
+            $hora_f='17';
+         }  
+         else if($hora_i == 19){
+            $hora_f='00';
+         }  
+         else if($hora_i == 14){
+            $hora_f='19';
+         }
+         else if($hora_i == 21){
+            $hora_f='02';
+         }
+         else if($hora_i == 9){
+            $hora_i='09';
+            $hora_f='14';
+         }
         $pdf->Ln(3);
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(35, 8, utf8_decode('EVENTO'), 0, 1, 'R', 0);
@@ -138,7 +145,7 @@
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(50, 8, utf8_decode('Hora: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);
-        $pdf->Cell(0, 8, utf8_decode($evento[18].' - '.$hora_fin).' hrs', 0, 1, '', 0);
+        $pdf->Cell(0, 8, utf8_decode($hora_i.' - '.$hora_f).' hrs', 0, 1, '', 0);
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(50, 8, utf8_decode('Tipo de Evento: '), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 11);

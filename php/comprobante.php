@@ -147,7 +147,7 @@ session_start();
                   <button class="btn btn-dark" name="generar" style="display: none;" id="comp" type="submit"></button>
                   <input type="text" style="display:none;" name="folio" id="fol"> </input>
                   <button type="button" onclick="validarCo()" class="btn btn-dark">
-                    <i class="fas fa-paper-plane prefix mr-2"></i>Verificar
+                    <i class="fas fa-paper-plane prefix mr-2"></i>Enviar
                   </button>
               </div>
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

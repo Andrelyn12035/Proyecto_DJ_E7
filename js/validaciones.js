@@ -220,7 +220,7 @@ $("#fecha").on('change',function(){
    console.log(date)
    console.log(fe.getDay())
    if (fe.getDay() == 0) {
-      document.getElementById("horario").innerHTML += '<option value="9">9 - 14 hrs</option>'
+      document.getElementById("horario").innerHTML += '<option value="9">09 - 14 hrs</option>'
    }else if(fe.getDay() == 6){
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)
@@ -303,15 +303,22 @@ $('#confirmar').on('shown.bs.modal', function (e) {
    document.getElementById("fec").innerHTML = document.getElementsByName("fecha")[0].value
    var hora_i= document.getElementsByName("hora")[0].value;
    var hora_f;
-   if(hora_i == 21){
+   if(hora_i == 12){
+      hora_f='17';
+   }  
+   else if(hora_i == 19){
+      hora_f='00';
+   }  
+   else if(hora_i == 14){
+      hora_f='19';
+   }
+   else if(hora_i == 21){
       hora_f='02';
    }
-   else if(document.getElementsByName("hora")[0].value == 19){
-      hora_f='00';
-   }
-   else{
-      hora_f= parseInt(hora_i)+5;
-   }   
+   else if(hora_i == 9){
+      hora_i='09';
+      hora_f='14';
+   } 
    document.getElementById("hor").innerHTML = hora_i+' - '+hora_f+' hrs'
    document.getElementById("des").innerHTML = document.getElementsByName("evento")[0].value
    document.getElementById("men").innerHTML = document.getElementsByName("menu")[0].value
