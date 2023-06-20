@@ -221,7 +221,7 @@ $("#fecha").on('change',function(){
    date = fe.toLocaleDateString('en-GB');
    console.log(date)
    if (fe.getDay() == 0) {
-      document.getElementById("horario").innerHTML += '<option value="9">9 - 14 hrs</option>'
+      document.getElementById("horario").innerHTML += '<option value="9">09 - 14 hrs</option>'
    }else if(fe.getDay() == 6){
       if (Object.keys(obj).includes(fecha)) {
          let pos = Object.keys(obj).indexOf(fecha)
