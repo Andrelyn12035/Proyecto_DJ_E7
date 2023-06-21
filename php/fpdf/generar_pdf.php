@@ -159,13 +159,12 @@
         $pdf->SetFont('Arial', '', 11);
         $pdf->Cell(0, 8, utf8_decode($evento[6]), 0, 1, '', 0);
  
-        $pdf->Output('D', $folio.'.pdf', true);
+        $pdf->Output();
 
         } else {
             session_start();
             // Handle exception or error here.
-            $_SESSION['comp'] = 'No se encontro registro de algun evento con los datos proporcionados, ingrese nuevamente los campos';
-
+            $_SESSION['comp'] = 'No se encontró ningún registro con los datos proporcionados. Inténtelo de nuevo.';
             header("Location: ../comprobante.php");
         }
 
