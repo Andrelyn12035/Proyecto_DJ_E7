@@ -87,10 +87,8 @@
          if (!$res) {
             die("Error en query");
          }
-         $_SESSION['message'] = 'Los datos del evento fueron actualizados';
-
+         $_SESSION['message'] = 'Los datos del evento han sido actualizados.';
          header("Location: index_crud.php");
-         
       }
 
 ?>
@@ -423,7 +421,7 @@
                             <label for="OpcionSeleccionada"> Tipo de evento</label><br><br>
                             <select class="custom-select mr-sm-2" id="OpcionSeleccionada" name="evento" onchange="showTextField(this)" required>
                               <option value="Bautizo" selected>Bautizo</option>
-                              <option value="Primera Comunión">Primera comunión</option>
+                              <option value="Primera Comunión">Primera Comunión</option>
                               <option value="XV años">XV años</option>
                               <option value="Boda">Boda</option>
                               <option value="Cumpleaños">Cumpleaños</option>
@@ -667,7 +665,7 @@
       
       var contenedorOtro = document.getElementById("contenerdorOtraOpcion");
       var otraEntrada = document.getElementById("otra_opc");
-      if ("<?php echo $evento; ?>" == "Bautizo" || "<?php echo $evento; ?>" == "Comunion" || "<?php echo $evento; ?>" == "XV" || "<?php echo $evento; ?>" == "Boda" || "<?php echo $evento; ?>" == "Cumpleaños") {  
+      if ("<?php echo $evento; ?>" == "Bautizo" || "<?php echo $evento; ?>" == "Primera Comunión" || "<?php echo $evento; ?>" == "XV años" || "<?php echo $evento; ?>" == "Boda" || "<?php echo $evento; ?>" == "Cumpleaños") {  
 
         contenedorOtro.style.display = "none";
         otraEntrada.required = false;
@@ -739,8 +737,10 @@
       const $lugar = document.querySelector('#lugar');
       $lugar.value = "<?php echo $lugar; ?>"
       const $estado = document.querySelector('#entidad');
-        $estado.value = "<?php echo $entidad; ?>"
-        console.log("<?php echo $menu; ?>")
+      $estado.value = "<?php echo $entidad; ?>"
+      
+      console.log("<?php echo $menu; ?>")
+      $estado.value = "<?php echo $entidad; ?>"
       const $menu = document.querySelector('#menu');
       $menu.value = "<?php echo $menu; ?>"
       console.log($menu.value)

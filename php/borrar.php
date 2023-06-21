@@ -1,6 +1,4 @@
 <?php
-   
-   
    include("db.php");
    session_start();
    if(isset($_SESSION["usuario"])){
@@ -18,7 +16,7 @@
       if (!$result) {
          die("Error");
       }
-      $_SESSION['mensaje'] = "Evento eliminado satisfactoriamente";
+      $_SESSION['message'] = 'Los datos del evento han sido eliminados.';
+      header("Location: index_crud.php");
    }
-
 ?>
