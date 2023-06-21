@@ -476,7 +476,7 @@
                             <i class="fas fa-tag prefix grey-text"></i>
                             <label for="menu"> Menú</label><br><br>
                             <select class="custom-select mr-sm-2" name="menu" id="menu" required>
-                              <option value="Económico">Menú económico</option>
+                              <option value="Economico">Menú económico</option>
                               <option value="Completo">Menú completo</option>
                               <option value="Ejecutivo">Menú ejecutivo</option>
                             </select>
@@ -739,10 +739,11 @@
       const $lugar = document.querySelector('#lugar');
       $lugar.value = "<?php echo $lugar; ?>"
       const $estado = document.querySelector('#entidad');
-      $estado.value = "<?php echo $entidad; ?>"
-
+        $estado.value = "<?php echo $entidad; ?>"
+        console.log("<?php echo $menu; ?>")
       const $menu = document.querySelector('#menu');
       $menu.value = "<?php echo $menu; ?>"
+      console.log($menu.value)
 
       document.getElementById("nombre").value="<?php echo $nombre; ?>"
       document.getElementById("a_paterno").value="<?php echo $a_pat; ?>"

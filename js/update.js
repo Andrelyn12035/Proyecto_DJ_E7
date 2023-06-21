@@ -119,7 +119,7 @@ $("#lugar").on('change',function(){
    };
 
    $.ajax({
-      url: 'php/fecha.php',
+      url: 'fecha.php',
       type: 'POST',
       crossDomain: true,
       dataType: 'json',
