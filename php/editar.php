@@ -87,10 +87,8 @@
          if (!$res) {
             die("Error en query");
          }
-         $_SESSION['message'] = 'Los datos del evento fueron actualizados';
-
+         $_SESSION['message'] = 'Los datos del evento han sido actualizados.';
          header("Location: index_crud.php");
-         
       }
 
 ?>

@@ -54,7 +54,6 @@ CREATE TABLE `evento` (
 --
 
 LOCK TABLES `evento` WRITE;
-INSERT INTO `evento` VALUES (1,'MEAA050423MMCDPPA5S225/06/20233	','S2','2023-06-18','Cumpleaños','Completo',100,'Ana Cristina','Medina','Angeles','MEAA050423MMCDPPA5','ana@gmail.com','Palmas',5,'Huertas','52734','Naucalpan de Juárez','Estado de México',2),
-(2,'RAMK030718HNEMRVB5J125/06/20231','J1','2023-06-25','Bautizo','Ejecutivo',100,'Kevin','Ramirez','Martinez','RAMK030718HNEMRVB5','krandym1993@hiotmail.com','Dalias',5,'Lomas','56335','Chimalhuacán','Estado de México',1);
-
+INSERT INTO `evento` VALUES (1,'MEAA050423MMCDPPA1S224/06/202321','S2','2023-06-24','Cumpleaños','Completo',100,'Ana Cristina','Medina','Angeles','MEAA050423MMCDPPA1','ana@gmail.com','Palmas',5,'Huertas','52734','Naucalpan de Juárez','Estado de México',21),
+(2,'RAMK030718HNEMRVB5J125/06/20239','J1','2023-06-25','Boda','Ejecutivo',200,'Kevin','Ramirez','Martinez','RAMK030718HNEMRVB5','krandym1993@hotmail.com','Dalias',7,'Xochitenco','56335','Chimalhuacán','Estado de México',9);
 UNLOCK TABLES;
