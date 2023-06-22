@@ -1,4 +1,4 @@
 Options ALL -Indexes
 DirectoryIndex index.html
-ErrorDocument 404 /404.php
-ErrorDocument 403 /403.php
+ErrorDocument 404 /php/404.php
+ErrorDocument 403 /php/403.php
