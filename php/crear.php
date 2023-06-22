@@ -1,19 +1,59 @@
+<?php
+   include("db.php");
+   session_start();
+   if(isset($_SESSION["usuario"])){
+		$usuario = $_SESSION["usuario"];
+	}
+	else{
+    header("Location: ../login_admin.html");
+	}
+    if (isset($_POST['create'])) {
+        $nombre = $_POST['nombre'];
+        $a_pat = $_POST['a_paterno'];
+        $a_mat = $_POST['a_materno'];
+        $curp = $_POST['curp'];
+        $correo = $_POST['correo'];
+        $calle = $_POST['calle'];
+        $num = $_POST['num'];
+        $colonia = $_POST['colonia'];
+        $codigo = $_POST['codigo'];
+        $alc = $_POST['alcaldia'];
+        $entidad = $_POST['estado'];
+        $lugar = $_POST['lugar'];
+        $fecha = isset($_POST['fecha']) ? $_POST['fecha'] : ""; 
+        $hora = isset($_POST['hora']) ? $_POST['hora'] : "";
+        $evento = $_POST['evento'];
+        $desc = $_POST['otra_opc'];
+        $menu = $_POST['menu'];
+        $personas = $_POST['personas'];
+        $folio = $curp.$lugar.$fecha.$hora;
+  
+        $sql = "INSERT INTO evento(folio, sede, fecha, tipo, menu, no_personas, nombre, a_paterno, a_materno, curp, correo, calle, numero, colonia, cp, alcaldia, entidad, hora) VALUES ('$folio', '$lugar', STR_TO_DATE('$fecha', '%d/%m/%Y') , '$evento', '$menu', '$personas', '$nombre', '$a_pat', '$a_mat', '$curp', '$correo', '$calle', '$num', '$colonia', '$codigo', '$alc', '$entidad', '$hora')";
+        $res = mysqli_query($conexion, $sql);
+        if (!$res) {
+           die("Error en query");
+        }
+         $_SESSION['message'] = 'Los datos del evento han sido registrados.';
+         $_SESSION['type'] = 'success';
+         header("Location: index_crud.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Contratación</title>
-    <link rel="icon" href="img/icono.png">
+    <title>Crear</title>
+    <link rel="icon" href="../img/icono.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="../css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../css/style.min.css" rel="stylesheet">
     <!-- picker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -59,7 +99,6 @@
           margin-bottom: 0px;
         }
       }
-
       td{
         color:darkblue;
       }
@@ -71,8 +110,8 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
       <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="index.html">
-          <img src="img/logo.png" style="height: 35px;"><strong>RHM</strong>
+        <a class="navbar-brand" href="../index.html">
+          <img src="../img/logo.png" style="height: 35px;"><strong>RHM</strong>
         </a>
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -84,25 +123,16 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html" target="_self">Inicio
+              <a class="nav-link" href="index_crud.php" target="_self">Menu Administrador
                 <span class="sr-only">(current)</span>
               </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#" target="_self">Contratación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="php/comprobante.php" target="_self">Comprobante</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="php/index_crud.php" target="_self">Administrador</a>
             </li>
           </ul>
           <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
-              <a href="index.html" class="nav-link border border-light rounded">
-                <i class="fas fa-music mr-2"></i>RhythmMakers
+              <a href="logout.php?cerrar=yes" class="nav-link border border-light rounded">
+                <i class="fas fa-chevron-left mr-2"></i> Cerrar sesión&nbsp;&nbsp;
               </a>
             </li>
           </ul>
@@ -112,7 +142,7 @@
     <!-- /.Navbar -->
   
     <!-- Full Page Intro -->
-    <main style="background-image: url('img/form.jpg'); background-repeat:no-repeat; background-size: cover;">
+    <main style="background-image: url('../img/form.jpg'); background-repeat:no-repeat; background-size: cover;">
       <!-- Mask & flexbox options-->
       <div class="mask rgba-black-light justify-content-center align-items-center">
         <!-- Content -->
@@ -122,9 +152,9 @@
             <!--Card content-->
             <div class="card-body">
               <!-- Form -->
-              <form name="contratacion" action="php/form.php" id="contratacion" method="POST" class="m-4">
+              <form name="contratacion" action="crear.php" id="contratacion" method="POST" class="m-4">
                 <!-- Heading -->
-                <h3 class="dark-grey-text text-center font-weight-bold">Servicio de contratación de DJ</h3>
+                <h3 class="dark-grey-text text-center font-weight-bold">Crear Evento</h3>
                 <!-- Grid row -->
                 <div class="row wow fadeIn mt-4 d-flex justify-content-around">
                   <!-- Grid column -->
@@ -277,7 +307,7 @@
                           <div class="md-form  m-0">
                             <div class="form-group col-md-12 mt-4" id="otro_estado" style="display: none;">
                               <div class="md-form ml-n2  m-0">
-                                <input type="text" id="col" name="otro" class="form-control" >
+                                <input type="text" id="col" name="otro" class="form-control h" >
                                 <label for="col">Especificar Municipio</label>
                               </div>
                             </div>
@@ -315,7 +345,7 @@
                             <label for="fecha">Fecha</label><br><br>
                             <!-- Date Picker -->
                             <div class="input-group date">
-                              <input type="text" id="fecha" name="fecha" class="form-control" disabled required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              <input type="text" id="fecha" name="fecha" class="form-control" required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                             </div>
                             <!-- // Date Picker --> 
                           </div>
@@ -324,7 +354,7 @@
                           <div class="md-form m-0">
                             <i class="fas fa-clock prefix grey-text"></i>
                             <label for="horario"> Horario</label><br><br>
-                            <select class="custom-select mr-sm-2" name="hora" id="horario" disabled required>
+                            <select class="custom-select mr-sm-2" name="hora" id="horario" required>
                             </select>
                           </div>
                         </div>
@@ -389,7 +419,7 @@
                             <i class="fas fa-tag prefix grey-text"></i>
                             <label for="menu"> Menú</label><br><br>
                             <select class="custom-select mr-sm-2" name="menu" id="menu" required>
-                              <option value="Económico" selected>Menú económico</option>
+                              <option value="Economico">Menú económico</option>
                               <option value="Completo">Menú completo</option>
                               <option value="Ejecutivo">Menú ejecutivo</option>
                             </select>
@@ -400,15 +430,16 @@
                             <i class="fas fa-users prefix grey-text"></i>
                             <input type="number" name="personas" id="personas" class="form-control" required>
                             <label for="personas"> Número de personas</label>
+                            <input value="<?php echo $id; ?>" name="id" style="display: none;">
                           </div>
                         </div>
                       </div>
                       <div class="form-group mt-3">
                         <div class="text-center">
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
-                          <button class="btn btn-dark" name="form" style="display: none;" id="fin" type="submit"></button>
+                          <button class="btn btn-dark" name="create" style="display: none;" id="fin" type="submit"></button>
                           <button type="button" onclick="validar()" class="btn btn-dark">
-                            <i class="fas fa-paper-plane prefix mr-2"></i>Registrar
+                            <i class="fas fa-plus prefix mr-2"></i>Crear
                           </button>
                         </div>
                         <!-- Modal -->
@@ -433,7 +464,7 @@
                           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h6 class="modal-title text-center" id="staticBackdropLabel">Hola <span id="cliente"></span>, verifica que los datos de tu contratación/reservación que ingresaste sean correctos:</h6>
+                                <h6 class="modal-title text-center" id="staticBackdropLabel">Hola <?php echo($usuario) ?>, verifica que los datos ingresados sean correctos:</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -460,8 +491,8 @@
                                 <p><span style="font-weight: bold;">Folio: </span> <span id="folio"></span></p>
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-white font-weight-bold" data-dismiss="modal">Regresar</button>
-                                <button type="button" name="form" id="btnYes" class="btn btn-dark">Aceptar y enviar</button>
+                                <button type="button" class="btn btn-caution" data-dismiss="modal">Regresar</button>
+                                <button type="button" name="form" id="btnYes" class="btn btn-dark">Aceptar y crear</button>
                               </div>
                             </div>
                           </div>
@@ -489,40 +520,29 @@
 
     <!--Footer-->
     <footer class="page-footer text-center font-small wow fadeIn">
-      <!--Call to action-->
-      <div class="pt-4 mb-4">
-        <a class="btn btn-outline-white" href="index.html" target="_self" role="button">Ven y Conócenos
-          <i class="fas fa-users ml-2"></i>
-        </a>
-        <a class="btn btn-outline-white" href="comprobante.html" target="_self" role="button">Recuperar Comprobante
-          <i class="fas fa-file-pdf ml-2"></i>
-        </a>
-      </div>
-      
-      <!--Copyright-->
+    <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
-        <a href="index.html" target="_self"> RhythmMakers</a>
+        <a href="../index.html" target="_self"> RhythmMakers</a>
       </div>
-      <!--/.Copyright-->
     </footer>
     <!--/.Footer-->
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
 
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="../js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
     
     <!-- Initializations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.es.min.js" integrity="sha512-5pjEAV8mgR98bRTcqwZ3An0MYSOleV04mwwYj2yw+7PBhFVf/0KcE+NEox0XrFiU5+x5t5qidmo5MgBkDD9hEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <script type="text/javascript" src="js/validaciones.js"></script>
+    <script type="text/javascript" src="../js/create.js"></script>
      <!-- Bootstrap JS -->
     <!-- Bootstrap Datepicker JS -->
     <script type="text/javascript">

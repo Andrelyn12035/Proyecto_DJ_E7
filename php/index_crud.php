@@ -110,17 +110,18 @@
     <!-- /.Navbar -->
 
     <main>
-        <h3 class="text-dark ml-4" style="margin-top:7rem;">Bienvenido <?php echo $usuario ?></h6>
-        <?php if (isset($_SESSION['message'])) { ?>
-        <div class="alert alert-primary alert-dismissible fade show w-25 ml-4" role="alert">
-          <?= $_SESSION['message']?>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <?php unset($_SESSION['message']); } ?>
-        <div class="container mt-5" >
-          
+      <h3 class="text-dark ml-5 mb-4" style="margin-top:7rem;">Bienvenido <?php echo $usuario ?></h6>
+      <?php if (isset($_SESSION['message'])) { ?>
+      <div class="alert alert-<?= $_SESSION['type'];?> alert-dismissible fade show ml-5 mb-4" style="width: 30%;" role="alert">
+        <?= $_SESSION['message']?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <?php unset($_SESSION['message']); 
+            unset($_SESSION['type']); } ?>
+
+      <div class="container">
         <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0">
           <thead>
             <tr>
@@ -151,8 +152,8 @@
           </tbody>
         </table>
         </div>
-      <div class="container">
-        <a  href="../form.html"><button type="button"  class="btn btn-primary btn-lg">Agregar evento</button></a>
+      <div class="container mt-5">
+        <a  href="crear.php"><button type="button"  class="btn btn-success btn-lg">Crear evento</button></a>
       </div>
     </main>
 
