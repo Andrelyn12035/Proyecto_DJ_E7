@@ -1,5 +1,5 @@
 
-function val() {
+function validar() {
    
    let nombre = document.forms["contratacion"]["nombre"].value;
    let paterno = document.forms["contratacion"]["a_paterno"].value; 
@@ -117,7 +117,6 @@ $("#lugar").on('change',function(){
       lugar: cal,
       fecha: n_dia
    };
-
    $.ajax({
       url: 'fecha.php',
       type: 'POST',
@@ -150,7 +149,7 @@ $("#lugar").on('change',function(){
             })
             $('.input-group.date').datepicker(
                'setDatesDisabled', dis
-         );
+           );
             console.log(pend)
             console.log(dis)
             console.log(obj)
@@ -161,55 +160,6 @@ $("#lugar").on('change',function(){
          console.log(request.responseText);
       }
   });
-/*
-   fetch('fecha.php', {
-      method: 'POST',
-      mode: "cors",
-      headers: {
-         'Content-Type': 'application/json'
-      },
-       body: JSON.stringify(data) 
-    }).then(response => response.json())
-    .then(result => {
-      // Handle the response from PHP
-      pend = [], obj = {}, dis = [];
-      
-      console.log(result);
-      console.log(result.length);
-      if (result.length == 0) {
-         console.log("disponibles")
-      }else{
-         result.forEach(element => {
-            let dateString = element.fecha
-            let [day, month, year] = dateString.split('/')
-            const fe = new Date(+year, +month - 1, +day)
-            if (fe.getDay() != 0 ) {
-               if (pend.includes(element.fecha)) {
-                  dis.push(element.fecha)
-               }else{
-                  obj[element.fecha] = element.hora;
-                  pend.push(element.fecha);
-               }
-            }else{
-               dis.push(element.fecha)
-            }
-         })
-         $('.input-group.date').datepicker(
-            'setDatesDisabled', dis
-        );
-         console.log(pend)
-         console.log(dis)
-         console.log(obj)
-      }
-      document.getElementById("fecha").disabled = false;
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-   */
-    
-
-
 });
 
 $("#fecha").on('change',function(){
@@ -220,6 +170,7 @@ $("#fecha").on('change',function(){
    const fe = new Date(+year, +month - 1, +day)
    date = fe.toLocaleDateString('en-GB');
    console.log(date)
+   console.log(fe.getDay())
    if (fe.getDay() == 0) {
       document.getElementById("horario").innerHTML += '<option value="9">09 - 14 hrs</option>'
    }else if(fe.getDay() == 6){
@@ -241,7 +192,7 @@ $("#fecha").on('change',function(){
          let pos = Object.keys(obj).indexOf(fecha)
          let oc = Object.values(obj)[pos]
          console.log(oc)
-         if (oc == 1) {
+         if (oc == 12) {
             document.getElementById("horario").innerHTML += '<option value="19">19 - 00 hrs</option>'
          }else{
             document.getElementById("horario").innerHTML += '<option value="12">12 - 17 hrs</option>'
@@ -277,6 +228,8 @@ $("#entidad").on('change',function(){
          document.getElementById("alcaldia").required = false
          document.getElementById("alcaldia").disabled = true
       }
+    
+   
 })
 
 $('#confirmar').on('shown.bs.modal', function (e) {
@@ -301,15 +254,22 @@ $('#confirmar').on('shown.bs.modal', function (e) {
    document.getElementById("fec").innerHTML = document.getElementsByName("fecha")[0].value
    var hora_i= document.getElementsByName("hora")[0].value;
    var hora_f;
-   if(hora_i == 21){
+   if(hora_i == 12){
+      hora_f='17';
+   }  
+   else if(hora_i == 19){
+      hora_f='00';
+   }  
+   else if(hora_i == 14){
+      hora_f='19';
+   }
+   else if(hora_i == 21){
       hora_f='02';
    }
-   else if(document.getElementsByName("hora")[0].value == 19){
-      hora_f='00';
-   }
-   else{
-      hora_f= parseInt(hora_i)+5;
-   }   
+   else if(hora_i == 9){
+      hora_i='09';
+      hora_f='14';
+   } 
    document.getElementById("hor").innerHTML = hora_i+' - '+hora_f+' hrs'
    document.getElementById("des").innerHTML = document.getElementsByName("evento")[0].value
    document.getElementById("men").innerHTML = document.getElementsByName("menu")[0].value

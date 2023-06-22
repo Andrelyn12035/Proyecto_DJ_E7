@@ -88,9 +88,9 @@
             die("Error en query");
          }
          $_SESSION['message'] = 'Los datos del evento han sido actualizados.';
+         $_SESSION['type'] = 'primary';
          header("Location: index_crud.php");
       }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -209,7 +209,7 @@
               <!-- Form -->
               <form name="contratacion" action="editar.php" id="contratacion" method="POST" class="m-4">
                 <!-- Heading -->
-                <h3 class="dark-grey-text text-center font-weight-bold">Servicio de contratación de DJ</h3>
+                <h3 class="dark-grey-text text-center font-weight-bold">Actualizar Evento</h3>
                 <!-- Grid row -->
                 <div class="row wow fadeIn mt-4 d-flex justify-content-around">
                   <!-- Grid column -->
@@ -494,7 +494,7 @@
                           <button class="btn btn-dark" type="reset"><i class="fas fa-eraser prefix mr-2"></i>Limpiar</button>
                           <button class="btn btn-dark" name="update" style="display: none;" id="fin" type="submit"></button>
                           <button type="button" onclick="val()" class="btn btn-dark">
-                            <i class="fas fa-paper-plane prefix mr-2"></i>Registrar
+                            <i class="fas fa-sync prefix mr-2"></i>Actualizar
                           </button>
                         </div>
                         <!-- Modal -->
@@ -519,7 +519,7 @@
                           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h6 class="modal-title text-center" id="staticBackdropLabel">Verifica que los datos ingresados sean correctos:</h6>
+                                <h6 class="modal-title text-center" id="staticBackdropLabel">Hola <?php echo($usuario) ?>, verifica que los datos ingresados sean correctos:</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -637,7 +637,6 @@
     
    
 })
-
 
       var otherOptionContainer = document.getElementById("otro_estado");
       var otherOptionInput = document.getElementById("col");

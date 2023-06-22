@@ -17,6 +17,7 @@
          die("Error");
       }
       $_SESSION['message'] = 'Los datos del evento han sido eliminados.';
+      $_SESSION['type'] = 'danger';
       header("Location: index_crud.php");
    }
 ?>
