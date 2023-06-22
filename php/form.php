@@ -145,10 +145,9 @@
     
     <!--Footer-->
     <footer class="page-footer text-center font-small wow fadeIn">
-        
       <!--Copyright-->
       <div class="footer-copyright py-3">© 2023 Copyright:
-        <a href="index.html" target="_self"> RhythmMakers</a>
+        <a href="../index.html" target="_self"> RhythmMakers</a>
       </div>
     </footer>
 

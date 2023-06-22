@@ -106,7 +106,7 @@ session_start();
               <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento es necesario verificar los siguientes datos.</h6>
               <div class="mt-4">
               <?php if (isset($_SESSION['comp'])) { ?>
-              <div class="alert alert-primary alert-dismissible fade show w-100" role="alert">
+              <div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
                 <?= $_SESSION['comp']?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -168,10 +168,10 @@ session_start();
     <footer class="page-footer text-center font-small wow fadeIn">
         <!--Call to action-->
       <div class="pt-4 mb-4">
-        <a class="btn btn-outline-white" href="index.html" target="_self" role="button">Ven y Conócenos
+        <a class="btn btn-outline-white" href="../index.html" target="_self" role="button">Ven y Conócenos
           <i class="fas fa-users ml-2"></i>
         </a>
-        <a class="btn btn-outline-white" href="form.html" target="_self" role="button">Contratar Servicio
+        <a class="btn btn-outline-white" href="../form.html" target="_self" role="button">Contratar Servicio
             <i class="fas fa-pen ml-2"></i>
         </a>
       </div>
