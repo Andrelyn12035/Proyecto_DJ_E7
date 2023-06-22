@@ -106,7 +106,7 @@ session_start();
               <h6 class="text-muted text-center mt-3 mb-5">Para recuperar el comprobante de tu evento es necesario verificar los siguientes datos.</h6>
               <div class="mt-4">
               <?php if (isset($_SESSION['comp'])) { ?>
-              <div class="alert alert-primary alert-dismissible fade show w-100" role="alert">
+              <div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
                 <?= $_SESSION['comp']?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
