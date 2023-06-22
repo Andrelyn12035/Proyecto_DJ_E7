@@ -168,10 +168,10 @@ session_start();
     <footer class="page-footer text-center font-small wow fadeIn">
         <!--Call to action-->
       <div class="pt-4 mb-4">
-        <a class="btn btn-outline-white" href="index.html" target="_self" role="button">Ven y Conócenos
+        <a class="btn btn-outline-white" href="../index.html" target="_self" role="button">Ven y Conócenos
           <i class="fas fa-users ml-2"></i>
         </a>
-        <a class="btn btn-outline-white" href="form.html" target="_self" role="button">Contratar Servicio
+        <a class="btn btn-outline-white" href="../form.html" target="_self" role="button">Contratar Servicio
             <i class="fas fa-pen ml-2"></i>
         </a>
       </div>
